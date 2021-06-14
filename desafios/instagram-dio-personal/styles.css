@@ -1,37 +1,28 @@
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+  
   text-decoration: none;
   font-family: sans-serif;
   font-size: 14px;
 }
 
 body {
-  width: 100%;
-  min-height: 100vh;
-  background-color: rgb(243, 243, 243);
-  margin: 0;
-  padding: 0;
   display: flex;
+  background-color: rgb(243, 243, 243);
   justify-content: center;
+  align-content: center;
 }
 
 
 .flex-conteiner {
-
     display: flex;
     align-items: center;
-    justify-content: start;
-    width: 60%;
-    height: 100vh;
-}
+    justify-items: center;
+    
+  }
 
 .instagram-celular {
   display: flex;
-  align-items: center;
   justify-content: center;
-  width: 50%;
 }
 
 .instagram-celular img {
@@ -40,18 +31,21 @@ body {
 
 .instagram-desktop {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 100%;
+   
+   /*
     padding: 1.3rem 0;
-
+*/
 }
 
 .instagram-logo img {
   display: flex;
-  width: 100%;
-  padding: 1.3rem 0;
+  align-content: center;
+  width: 70%;
+  padding-left: 3rem ;
+  padding-bottom: 1rem ;
 }
 
 
@@ -61,53 +55,70 @@ body {
   align-items: center;
   border-radius: 50%;
   overflow: hidden;
-}
+ }
 
 .foto-perfil img {
   height: 6rem;
 }
 
+.instagram-login {
+  background-color: #0095f6;
+  color: #ffffff;
+  padding: 8px;
+  border-radius: 4px;
+
+}
+
+.instagram-logout {
+  color: #0095f6;
+  margin-top: 1rem;
+}
+
 .area-perfil {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     flex-direction: column;
     background-color: #ffffff;
-    width: 100%;
-    padding: 1.3rem 0;
     border: 1px solid lightgray;
+    align-items: center; /* MANTER - toda diagramação da area-perfil é afetada com essa alteração */
+    width: 100%;
+    padding-bottom: 1rem; /*Distância entre "remover conta" e a borda inferior */
+    padding-top: 1rem; /*Distância entre a borda superior e o logotipo "Instagram" */
 
 }
 
 .troca-usuario {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     flex-direction: column;
-    background-color: #ffffff;
-    width: 100%;
-    height: 25%;
-    padding: 1.3rem 0;
+    background-color: #ffffff; 
     border: 1px solid lightgray;
+    justify-content: center;
+    align-items: center;
+    width: 100%;  
+    margin-top: 0.5rem; /* altera o espaço entre area_perfil e troca-usuario */
+    padding-top: 1.3rem;
+    color: rgb(160, 160, 160);    
+/*    text-decoration: underline; */
 }
+
+/* O PROBLEMA DE ALINHAMENTO DOS ICONES DO GOOGLE PLAY E DA APPLE STORE OCORRE DAQUI PARA BAIXO */
+/* MAS CÓDIGOS ACIMA IMPEDIAM POR HERIDITARIEDADE AS ALTERAÇÕES. */ 
 
 .baixar-app-titulo {
   display: flex;
   flex-direction: column;
   align-items: center;
- /* justify-content: center;*/
-  width: 100%;
+  justify-content: center;
+ 
   padding: 1.3rem 0;
 }
 
 .baixar-app {
   display:flex;
   flex-direction: row;
-  /* justify-content: space-between; */
- 
+  justify-content: space-between;
   margin: 0%;
   padding: 0%;
-  width: auto;
+  
   
 }
 .apple-store-logo img {
@@ -116,6 +127,8 @@ body {
   
   margin: 0%;
   padding: 0%;
+  padding-right: 1.5rem;  /* Altera a disposição dos flexbox em TODA a coluna */
+  padding-left: 4rem;     /* Altera a disposição dos flexbox em TODA a coluna */
   height: 3rem;
   width: 10rem;
 }
@@ -123,9 +136,12 @@ body {
 .google-play-logo img {
   display:flex;
   flex-direction: row;
- 
   margin: 0%;
   padding: 0%;
+  padding-right: 4rem;  /* Altera a disposição dos flexbox em TODA a coluna */
+  padding-left: 1.5rem; /* Altera a disposição dos flexbox em TODA a coluna */
+
+
   height: 3rem;
   width: 10rem;
 }
@@ -133,22 +149,52 @@ body {
 
 .link-blue {
   color: #0095f6;
+  /*  text-decoration: underline; */
 }
 
 
 
   /* On screens that are 992px wide or less, the background color is blue */
-  @media screen and (max-width: 992px) {
+/*  @media screen and (max-width: 992px) {
     body {
       background-color: blue;
       color: white;
     }
   }
-  
+*/  
   /* On screens that are 600px wide or less, the background color is olive */
-  @media screen and (max-width: 600px) {
+ /* @media screen and (max-width: 600px) {
     body {
       background-color: olive;
       color: white;
     }
   }
+  
+@media (max-width: 1024px) {
+  .instagram-wrapper {
+      width: 90%;
+  }
+}
+*/
+
+@media (max-width: 650px) {
+  body {
+      background-color: #ffffff;
+  }
+
+  .instagram-wrapper, .flex-conteiner {
+      width: 90%;
+  }
+
+  .instagram-phone, .instagram-celular {
+      display: none;
+  }
+
+  .instagram-continue , .instagram-continue{
+      width: 100%;
+  }
+  
+  .group , .baixar-app-titulo{
+      border: 1px solid transparent;
+  }
+}
