@@ -13,3 +13,10 @@ fun calculate(n1:Int,n2:Int, operation:(Int,Int)->Int):Int {
     return result 
 }
 
+-----------
+fun main() {
+    val z:Int
+    
+    z = calculate(34,90){a,b -> a*b }
+    println(z) 
+}
