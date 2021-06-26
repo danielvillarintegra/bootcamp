@@ -1,0 +1,25 @@
+fun main() {
+       
+    for(i in 10..20 step 2) {
+    	print("i=$i ,")    
+    }
+    println()
+    print("Downto: ")
+    for(i in 10 downTo 0 step 2) {
+    	print("i=$i ,")    
+    }
+    println()
+    print("Until:")
+    for(i in 0 until 10) {
+    	print("i=$i ,")    
+    }    
+    println()
+    print("Texto")
+    var text="Kotlin"
+    
+    for(letter in text) {
+    	print(" $letter")    
+    }    
+    println()
+    println ("fim")
+}
