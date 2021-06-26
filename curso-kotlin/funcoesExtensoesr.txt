@@ -6,3 +6,16 @@ println(getFullName(name, lastName))
 
 private fun getFullName(name:String, lastName:String) = "$name $lastName "
 
+------------------------
+
+fun main() {
+    val name = "Daniel"
+    val lastName = "Villar Marques de Sá"
+println(getFullName(name, lastName))
+println(getFullName(name, lastName).randomCapitalizedLetter())
+}
+
+private fun getFullName(name:String, lastName:String) = "$name $lastName "
+
+fun String.randomCapitalizedLetter() = this[(0..this.length-1).random()].toUpperCase()
+
