@@ -23,3 +23,18 @@ fun main() {
     println()
     println ("fim")
 }
+---------------
+fun main() {
+       
+    print("Texto: Olha essa string !")
+    var text="Kotlin:Olha essa string !"
+    
+    for(letter in text) {
+    	print(" $letter")    
+    }    
+    println()
+	text.forEach{ l -> print(l + ";")
+    }
+    println()
+    println("fim")
+}
