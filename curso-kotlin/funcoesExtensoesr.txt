@@ -1,0 +1,8 @@
+fun main() {
+    val name = "Daniel"
+    val lastName = "Villar Marques de Sá"
+println(getFullName(name, lastName))
+}
+
+private fun getFullName(name:String, lastName:String) = "$name $lastName "
+
