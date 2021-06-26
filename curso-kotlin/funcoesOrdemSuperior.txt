@@ -20,3 +20,25 @@ fun main() {
     z = calculate(34,90){a,b -> a*b }
     println(z) 
 }
+
+-----------
+fun main() {
+    val z:Int
+    
+    z = calculate(34,90){a,b -> 
+			println ("Vou calcular")
+			a*b }
+   
+}
+
+----------
+fun main() {
+    val z:Int
+    
+    z = calculate(34,90){a,b -> 
+	println ("Vou calcular")
+	a+b 
+    }
+   println(z)
+}
+
