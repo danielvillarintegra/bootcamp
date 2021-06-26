@@ -33,3 +33,20 @@ println(nomeCompleto.randomCapitalizedLetter())
 private fun getFullName(name:String, lastName:String) = "$name $lastName "
 
 fun String.randomCapitalizedLetter() = this[(0..this.length-1).random()].toUpperCase()
+
+------------------
+fun main() {
+    val name = "Daniel"
+    val lastName = "Villar Marques de Sá"
+    var nomeCompleto = getFullName(name, lastName) 
+    
+println(" $nomeCompleto ")
+
+
+println(nomeCompleto.randomCapitalizedLetter())
+
+}
+
+private fun getFullName(name:String, lastName:String) = "$name $lastName "
+
+fun String.randomCapitalizedLetter() = this[(0..this.length-1).random()].toUpperCase()
