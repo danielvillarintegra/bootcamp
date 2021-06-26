@@ -33,3 +33,29 @@ fun main() {
    	println(minValue)
     println(MaxValue)
 }
+----------
+fun main() {
+    
+    val a = 10
+    val b = 10 
+    
+    val MaxValue = if (a > b) a else if ( a < b) b else b 
+    
+   	val MinValue = if (a > b){ 
+       println("b( $b) é o menor valor")
+       b
+   	} else if (a < b) {
+       println("a($a) é o menor valor")
+       a
+    } else {
+       println("a($a) e b($b) são iguais")
+       b
+    }
+    
+   	println("a($a) e b($b)")
+    println("MinValue: $MinValue")
+    println("MaxValue: $MaxValue")
+}
+
+
+--------
