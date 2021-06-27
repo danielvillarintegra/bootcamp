@@ -29,12 +29,27 @@ fun main() {
 }
 
 fun soma() {
+
+/*  Verificar se é letra ou null ou outro caractere diferente do float
+    ou forçar uma formatação de entrada
+    do {
+        print("Digite o primeiro número: ")
+        var a = readLine()!!
+        if (a.isNullOrBlank()==1)
+    } while (a.isNullOrBlank()==1)
+*/
     print("Digite o primeiro número: ")
-    val a = readLine()!!
+    var a = readLine()!!
+
     println()
     print("Digite o segundo número: ")
-    val b = readLine()!!
-    val resultado : Float
+    var b = readLine()!!
+
+    var resultado : Float
+
+    a = a.replace(",",".")
+    b = b.replace(",",".")
+
     print("Soma: $a + $b = ")
     resultado = (a.toFloat()).plus(b.toFloat())
     println("($resultado)")
