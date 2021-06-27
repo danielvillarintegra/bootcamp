@@ -11,7 +11,10 @@ fun main() {
             val letra = readLine()!!
             /* println(letra) */
             when (letra.toUpperCase()) {
-                            "A" -> println("Soma")
+                            "A" -> {
+                                    println("Soma")
+                                    soma()
+                            }
                             "B" -> println("Subtração")
                             "C" -> println("Multiplicação")
                             "D" -> println("Divisão / Resto")
@@ -24,4 +27,15 @@ fun main() {
 
 
 }
-  
+
+fun soma() {
+    print("Digite o primeiro número: ")
+    val a = readLine()!!
+    println()
+    print("Digite o segundo número: ")
+    val b = readLine()!!
+    val resultado : Float
+    print("Soma: $a + $b = ")
+    resultado = (a.toFloat()).plus(b.toFloat())
+    println("($resultado)")
+}
