@@ -1,0 +1,177 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgb(243, 243, 243);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+
+.flex-conteiner {
+
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 60%;
+    height: 100vh;
+}
+
+.instagram-celular {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.instagram-celular img {
+  height: 50rem;
+}
+
+.instagram-desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 1.3rem 0;
+
+}
+
+.instagram-logo img {
+  height: 3rem;
+}
+
+
+.foto-perfil {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.foto-perfil img {
+  height: 6rem;
+}
+
+.area-perfil {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    background-color: #ffffff;
+    width: 100%;
+    padding: 1.3rem 0;
+    border: 1px solid lightgray;
+
+}
+
+.troca-usuario {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    background-color: #ffffff;
+    width: 100%;
+    height: 25%;
+    padding: 1.3rem 0;
+    border: 1px solid lightgray;
+}
+
+.baixar-app-titulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1.3rem 0;
+}
+
+.apple-logo img {
+  height: 3rem;
+  width: 10rem;
+}
+
+.google-logo img {
+  height: 3rem;
+  width: 10rem;
+}
+
+.baixar-app {
+  height: 3rem;
+  width: 10rem;
+  background-size: cover;
+}
+
+.baixar-app:nth-child(1) {
+  background-image: url('./img/apple-button.png');
+}
+
+.baixar-app:nth-child(2) {
+  background-image: url('./img/googleplay-button.png');
+}
+
+
+
+.link-blue {
+  color: #0095f6;
+}
+
+.get-the-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1.3rem 0;
+}
+
+.download {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1rem;
+}
+
+.app-download {
+  height: 3rem;
+  width: 10rem;
+  background-size: cover;
+}
+
+.app-download:nth-child(1) {
+  background-image: url('./img/apple-button.png');
+}
+
+.app-download:nth-child(2) {
+  background-image: url('./img/googleplay-button.png');
+}
+
+
+  /* On screens that are 992px wide or less, the background color is blue */
+  @media screen and (max-width: 992px) {
+    body {
+      background-color: blue;
+      color: white;
+    }
+  }
+  
+  /* On screens that are 600px wide or less, the background color is olive */
+  @media screen and (max-width: 600px) {
+    body {
+      background-color: olive;
+      color: white;
+    }
+  }

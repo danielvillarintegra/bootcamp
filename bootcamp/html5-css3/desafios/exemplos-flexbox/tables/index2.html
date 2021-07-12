@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Layout 3 colunas</title>
+       <!-- <link type="text/css" rel="stylesheet" media="screen" href="estilos.css" /> -->
+    <style>
+            
+            #objeto1 {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width:30%;  
+            }
+            #objeto2 {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 50%;  
+            }
+            #objeto3 {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 50%;  
+            }
+            
+
+</style>
+    </head>
+    
+    <body>
+        <div class="objeto1" style="background-color: green; width=50%   ">  
+                <img src="img/instagram-celular.png" alt="celular" style="width: 540px; height: auto;">
+                <br>
+                <hr>
+        </div>
+        
+        <div class="objeto2" style="background-color: yellow; grid-column-end: auto;">  
+                
+                <img src="./img/instagram-logo.png" class="instagram-logo" alt="instagram logo">
+                <br>
+                <hr>
+                
+                <!-- border-radius:50% arredonda a imagem -->
+                <img src="./img/perfil-instagram.jpg" alt="foto de perfil" 
+                    style="width: 140px; height: auto; border-radius:50%">
+                <br>
+                <hr>
+ <!-- Se o elemento "a" tem um "href=" faz referencia a um hiperlink -->    
+                <a href="#" class="instagram-login">Continue como sprucegabriela</a>
+                <hr>
+                <hr>  
+                <a href="#" class="instagram-logout">Remover conta</a>
+                <p class="not-account">Não é sprucegabriela?</p>
+                <div class="not-account">
+                <span class="link-blue">Alternar contas</span>
+                <span class="link-blue">Inscreva-se</span>
+                
+        </div>
+        
+        <div class="objeto3" style="background-color: blue">
+                <p class="get-app">Baixe o aplicativo</p>
+                <br>
+                <hr>
+
+                <img src="./img/apple-button.png" style="width: 140px; height: auto;">
+                <img src="./img/googleplay-button.png" style="width: 140px; height: auto;">
+                <br>
+                <hr>
+        </div>
+        
+       
+    </body>
+
+</html>
