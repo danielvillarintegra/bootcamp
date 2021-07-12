@@ -1,0 +1,10 @@
+O que são colletions mutáveis
+
+Conceitos iniciais
+Desenvolvimento com mutableListOf
+Desenvolvimento com mutableMapOf - Parte 1
+Desenvolvimento com mutableMapOf - Parte 2
+Introdução a Extensions Functions
+Prática com Extensions Functions
+Conclusão do curso
+Certifique seu conhecimento

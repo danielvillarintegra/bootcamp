@@ -1,0 +1,9 @@
+Nome: Jether Rodrigues do Nascimento
+Cargo: Software Dev Specialist
+Empresa: invillia.infinite.digital.power
+
+Requisitos Básicos
+Usar a interface Intelij
+Ter cursado os módulos anteriores
+Fazer controle de versão e atualizar o repositório
+

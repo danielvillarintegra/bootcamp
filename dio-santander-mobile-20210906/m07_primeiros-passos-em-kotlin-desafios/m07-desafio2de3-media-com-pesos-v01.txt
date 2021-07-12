@@ -1,0 +1,76 @@
+import java.util.Scanner
+
+fun main() {
+
+    var reader = Scanner(System.`in`)
+
+    var a = reader.nextDouble()
+    var b = reader.nextDouble()
+
+    var weightA : Double = 3.5
+    var weightB : Double = 7.5
+    var totalWeight : Double = weightA+weightB
+
+    var m : Double =  ((a*weightA)+(b*weightB)) / totalWeight
+
+
+    var r = "%.5f".format(m)
+
+    println("MEDIA = $r")
+    println()
+}
+
+---
+Leia 2 valores de ponto flutuante de dupla precisão A e B, que correspondem a 2 notas de um aluno. A seguir, calcule a média do aluno, sabendo que a nota A tem peso 3.5 e a nota B tem peso 7.5 (A soma dos pesos portanto é 11). Assuma que cada nota pode ir de 0 até 10.0, sempre com uma casa decimal.
+
+Entrada
+O arquivo de entrada contém 2 valores com uma casa decimal cada um.
+
+Saída
+Calcule e imprima a variável MEDIA conforme exemplo abaixo, com 5 dígitos após o ponto decimal e com um espaço em branco antes e depois da igualdade. Utilize variáveis de dupla precisão (double) e como todos os problemas, não esqueça de imprimir o fim de linha após o resultado, caso contrário, você receberá "Presentation Error".
+
+ 
+Exemplos de Entrada	Exemplos de Saída
+5.0
+7.1
+
+MEDIA = 6.43182
+
+0.0
+7.1
+
+MEDIA = 4.84091
+
+10.0
+10.0
+
+MEDIA = 10.00000
+
+---
+Todas as entradas e saída dos algoritmos são utilizados o STDIN e STDOUT de cada linguagem, abaixo tem algumas dicas de como utilizar cada STDIN e STDOUT de cada linguagem.
+JavaScript
+
+Em JavaScript as funções de STDIN e STDOUT respectivamente sãogets e console.log, a função gets é implementada internamente para auxiliar a entrada dos dados.
+
+Exemplo:
+let line = gets(); // Retorna a próxima linha de entrada
+console.log(line); // Imprime o dado
+
+Java
+
+Em Java existe várias formas de implementar o STDIN e STDOUT recomendamos utilizar BufferedReader para o STDIN e o System.out.println para o STDOUT.
+
+Exemplo:
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+StringTokenizer st = new StringTokenizer(br.readLine()); // Lê a linha de entrada
+int a = Integer.parseInt(st.nextToken());
+System.out.println(a); // Imprime o dado
+
+Python
+
+Em Python existe várias formas de implementar o STDIN e STDOUT recomendamos utilizar sys.stdin.readline para o STDIN e o print para o STDOUT.
+
+Exemplo:
+import sys
+a = int(sys.stdin.readline()) // Lê a linha de entrada
+print(a); // Imprime o dado
