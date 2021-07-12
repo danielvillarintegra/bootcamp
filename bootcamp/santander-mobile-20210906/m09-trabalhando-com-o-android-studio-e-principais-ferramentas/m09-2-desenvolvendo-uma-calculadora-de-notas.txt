@@ -1,0 +1,32 @@
+Visão geral do projeto
+- Demonstração do app funcionando
+
+Iniciando montagem do layout - parte 1
+- Abrir o arquivo layout/activety_main.xml .
+- Selecionar um dos modos de visualização: "Code", "Split" ou "Design".
+- Acrescentar os textbox por meio escrito ("Code") ou arrastando o componente da Palette.
+
+Iniciando montagem do layout - parte 2
+- Fazer os alinhamentos, vínculos entre componentes.
+- fixar os componentes em função das bordas: selecionar o componentes, clicar, segurar e arrastar para a borda da tela (na "bolinha" que se encontra nas bordas e meios do componente). 
+
+Inserindo um botão no layout
+- Inserir o botão e fixar.
+- @colortext/preto
+- Inserir textview e fixar.
+
+Desenvolvendo a MainActivity
+- Abrir o arquivo values/strings.xml e inserir as strings
+- Fazendo o código
+
+- em Gradle Script/build.gradle (:app) acrescentar em plugins { 
+
+	id 'kotlin-android-extensions'
+
+para "chamar" os componentes do res/layout/activity_main.xml no MainActivity.kt. Senão teria que fazer noutro arquivo.  
+
+Implementado condicionais
+
+Conclusão da aula
+
+Certifique seu conhecimento
