@@ -36,8 +36,12 @@ Prática com DoubleArray
 - Criar novo arquivo: "TesteDoubleArray.kt"
 
 Operações com Arrays max, min, average e filter
+
 Operações com Arrays count, find e any
+
 Refatorando operações maxOrNull e minOrNull
+- max e min estão "deprecated". Utilizar maxOrNull e mnOrNull
+
 Desenvolvimento com listOf
 Organizando a lista com sortedBy
 Organizando grupos com groupBy
