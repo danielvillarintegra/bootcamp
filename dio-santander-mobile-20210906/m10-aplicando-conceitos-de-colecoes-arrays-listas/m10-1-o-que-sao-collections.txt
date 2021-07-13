@@ -3,8 +3,32 @@ O que são collections
 Introdução ao tema
 
 Criando o projeto
+- No InteliJ:
+ 	New Project, Kotlin
+	name: api-colletions
+	Build System: Maven
+	Project SDK: 11 version 11.0.9
+
+	Artifact Coordinates:
+		group ID: one.digitalinnovation.colletions
+		Artifact ID: api-collections	
+		Version: 1.0-SNAPSHOT
+
+	Botão Next
+	Test framework: JUnit 5
+	Botão Finish
+
+Arquivo pom.xml
+
 Introdução e desenvolvimento de arrays
+- Criar uma nova Classe Kotlin:	"one.digitalinnovation.collections" (Botão direito sobre src/main/kotlin, New Kotlin Class/file)
+
+- Criar um novo arquivo Kotlin (Botão direito sobre a classe one.digitalinnovation.collections, new , file, "TesteIntArray.kt"). Incluir a classe acima (digitar package one.digitalinnovation.colletions  )
+
 Como funciona o intArrayOf
+- Criar um novo arquivo Kotlin: "TesteIntArrayOf.kt"
+
+
 Prática com Array de strings
 Prática com DoubleArray
 Operações com Arrays max, min, average e filter
