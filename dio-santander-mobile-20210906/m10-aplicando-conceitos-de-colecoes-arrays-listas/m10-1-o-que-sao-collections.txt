@@ -30,6 +30,8 @@ Como funciona o intArrayOf
 
 
 Prática com Array de strings
+-Criar um novo arquivo Kotlin: "TesteArrayString"
+
 Prática com DoubleArray
 Operações com Arrays max, min, average e filter
 Operações com Arrays count, find e any
