@@ -7,9 +7,11 @@ fun main () {
     for (salario in salarios) {
         println("$salario")
     }
+/*  max e min deprecated - recomendado que não seja usado
         println("Maior salário: ${salarios.max()}")
         println("Menor salário: ${salarios.min()}")
         println("Média salarial: ${salarios.average()}")
+*/
 
     println("b) filter ---- ")
     val salariosMaiorQue2500 = salarios.filter{it > 2500.0}

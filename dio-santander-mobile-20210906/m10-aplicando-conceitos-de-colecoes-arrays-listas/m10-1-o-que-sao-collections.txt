@@ -43,6 +43,7 @@ Operações com Arrays count, find e any
 - Acrescentar as funções acima e testar
  
 Refatorando operações maxOrNull e minOrNull
+- Comentado as operações max e min
 - max e min estão "deprecated". Utilizar maxOrNull e mnOrNull
 
 Desenvolvimento com listOf
