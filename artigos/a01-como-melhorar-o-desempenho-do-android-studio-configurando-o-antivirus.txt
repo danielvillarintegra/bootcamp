@@ -1,0 +1,2 @@
+Como melhorar o desempenho do Android Studio e outras IDE´s configurando o antivírus
+
