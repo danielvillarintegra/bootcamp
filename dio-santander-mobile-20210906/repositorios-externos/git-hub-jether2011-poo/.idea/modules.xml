@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/fundamentos_oo/digionebank.iml" filepath="$PROJECT_DIR$/fundamentos_oo/digionebank.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/git-hub-jether2011-poo.iml" filepath="$PROJECT_DIR$/.idea/git-hub-jether2011-poo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/api-collections/mainModule.iml" filepath="$PROJECT_DIR$/api-collections/mainModule.iml" />
+    </modules>
+  </component>
+</project>
