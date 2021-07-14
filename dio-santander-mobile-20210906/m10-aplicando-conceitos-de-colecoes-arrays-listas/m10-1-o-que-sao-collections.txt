@@ -57,6 +57,8 @@ Desenvolvimento com listOf
 
  
 Organizando a lista com sortedBy
+- acrescentar a função acima
+
 Organizando grupos com groupBy
 Organizando conjuntos com setOf
 Desenvolvimento com mapOf
