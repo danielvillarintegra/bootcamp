@@ -58,7 +58,20 @@ Desenvolvimento com listOf
  
 Organizando a lista com sortedBy
 - acrescentar a função acima
+- funcionarios
+        .sortedBy{it.salario}
+        .forEach { println(it)}
 
 Organizando grupos com groupBy
+- acrescentar groupBy
+- funcionarios
+	.groupBy{it.tipoContratacao}
+	.forEach { println(it)}
+
 Organizando conjuntos com setOf
+- Criar um novo arquivo data class com o nome Funcionario
+e Inserir a data class Funcionario extraída do arquivo TestList.kt
+- inserir a união dos dois conjutos (dois setOf ) com union
+
+
 Desenvolvimento com mapOf
