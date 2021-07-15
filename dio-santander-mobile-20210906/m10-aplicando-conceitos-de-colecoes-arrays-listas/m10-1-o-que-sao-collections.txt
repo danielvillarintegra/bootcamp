@@ -70,8 +70,9 @@ Organizando grupos com groupBy
 
 Organizando conjuntos com setOf
 - Criar um novo arquivo data class com o nome Funcionario
-e Inserir a data class Funcionario extraída do arquivo TestList.kt
-- inserir a união dos dois conjutos (dois setOf ) com union
+e inserir a data class Funcionario extraída do arquivo TestList.kt
+- Inserir a união dos dois conjutos (dois setOf ) com .union()
+- Subtrair dois conjuntos com .subtract()
 
 
 Desenvolvimento com mapOf

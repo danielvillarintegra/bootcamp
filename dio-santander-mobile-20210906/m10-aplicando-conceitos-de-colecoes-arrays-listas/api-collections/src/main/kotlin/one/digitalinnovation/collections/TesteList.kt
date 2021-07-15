@@ -13,8 +13,10 @@ fun main (){
     println("a) União dos conjuntos funcionarios1 e funcionarios2 -----------------")
     resultUnion.forEach { println(it)}
 
-
-
+    println("b) subtração de conjuntos -----------------")
+    val funcionarios3 = setOf(joao, pedro, maria)
+    val resultSubtract = funcionarios3.subtract(funcionarios2)
+    resultSubtract.forEach { println(it)}
 
 }
 
