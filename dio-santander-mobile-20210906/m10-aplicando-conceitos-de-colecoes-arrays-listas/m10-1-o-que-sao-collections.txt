@@ -71,8 +71,9 @@ Organizando grupos com groupBy
 Organizando conjuntos com setOf
 - Criar um novo arquivo data class com o nome Funcionario
 e inserir a data class Funcionario extraída do arquivo TestList.kt
-- Inserir a união dos dois conjutos (dois setOf ) com .union()
-- Subtrair dois conjuntos com .subtract()
+- Inserir a união dos dois conjutos (dois setOf ): conjunto1.union(conjunto2)
+- Subtrair dois conjuntos: conjunto3.subtract(conjunto2)
+- Intersecção de dois conjuntos: conjunto3.intersect(conjunto2)
 
 
 Desenvolvimento com mapOf

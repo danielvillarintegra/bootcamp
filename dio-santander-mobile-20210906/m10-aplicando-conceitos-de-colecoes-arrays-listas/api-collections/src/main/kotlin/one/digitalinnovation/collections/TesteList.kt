@@ -18,5 +18,9 @@ fun main (){
     val resultSubtract = funcionarios3.subtract(funcionarios2)
     resultSubtract.forEach { println(it)}
 
+    println("c) intersecção de conjuntos -----------------")
+    val resultIntersect = funcionarios3.intersect(funcionarios2)
+    resultIntersect.forEach { println(it)}
+
 }
 
