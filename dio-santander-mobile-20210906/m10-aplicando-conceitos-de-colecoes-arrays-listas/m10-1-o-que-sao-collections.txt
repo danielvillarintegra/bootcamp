@@ -75,5 +75,10 @@ e inserir a data class Funcionario extraída do arquivo TestList.kt
 - Subtrair dois conjuntos: conjunto3.subtract(conjunto2)
 - Intersecção de dois conjuntos: conjunto3.intersect(conjunto2)
 
-
 Desenvolvimento com mapOf
+- Criar um novo arquivo TestMap.kt
+- inserir a fi=unção mapOf
+	map1.forEach{ (k, v) -> println("Chave: $k - Valor: $v") }
+
+
+
