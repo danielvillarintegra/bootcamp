@@ -80,5 +80,11 @@ Desenvolvimento com mapOf
 - inserir a fi=unção mapOf
 	map1.forEach{ (k, v) -> println("Chave: $k - Valor: $v") }
 
+-Infix :	val map2 = mapOf(
+        		"Pedro" to 2500.0,
+        		"Maria" to 3000.0
+    		)
+
+val map2 = mapOf("Pedro" to 2500.0)
 
 

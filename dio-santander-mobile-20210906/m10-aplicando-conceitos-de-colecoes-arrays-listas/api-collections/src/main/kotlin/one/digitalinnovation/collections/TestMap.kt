@@ -8,7 +8,13 @@ fun main() {
     map1.forEach{ (k, v) -> println("Chave: $k - Valor: $v") }
 
     println("b) outra maneira de escrever o mesmo código -------------------")
-    map1.forEach { k, v ->
-        println("Chave: $k - Valor: $v") }
+    map1.forEach { k, v -> println("Chave: $k - Valor: $v") }
 
+
+    println("c) infix -------------------")
+    val map2 = mapOf(
+        "Pedro" to 2500.0,
+        "Maria" to 3000.0
+    )
+    map2.forEach{ (k, v) -> println("Chave: $k - Valor: $v") }
 }
