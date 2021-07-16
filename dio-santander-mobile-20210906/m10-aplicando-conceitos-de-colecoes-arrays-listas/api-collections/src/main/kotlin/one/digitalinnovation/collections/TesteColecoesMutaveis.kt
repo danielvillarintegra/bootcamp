@@ -27,6 +27,8 @@ fun main () {
     funcionarioSet.add(maria)
     funcionarioSet.forEach{println(it)}
 
-
+    println("e) remove maria -------------------")
+    funcionarioSet.remove(maria)
+    funcionarioSet.forEach{println(it)}
 
 }
