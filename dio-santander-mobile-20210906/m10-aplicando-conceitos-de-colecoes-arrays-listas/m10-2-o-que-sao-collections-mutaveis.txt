@@ -30,6 +30,9 @@ Desenvolvimento com mutableMapOf - Parte 2
 - remove
 
 Introdução a Extensions Functions
+- Permitir criar funcoes para uma classe específica sem precisar herdar, "Decorator pattern?" etc.
+- criar arquivo BigDecimal.kt
+	acrescentar	import java.math.BigDecimal
 
 Prática com Extensions Functions
 Conclusão do curso
