@@ -13,7 +13,7 @@ Um dos quesitos de Set é não ter objetos repetidos, devido ao "Icos?" e HashCo
 - mutableSetOf , .remove
 
 Desenvolvimento com mutableMapOf - Parte 1
-- Criar novo arquivo "Repositorio.kt"
+- Criar novo arquivo "Repositorio.kt" (para simular um banco de dados)
 - inserir a classe Repositorio e um map = mutableMapOf
 -	map.put(id, value)
 	map[id] = value
@@ -22,7 +22,6 @@ Verficar as expressões abaixo sugeridas pela IDE
 	with(map) { put(id, value) }
 	map.run { put(id, value) }
         this.map.run { put(id, value) }
-
 
 Desenvolvimento com mutableMapOf - Parte 2
 Introdução a Extensions Functions
