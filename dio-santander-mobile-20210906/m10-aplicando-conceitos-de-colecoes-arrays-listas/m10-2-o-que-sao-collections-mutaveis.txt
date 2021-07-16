@@ -24,7 +24,13 @@ Verficar as expressões abaixo sugeridas pela IDE
         this.map.run { put(id, value) }
 
 Desenvolvimento com mutableMapOf - Parte 2
+- inserir no Repositorio.kt 
+	findAll()
+- findAll com forEach
+- remove
+
 Introdução a Extensions Functions
+
 Prática com Extensions Functions
 Conclusão do curso
 Certifique seu conhecimento
