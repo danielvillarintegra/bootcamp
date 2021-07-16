@@ -14,5 +14,9 @@ fun main () {
     funcionarios.add(pedro)
     funcionarios.forEach{println(it)}
 
+    println("c) Removendo joao -------------------")
+    funcionarios.remove(joao)
+    funcionarios.forEach{println(it)}
+
 
 }
