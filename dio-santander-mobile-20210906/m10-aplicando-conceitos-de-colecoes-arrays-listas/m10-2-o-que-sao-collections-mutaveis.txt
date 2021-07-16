@@ -1,7 +1,14 @@
 O que são colletions mutáveis
+- Utilizaremos as colletions mutáveis da API Mutable Colections
 
 Conceitos iniciais
+- Criar arquivo TesteColecoesMutaveis.kt
+
 Desenvolvimento com mutableListOf
+- mutableListOf
+- .add()
+- .remove()
+
 Desenvolvimento com mutableMapOf - Parte 1
 Desenvolvimento com mutableMapOf - Parte 2
 Introdução a Extensions Functions
