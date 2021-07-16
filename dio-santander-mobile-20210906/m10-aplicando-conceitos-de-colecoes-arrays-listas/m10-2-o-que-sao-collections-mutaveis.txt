@@ -8,6 +8,9 @@ Desenvolvimento com mutableListOf
 - mutableListOf
 - .add()
 - .remove()
+- mutableSetOf , .add
+Um dos quesitos de Set é não ter objetos repetidos, devido ao "Icos?" e HashCode forte no código.
+
 
 Desenvolvimento com mutableMapOf - Parte 1
 Desenvolvimento com mutableMapOf - Parte 2

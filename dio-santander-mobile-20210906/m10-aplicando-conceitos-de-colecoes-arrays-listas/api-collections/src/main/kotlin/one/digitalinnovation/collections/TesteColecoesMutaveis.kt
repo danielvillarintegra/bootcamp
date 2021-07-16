@@ -18,5 +18,15 @@ fun main () {
     funcionarios.remove(joao)
     funcionarios.forEach{println(it)}
 
+    println("d) setOf joao -------------------")
+    val funcionarioSet = mutableSetOf(joao)
+    funcionarioSet.forEach{println(it)}
+
+    println("e) add pedro e maria -------------------")
+    funcionarioSet.add(pedro)
+    funcionarioSet.add(maria)
+    funcionarioSet.forEach{println(it)}
+
+
 
 }
