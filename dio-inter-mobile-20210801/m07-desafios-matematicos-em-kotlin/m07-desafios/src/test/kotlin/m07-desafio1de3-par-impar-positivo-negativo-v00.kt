@@ -7,7 +7,8 @@ fun main() {
     val impares = mutableListOf<Int>()
     val positivos = mutableListOf<Int>()
     val negativos = mutableListOf<Int>()
-val dois = 2
+
+
 /*    inteiros.forEach {println(it)} */
 
 /* Seleciona os valores positivos e negativos */
@@ -20,7 +21,7 @@ val dois = 2
     }
 
     inteiros.forEach {
-        if (it.mod(dois) == 0) {
+        if (it.rem(2) == 0 ) {
             pares.add(it)
         } else impares.add(it)
     }
