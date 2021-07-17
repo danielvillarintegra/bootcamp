@@ -1,4 +1,3 @@
-import java.util.Scanner
 
 fun main() {
 
@@ -8,8 +7,8 @@ fun main() {
     val impares = mutableListOf<Int>()
     val positivos = mutableListOf<Int>()
     val negativos = mutableListOf<Int>()
-
-    inteiros.forEach {println(it)}
+val dois = 2
+/*    inteiros.forEach {println(it)} */
 
 /* Seleciona os valores positivos e negativos */
     inteiros.forEach {
@@ -21,7 +20,7 @@ fun main() {
     }
 
     inteiros.forEach {
-        if ((it.mod(2)) != 0) {
+        if (it.mod(dois) == 0) {
             pares.add(it)
         } else impares.add(it)
     }
