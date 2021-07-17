@@ -1,6 +1,8 @@
 Ferramentas da IDE
 
 O que é Debug Build, Breakpoint e Aba Debug
+- 
+
 Conteúdo prático - Parte 1
 Android Debug Bridge
 Layout Inspector
