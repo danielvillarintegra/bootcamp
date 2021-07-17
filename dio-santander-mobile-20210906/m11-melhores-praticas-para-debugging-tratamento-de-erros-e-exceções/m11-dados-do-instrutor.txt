@@ -1,0 +1,8 @@
+Nome: Ana Luísa Dias
+Cargo: Desenvolvedor Android
+Empresa: delivery much
+
+Requisitos Básicos
+Aulas anteriores
+Dispositivo Android (físico)
+Projeto base disponível no Github

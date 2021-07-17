@@ -1,0 +1,18 @@
+Introdução ao tema e o que é Modo Desenvolvedor
+
+Configurando o dispositivo para ativar modo desenvolvedor
+- Ativar o modo desenvolvedor num aparelho de celular Android (físico)
+- Nas opções do desenvolvedor:	ativar "Permanecer ativo"
+- Ativar Depuração USB
+- Ver Ativar modo demonstração
+- Modo noturno
+- opções:	app de local fictício
+		parte de redes
+		mostrar toques / localização do ponteiro
+		desenho / Mostrar atualização de superfície
+
+
+Ativando limites do layout
+		desenho / mostrar limites de layout
+		forçar dir. layout (RTL)
+
