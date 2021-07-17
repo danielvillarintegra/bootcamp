@@ -34,6 +34,22 @@ Introdução a Extensions Functions
 - criar arquivo BigDecimal.kt
 	acrescentar	import java.math.BigDecimal
 
+- fun Array<BigDecimal>.somatoria() = this.reduce {
+        acc, valor -> acc * valor
+
+Em lambda: fun Array<BigDecimal>.somatoria() = this.reduce { acc, valor -> acc * valor }
+
+- fun Array<BigDecimal>.media() =
+    if(this.isEmpty()) BigDecimal.ZERO
+    else this.somatoria() / this.size.toBigDecimal()
+
+- as funções somatoria() e media() são funções extendidas e não existem no tipo Array
+
 Prática com Extensions Functions
+- renomear arquivo BigDecimal.kt para FuncoesEstendidas.kt
+- Teste com as funções acima
+
 Conclusão do curso
+-
+
 Certifique seu conhecimento
