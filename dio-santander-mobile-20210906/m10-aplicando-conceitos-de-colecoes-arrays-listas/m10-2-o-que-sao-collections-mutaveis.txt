@@ -50,6 +50,10 @@ Prática com Extensions Functions
 - Teste com as funções acima
 
 Conclusão do curso
--
+
+- Sugestões para ampliar os conhecimentos:
+https://github.com/jether2011/digitalinnovation.git
+https://play.kotlinlang.org/koans/overview
+https://play.kotlinlang.org/
 
 Certifique seu conhecimento
