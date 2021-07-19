@@ -18,11 +18,11 @@ fun main(    ) {
 
 
     println("$N")
-    println("$notas100 notas(s) de R$ 100,00")
-    println("$notas50 notas(s) de R$ 50,00")
-    println("$notas20 notas(s) de R$ 20,00")
-    println("$notas10 notas(s) de R$ 10,00")
-    println("$notas5 notas(s) de R$ 5,00")
-    println("$notas2 notas(s) de R$ 2,00")
-    println("$notas notas(s) de R$ 1,00")
+    println("$notas100 nota(s) de R$ 100,00")
+    println("$notas50 nota(s) de R$ 50,00")
+    println("$notas20 nota(s) de R$ 20,00")
+    println("$notas10 nota(s) de R$ 10,00")
+    println("$notas5 nota(s) de R$ 5,00")
+    println("$notas2 nota(s) de R$ 2,00")
+    println("$notas nota(s) de R$ 1,00")
 }
