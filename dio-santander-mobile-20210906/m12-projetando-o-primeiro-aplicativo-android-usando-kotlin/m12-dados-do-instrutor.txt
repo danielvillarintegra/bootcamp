@@ -1,0 +1,14 @@
+Nome: Ana Dias
+Cargo: Dev Android
+Empresa:
+
+Objetivos da aula
+1.Compreender a estrutura de uma aplicação
+2.Apresentar conceitos básicos relacionados a activities e layouts
+3.compreender Gerenciameneto de ciclos de vida e interação com usuários
+
+Requisitos Básicos
+Android Studio instalado;
+Dispositivo Abdroid ou emulador
+Aulas iniciais sobre Kotlin e Android Studio
+

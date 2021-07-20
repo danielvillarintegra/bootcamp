@@ -1,0 +1,12 @@
+Construção de telas
+
+Visão geral sobre Layout
+O que é uma View
+TextView, RadioButton e CheckBox
+ícones, strings.xml e themes.xml
+Atributos de Views
+Layout Types - Linear Layout
+Layout Types - Relative Layout
+Layout Types - Constraint Layout
+Interações com a UI
+Certifique seu conhecimento

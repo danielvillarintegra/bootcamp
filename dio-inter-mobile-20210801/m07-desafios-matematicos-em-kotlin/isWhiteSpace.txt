@@ -1,0 +1,6 @@
+val chars = listOf(' ', '\t', '\n', '1', 'a', '\u00A0')
+val (whitespaces, notWhitespaces) = chars.partition { it.isWhitespace() }
+// whitespace char codes
+println(whitespaces.map(Char::code)) // [32, 9, 10, 160]
+// non-whitespace chars
+println(notWhitespaces) // [1, a]

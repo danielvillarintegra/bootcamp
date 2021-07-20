@@ -1,0 +1,63 @@
+import java.util.Scanner;
+
+fun main() {
+    val linhas = mutableListOf<String>()
+    val raios1 = mutableListOf<Int>()
+    val raios2 = mutableListOf<Int>()
+    val resultados = mutableListOf<Int>()
+
+    var aux : String = ""
+    var raio1 : Int
+    var raio2 : Int
+    var resultado : Int
+
+    val linha1 : String = readLine()!!     /* Le a quantidade de de pares de inteiros (os raios dos fios) */
+    val linha2 : String = ""
+
+    val T = linha1.toInt() /* Quantidade de linhas de entrada */
+
+
+    println("Número de linha: $T")
+
+    /* Ler "T" linhas de entrada */
+    for (i in 1..T) {
+        linhas.add(readLine()!!)
+    }
+
+    /*
+    linhas.forEach {  println(it) }
+*/
+
+    for (i in 0..T-1) {
+        /* Converter linha em inteiros e coletar os raios */
+        /* armazenar o resultado */
+        raio1 = 0
+        raio2 = 0
+        resultado = 0
+        aux = ""
+        linhas[i].forEach {
+                if (it.isWhitespace() != true) {
+                    aux = aux + it
+                } else {
+                    if (raio1 == 0) {
+                        raio1 = aux.toInt()
+                        aux = "0"
+                    }
+                }
+        }
+        raio2 = aux.toInt()
+        resultado = raio1.plus(raio2)
+
+        raios1.add(raio1)
+        raios2.add(raio2)
+        resultados.add(resultado)
+    }
+
+    println(String.format("T: $T"))
+
+    resultados.forEach {
+        println(it) }
+}
+
+
+

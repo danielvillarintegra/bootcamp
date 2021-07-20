@@ -1,0 +1,9 @@
+Criando um projeto
+
+Introdução e objetivos do curso
+Configuração inicial do projeto
+Visão geral do projeto e exemplo de tags
+Componente Activity
+O ciclo de vida - Teoria
+O ciclo de vida - Prática
+O que é Gradle
