@@ -1,9 +1,66 @@
 Criando um projeto
 
 Introdução e objetivos do curso
+-
 Configuração inicial do projeto
+- O Projeto: Calculadora IMC
+- "Material Design Google", Behance, Pintrest
+- Requisitos: 	dois campos de input do tipo float;
+		Botão de envio;
+		Exibição do resultado e faixa de peso;
+		Cálculo do IMC ou BMI (alternar entre sistemas métricos);
+- Android Studio:criar um novo projeto.
+- Escolher a API que mais se adequa ao perfil do usuário que usará o aplicativo.
+- Sugestão: entre API 19 e 24
+
 Visão geral do projeto e exemplo de tags
+- Manifests:
+a) Informações essenciais para ass ferramentas de compilação do Android, para o SO Android e para a Google Play
+b) Recebe declaração de todas as activities, permissões de app etc;
+c) Arquivo gerado e escrito em XML;
+d) Declaração por tags
+
+- Exemplos de tags
+<uses-permisson />
+<permission />
+<permission-tree />
+<permission-group />
+<uses-sdk />
+<uses-configuratios />
+<uses-feature />
+<support-screens />
+<support-gl-texture />
+
+- metodo onCreate()
+
 Componente Activity
+- Um dos componentes principais de um projeto Android;
+- Utiliza instâncias dos métodos callback de ciclos de vida (em vez de uma unica função main);
+- Pode corresponder a uma ou mais telas;
+- conceito fragment --> mais tarde
+- conceito de arquitetura --> consultar noutros lugares
+- Toda activity deve ser "registrada" no manifest;
+- O layout da activity define o que será exibido para o usuário;
+- Gerencia os ciclos de vida, interação com usuário, abertura de outras telas e aplicações etc;
+- pesquisar a categoria "Intent??"
+ - Criar o novo arquivo ResultActivity: 
+	selecionar o local onde esta a MainActivity
+	(ex.: java > com.examples.imcapp ) clicar com o botão direit em new, 	
+activity 
+
 O ciclo de vida - Teoria
+- onCreate() = CRIADO -> onStart() = VISIVEL -> onResume = INTERATIVO
+- onResume() -> onPause() = PAUSADO { onResume() ou onStop() }
+- PAUSADO -> onResume() = INTERATIVO
+- PAUSADO -> onStop() = PARADO { onStart() ou onDestroy() }
+- PARADO -> onStart() = VISIVEL 
+- PARADO -> onDestroy() = DESTRUIDO (app finalizado)
+ 
 O ciclo de vida - Prática
+- Ver o código desenvolvido
+
 O que é Gradle
+- Um "módulo" completo para configuração e automatização de Build/ compilação
+-build.gradle é o arquivo principal de configuração;
+- Gerencia importações, tipos de buid, versão etc
+- Escrito em Groovy ou Kotlin DSL
