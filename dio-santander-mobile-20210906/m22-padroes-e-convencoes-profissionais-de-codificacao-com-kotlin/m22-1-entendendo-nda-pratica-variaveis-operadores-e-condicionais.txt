@@ -1,0 +1,7 @@
+Entendendo na prática variáveis, operadores e condicionais
+
+Introdução e objetivos do curso
+Como começar a programar em Kotlin
+Operadores
+Condicionais: if-else
+Condicionais: when

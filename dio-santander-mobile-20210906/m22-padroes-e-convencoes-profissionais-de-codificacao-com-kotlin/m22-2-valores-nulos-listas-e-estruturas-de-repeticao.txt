@@ -1,0 +1,6 @@
+Valores nulos, listas e estrutura de repetição
+
+Variáveis com valores nulos
+Arrays
+For e while
+Certifique seu conhecimento curso
