@@ -1,6 +1,33 @@
 Valores nulos, listas e estrutura de repetição
 
 Variáveis com valores nulos
+- Tratar o opção de valores nulo para evitar Exceptions (Null point exceptions)
+- Erro de "um milhão de dólares"
+- No Kotlin, vem desabilitado: Null safe
+//Aula 4
+val mensagem: String = null // não compila
+
+---------
+
+val mensagem: String? = null // compila
+println("$mensagem")
+
+if (mensagem !=nyll) {
+	println("$mensagem")
+} else {
+	println("Mensagem genérica")
+}
+---------
+
+println("${mensagem ?: "Mensagem genérica."} ")
+
+
+- Ver em 
+- https://kotlinlang.org/docs/keyword-reference.html#operators-and-special-symbols
+- ?:	?: assume o valor do lado direito se o valor do lado esquerdo for nulo (o operador elvis )
+- ?.	?. realiza uma chamada segura (chama um método ou acessa uma propriedade se o receptor não for nulo)
+- !!	!! afirma que uma expressão não é nula
+ 
 Arrays
 For e while
 Certifique seu conhecimento curso

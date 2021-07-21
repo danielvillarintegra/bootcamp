@@ -1,7 +1,70 @@
 Entendendo na prática variáveis, operadores e condicionais
 
 Introdução e objetivos do curso
+
 Como começar a programar em Kotlin
+-introdução ao playgroung Kotlin
+- Dois tipos de variáveis:
+	val -> imutável
+	var -> mutavel
+
+	val name = "Kotlin"
+	println("Hello, $name !")
+
+	var: Int = 10 /*Inferir o tipo de variável */
+
+- Inferir o tipo de variável: Int, String, Char etc
+
 Operadores
+- + , - , * , / , % 
+
+OBS.: % = mod : retorna o resto de uma divisão
+
+- =
+
+- += , -= , *= , /= , %=
+
+OBS.: var saldo :  Int =1000
+	  saldo += 100 // saldo = 1000+100
+		 
+
+- ++ , -- (inc) 
+
+OBS: ++ e -- : incrementa ou decrementa em 1
+
+Ver mais em 
+https://kotlinlang.org/docs/keyword-reference.html#operators-and-special-symbols
+
+- comentários: 	// para uma linha
+		/* para um bloco */
+
 Condicionais: if-else
+- Recomendação: 2 ou até 3 encadeações 
+  if-else if else if-else
+
+- operadores == , != , 
+- < , > , <= , >=
+- Operadores lógicos (e , ou , not): && , || , !
+
 Condicionais: when
+- Usar num cenário com 3 ou mais condições 
+- https://kotlinlang.org/docs/coding-conventions.html
+
+- operador (semelhante ao igual) -> 
+
+Exemplo encurtado:
+
+val cor = "Branco"
+
+var mensagem = when(cor) {
+	"Vermelho" -> "Cor do do cavalo de Napoleão não é vermelhor e sim branco."
+	"Azul" -> "Cor do do cavalo de Napoleão não é azul e sim branco."
+	"Branco" -> "Acertou a cor do cavalo branco de Napoleão."
+	else -> "sem cor"
+	}
+println("$mensagem")
+
+}
+
+
+
