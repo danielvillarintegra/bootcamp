@@ -1,8 +1,19 @@
 Construção de telas
 
 Visão geral sobre Layout
+
 O que é uma View
+- Todo componente é uma view;
+- Toda view é clicável;
+- tag <nomeComponente>;
+- id, layout_width, layout_heignt;
+- Views herdam métodos, aparências, estilo e atributos de componentes (botões, imagens, texto e etc) ou podem ser criados de maneira customizada;
+- É possivel criar um estilo e aplicar nos componentes através das views;
+
 TextView, RadioButton e CheckBox
+- textsize: 48sp (o "sp" 
+
+
 ícones, strings.xml e themes.xml
 Atributos de Views
 Layout Types - Linear Layout
