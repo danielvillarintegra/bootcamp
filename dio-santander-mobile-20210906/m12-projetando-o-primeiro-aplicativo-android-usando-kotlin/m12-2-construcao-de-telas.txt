@@ -12,12 +12,139 @@ O que é uma View
 
 TextView, RadioButton e CheckBox
 - textsize: 48sp (o "sp" 
+- Textbox: Inserir o "inputType" keybord
+	Sempre declare o método de entrada para seus campos de texto, adicionando o atributo 		android:inputType ao elemento <EditText>.
+	Ex.: O tipo de entrada "phone" ou "textPassword" etc
+
+https://developer.android.com/training/keyboard-input/style
+-
+
+Por exemplo, se você quiser um método de entrada para inserir um número de telefone, use o valor "phone":
 
 
 ícones, strings.xml e themes.xml
+
 Atributos de Views
+- Gravity x Layout_gravity
+- margin x padding
+- tools:visibility="gone" ou "visible"
+
 Layout Types - Linear Layout
+- arquivo main_linear.xml
+
+- LinearLayout:
+	Itens alinhados uns após os outros verticalmente ou horizontalmente
+	Elementos não serão sobrepostos
+	Orientação vertical ou horizontal
+
+	- Orientation: Vertical
+	- Gravity: Center
+
+	- Orientation: Horizontal
+	- Gravity: Center
+
 Layout Types - Relative Layout
+- arquivo main_relative.xml
+
+- A posição dos itens é relativa a outros itens ou ao layout pai;
+- Permite sobreposição de elementos;
+- Elimina a necessidade de layouts encadeados;
+- Exige a criação de hierarquias complexas;
+- Ex.: 	To_end_of:
+	To_start_of:
+	above:
+	below:
+	align_parent:
+
 Layout Types - Constraint Layout
-Interações com a UI
+- arquivo main_constraint.xml
+
+- Baseado em restringir os componentes aos limites do layout ou outros componentes;
+- Focado em otimização;
+- Visa substituir o Linear e o Relative no desenvolvimento android;
+	ex.:	constraint_top_to_bottom:
+		constraint_start_to_start:
+		group:
+		guideline:
+		baseline:
+		Horizontal_bias:
+		Chain:
+
+- https://developer.android.com/training/constraint-layout
+
+- No Android Studio é possível converter um RelativeLayout em ConstraintLayout
+  através do menu do botão direito do mouse 
+
+- componente "guide line": 
+	ex.:	<androidx.constraintlayout.widget.Guideline
+			app: layout_constraintGuide_percent="0.50"/>
+		
+		<Button
+			app:layout_constraintEnd_toEndOf="@id/guidelinecenter"
+		/>
+		
+- group:
+		ex.:	<androidx.constraintlayout.widget.Group
+			android:layout_width="wrap_content"
+			android:visibility="gone" ou "visible"
+			android:layout_height="wrap_content"
+			app:constraint_referenced_ids="titleTXT,calcularBTN" />
+
+- Absolute Layout: posição absoluta x/y;
+- Table Layout: Formato da tabela;
+- Gride Laoyout: formato "grade" colunas x linhas ;
+- Frame Layout: "moldura", ideal para um único item;
+
+- First Run
+- lembrar de substituir no arquivo MainActivity.kt a referencia ao arquivo de layout usado .
+	-> setContentView(R.layout.activity_main)
+
+- Verificar o "inputType = NunberDecimal"
+	Sempre declare o método de entrada para seus campos de texto, adicionando o atributo 	android:inputType ao elemento <EditText>.
+	Ex.: O tipo de entrada "phone" ou "textPassword" etc
+
+https://developer.android.com/training/keyboard-input/style
+
+Por exemplo, se você quiser um método de entrada para inserir um número de telefone, use o valor "phone":
+- E os cálculos ??? 
+
+Interações com a UI - Parte 3
+- Trantando Inputs de Texto
+- TextWatchers;
+- Callbacks para fluxo do input;
+	Antes do texto mudar, quando o texto muda, após o texto mudar;
+- Métodos:
+	beforeTextChanged(CharSequence s, int start, int count, in after),
+	onTextChanged(CharSequence s, int start, int before, int count),
+	afterTextChanged(Editable s)
+
+- No MainActivity.kt
+	no onCreate() acrescentar a "fun" abaixo: setListeners()
+	
+	Fora do onCreate descrever a "fun" setListener()
+
+	private fun setListeners() {
+}
+
+- Toda view possuium método: OnClickListener{ }
+- View -> (click do usuário) -> OnClickListener
+ 	os listeners geralmente são declarados no Oncreate;
+- Executam uma ação, pegam algum dado e retornam algum feedback visual para o usuário;
+- IMPORTANTE VERIFICAR SE O VALOR ENTRADO NÃO É NULO NAQUELA VIEW
+
+- Exibindo resultados:
+	Atribuir valores a campos de texto, botão e etc;
+	Exibir warning dialog;
+	Exibir Toast;
+	Abrir uma nova tela;
+	O que vc quiser !
+
+-Exercício final
+	Agora que nosso app está funcionando, que tal personalizar ?
+	Implementar a exibição das faixas de peso, tratamento de erro para campo vazio, adição deo 	cálculo por BMI e , se quiser, mude a maneira de input, cores, adicione animações etc.
+
+
+ 
+
+
 Certifique seu conhecimento
