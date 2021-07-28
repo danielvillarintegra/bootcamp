@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">imc3</string>
+    <string name="ptbr_edt_hint_altura">Digite a altura (m)</string>
+    <string name="ptbr_edt_hint_peso">Digite o peso (kg)</string>
+    <string name="ptbr_btn_calcular">Calcular</string>
+    <string name="ptbr_tvw_resultado">IMC</string>
+</resources>
