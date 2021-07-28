@@ -1,6 +1,10 @@
 Construção de telas
 
 Visão geral sobre Layout
+- no arquivo activity_main.xml 
+	substituir <androidx.constraintlayout.widget.ConstraintLayout
+	por <<LinearLayout 
+- 
 
 O que é uma View
 - Todo componente é uma view;
@@ -23,6 +27,9 @@ Por exemplo, se você quiser um método de entrada para inserir um número de te
 
 
 ícones, strings.xml e themes.xml
+- no arquivo themes.xml 
+alterar	"Theme.MaterialComponents.DayNight.DarkActionBar">
+para	"Theme.MaterialComponents.DayNight.NoActionBar
 
 Atributos de Views
 - Gravity x Layout_gravity
