@@ -11,6 +11,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setListeners() {
-        edt_altura.
+        edt_altura.after
     }
 }
