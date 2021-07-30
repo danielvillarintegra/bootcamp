@@ -1,0 +1,10 @@
+mentoria07-1-fundamentos-do-jetpack-compose
+
+- Toolkit de ferramenta
+- simplifica e acelera o desenvolvimento e o código (não quer dizer mais fácil)
+- A utilização exclui a necessidade de alguns arquivos .xml
+
+Pré requisitos para o Android Studio:
+- Android Studio / Settings / Gradle / Gradle JDK: Java11
+- Kotlin gradle plugin: 1.5.10 ou superior
+
