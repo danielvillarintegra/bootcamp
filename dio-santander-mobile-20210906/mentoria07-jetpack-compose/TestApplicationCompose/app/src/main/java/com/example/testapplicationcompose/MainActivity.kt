@@ -57,4 +57,3 @@ fun DefaultPreview() {
         MainsScreen("Android")
     }
 }
-}
