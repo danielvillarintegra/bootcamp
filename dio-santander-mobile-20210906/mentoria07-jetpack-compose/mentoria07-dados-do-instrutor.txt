@@ -1,0 +1,50 @@
+Nome: Isaac Mitsuaki Saito
+Cargo: Senior Android Developer / Santader
+Empresa: Santander
+git-hub: https://github.com/zacmks/ComposeToDo
+
+Youtube: https://www.youtube.com/watch?v=I-pK2IQdAXQ
+
+Requisitos básicos
+Conhecimento sobre Kotlin, inclusive lambdas
+Santander Bootcamp |Mobile Developer
+Android Studio Artic Fox (2020.3.1) ou superior
+Java11
+
+Resumo
+A branch feature/theme tem um exemplinho de como vocês podem utilizar o Theme (dark e secondary secondary também ;-)).
+
+Importante: Os todos estão sendo gravados em lista, na memória. Desafio: Será que você pode criar um local data source para persistir esses itens? Bora integrar um repository nesse view model? E um network data source para salvar se você ou algum amigo poder fazer uma api?
+
+Como não tinha muito tempo, não conseguimos aprofundar tanto. Então aí vão algumas dicas de assuntos para estudo.
+Se acreditar que é muita coisa, faça os estudos ao seu tempo, respeite bastante o seu corpo e a mente - Podes clonar o repo que compartilhei e ficar brincando com o projeto também :)
+As dicas de conteúdo para estudar são:
+
+- Compose em geral:
+-- Gerência de estados (muito importante):
+-- remember/rememberSavable
+-- Unidirectional data flow
+-- Componentes [simples] do compose
+-- Modifiers
+
+- Material theme:
+-- Typography
+-- Shapes
+-- Colors
+
+- Kotlin/Android:
+-- Inline functions
+-- Lambda  functions
+-- Extension functions
+-- Scoped functions
+-- Um pouco sobre construção de DSLs com kotlin (conceitual se acreditar que seja muito difícil)
+-- Sealed class
+-- ViewModel
+
+Depois que isso estiver relativamente enraizado:
+- Navigation
+- Animation
+- Testes com compose
+- Interop. Android tradicional e compose:
+-- ComposeView (xml e objeto)
+-- AndroidView
