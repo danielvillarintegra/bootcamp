@@ -1,2 +1,9 @@
-Título do submódulo 3
-Listar os tópicos antes de iniciar o curso
+Hand ON: Criando um projeto em compose
+
+Text, Button, Icon, IconButton, Divider
+
+CheckBox, EditText, IconToggleButton
+
+LazyColumn
+
+Modifiers

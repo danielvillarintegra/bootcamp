@@ -7,4 +7,8 @@ mentoria07-1-fundamentos-do-jetpack-compose
 Pré requisitos para o Android Studio:
 - Android Studio / Settings / Gradle / Gradle JDK: Java11
 - Kotlin gradle plugin: 1.5.10 ou superior
+- message: "Android ... " usar ALt+ Enter para importar
+
+-var scrollstate = remember { mutableStateOf(ScrollState(0) )}
+-
 

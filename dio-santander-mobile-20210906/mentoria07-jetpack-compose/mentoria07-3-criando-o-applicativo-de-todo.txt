@@ -1,2 +1,4 @@
-Título do submódulo 2
-Listar os tópicos antes de iniciar o curso
+Criando o aplicativo de ToDo
+
+Na pratica -> Vá para o Android Studio :)
+
