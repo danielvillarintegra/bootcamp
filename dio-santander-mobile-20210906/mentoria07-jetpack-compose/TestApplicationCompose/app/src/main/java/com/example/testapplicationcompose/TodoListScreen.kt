@@ -2,10 +2,12 @@ package com.example.testapplicationcompose
 
 import androidx.annotation.OptIn
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Delete
 import androidx.compose.material.icons.rounded.Send
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -17,6 +19,45 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.ExperimentalComposeUiApi as ExperimentalComposeUiApi
+
+
+@ExperimentalComposeUiApi
+@Composable
+fun TodoListScreen(
+    items : List<TodoItem> ,
+    selectedItem: List<TodoItem>,
+    onAddItem: (TodoItem) -> Unit,
+    onToggleItem: (TodoItem) -> Unit,
+    onDeletedItems: () -> Unit,
+
+) {
+    Scaffold(topBar = {
+            TopAppBar(title = {
+                Text(text = "Applicativo compose ToDo")} ,
+                actions = {
+                    IconButton(
+                        onClick = { onDeletedItems },
+                        Modifier.padding(horizontal = 8.dp)
+                    ) {
+                        Icon(
+                            Icons.Rounded.Delete,
+                            contentDescription = "Remover ítem")
+                    }
+                })
+            }) {
+        Column(Modifier.fillMaxSize()) {
+            LazyColumn(Modifier
+                .fillMaxWidth()
+                .weight(1.0f)) {
+
+            }
+        TodoFieldAndButton("Texto fixo", {} , {})
+        }
+
+
+            }
+
+}
 
 
 @Composable
@@ -111,4 +152,9 @@ fun PreviewTodoFieldAndButton() {
 
 }
 
-
+@ExperimentalComposeUiApi
+@Preview
+@Composable
+fun PreviewTodoListScreen() {
+    TodoListScreen(listOf(), listOf(), {}, {}, {})
+}
