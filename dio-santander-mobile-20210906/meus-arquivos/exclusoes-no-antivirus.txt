@@ -1,0 +1,16 @@
+A lista a seguir mostra o local padrão de cada diretório do Android Studio que você precisa excluir da verificação em tempo real:
+
+Cache do Gradle
+%USERPROFILE%\.gradle
+
+Projetos do Android Studio
+%USERPROFILE%\AndroidStudioProjects
+
+SDK do Android
+%USERPROFILE%\AppData\Local\Android\SDK
+
+Arquivos de sistema do Android Studio
+
+Sintaxe: %LOCALAPPDATA%\Google\<product><version>
+
+Exemplo: C:\Users\YourUserName\AppData\Local\Google\AndroidStudio4.1
