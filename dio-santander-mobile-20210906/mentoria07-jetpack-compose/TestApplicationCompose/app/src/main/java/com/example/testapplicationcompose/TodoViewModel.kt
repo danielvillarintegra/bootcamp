@@ -13,12 +13,12 @@ class TodoViewModel: ViewModel() {
         todoItems.add(novoItem)
     }
 
-    fun toggleItem(togledItem: TodoItem) {
-        val foundItem = selectedItems.find { it == toggleItem }
+    fun toggleItem(toggledItem: TodoItem) {
+        val foundItem = selectedItems.find { it == toggledItem }
         if (foundItem != null) {
-            selectedItems.remove(toggleItem())
+            selectedItems.remove(toggledItem)
         } else {
-            selectedItems.add(toggleItem())
+            selectedItems.add(toggledItem)
         }
     }
 
