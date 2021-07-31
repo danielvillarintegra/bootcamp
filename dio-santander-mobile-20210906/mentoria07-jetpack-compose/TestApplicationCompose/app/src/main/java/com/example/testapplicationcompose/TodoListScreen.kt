@@ -103,6 +103,7 @@ fun PreviewTodoRow() {
     TodoRow(TodoItem("Preview of Todo Item"), true, {})
 }
 
+@kotlin.OptIn(ExperimentalComposeUiApi::class)
 @Preview (showBackground = true)
 @Composable
 fun PreviewTodoFieldAndButton() {
