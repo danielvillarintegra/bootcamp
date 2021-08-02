@@ -2,59 +2,105 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/edt_altura"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:ems="10"
-        android:hint="@string/ptbr_edt_hint_altura"
-        android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="@+id/tvw_resultado"
-        app:layout_constraintHorizontal_bias="0.518"
-        app:layout_constraintStart_toStartOf="@+id/tvw_resultado"
-        app:layout_constraintTop_toBottomOf="@+id/edt_peso" />
-
-    <EditText
-        android:id="@+id/edt_peso"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/ptbr_edt_hint_peso"
-        android:inputType="numberDecimal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.157" />
-
-    <Button
-        android:id="@+id/btn_calcular"
-        android:layout_width="222dp"
-        android:layout_height="43dp"
-        android:layout_marginBottom="152dp"
-        android:text="@string/ptbr_btn_calcular"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+    <TextView
+        android:id="@+id/tvw_resultado1"
+        android:layout_width="120dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="52dp"
+        android:text=""
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintStart_toEndOf="@+id/divider"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvw_resultado"
-        app:layout_constraintBottom_toTopOf="@+id/btn_calcular"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_altura"
-        android:layout_width="183dp"
-        android:layout_height="72dp"
+        android:layout_width="120dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="232dp"
         android:text=""
-        tools:layout_editor_absoluteX="112dp"
-        tools:layout_editor_absoluteY="329dp" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintEnd_toEndOf="@+id/tvw_resultado2"
+        app:layout_constraintHorizontal_bias="0.916"
+        app:layout_constraintStart_toEndOf="@+id/divider"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tvw_resultado2"
+        android:layout_width="120dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="128dp"
+        android:text=""
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintEnd_toEndOf="@+id/tvw_resultado1"
+        app:layout_constraintHorizontal_bias="0.914"
+        app:layout_constraintStart_toEndOf="@+id/divider"
+        app:layout_constraintStart_toStartOf="@+id/tvw_resultado1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edt_peso"
+        android:layout_width="200dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="128dp"
+        android:ems="10"
+        android:hint="@string/ptbr_edt_hint_peso"
+        android:inputType="numberDecimal"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_calcular"
+        app:layout_constraintEnd_toEndOf="@+id/btn_calcular"
+        app:layout_constraintEnd_toStartOf="@+id/tvw_resultado2"
+        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_calcular"
+        android:layout_width="200dp"
+        android:layout_height="65dp"
+        android:text="@string/ptbr_btn_calcular"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvw_resultado"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.339" />
+
+    <EditText
+        android:id="@+id/edt_altura"
+        android:layout_width="200dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:hint="@string/ptbr_edt_hint_altura"
+        android:inputType="numberDecimal"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/edt_peso"
+        app:layout_constraintEnd_toEndOf="@+id/edt_peso"
+        app:layout_constraintEnd_toStartOf="@+id/tvw_resultado1"
+        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.421" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="1dp"
+        android:layout_height="729dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.612"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

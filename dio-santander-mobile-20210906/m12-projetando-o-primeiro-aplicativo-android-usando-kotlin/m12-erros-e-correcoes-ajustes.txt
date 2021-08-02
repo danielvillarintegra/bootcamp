@@ -1,0 +1,29 @@
+1) Falta de vínculo entre o arquivo activity_main.xml e o MaiActivity.kt
+
+a) Acrescrentado no MainActivity.kt
+	import kotlinx.android.synthetic.main.activity_main.*
+
+e os devidos códigos no onCreate:
+setListeners() /* nome da private fun principal do projeto */
+
+Veja abaixo:
+
+	class MainActivity : AppCompatActivity() {
+	    override fun onCreate(savedInstanceState: Bundle?) {
+	        super.onCreate(savedInstanceState)
+	        setContentView(R.layout.activity_main)
+	        setListeners()
+	    }
+	}
+
+b) Acrescentado no build.gradle(Module:...):
+	id 'kotlin-android-extensions'
+
+Veja abaixo:
+	
+	plugins {
+    		id 'com.android.application'
+		id 'kotlin-android'
+    		id 'kotlin-android-extensions'
+	}
+
