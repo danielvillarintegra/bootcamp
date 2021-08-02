@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Half.toFloat
 import android.widget.EditText
 import android.widget.TextView
+import kotlin.Unit.toString
 
 
 class MainActivity : AppCompatActivity() {
@@ -12,20 +13,24 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setListeners()
+    }
 }
 
-    fun setListeners() {
-        val editTextAltura : Float? = this.findViewById<EditText>(R.id.edt_altura)
-        val editTextPeso : Float? = findViewById<EditText>(R.id.edt_peso)
-        val textViewResultado : Float
+fun setListeners() {
+        val editTextAltura : EditText = findViewById(R.id.edt_altura)
+        val editTextPeso : EditText = findViewById<EditText>(R.id.edt_peso)
+        val textViewResultado : TextView
+        val altura = editTextAltura.getText()
+        val peso = editTextPeso.getText()
 
-        this.toString( calcularIMC(editTextAltura, editTextPeso))
-            .also { findViewById<TextView>(R.id.tvw_resultado) = it }
+        val calcularIMC = peso.times(altura.times(altura))
+        textViewResultado.text = toString(calcularIMC)
+
     }
 
-}
-
-private fun calcularIMC(altura: Float, peso: EditText) : Float {
+/*
+private fun calcularIMC(altura: Float, peso: Float) : CharSequence {
     return calcularIMC() = peso.times (altura.times(altura))
 
 }
+*/
