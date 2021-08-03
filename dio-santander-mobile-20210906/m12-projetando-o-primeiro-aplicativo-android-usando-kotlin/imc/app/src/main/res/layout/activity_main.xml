@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/tvw_resultado1"
+        android:id="@+id/tvw_resultado_anterior"
         android:layout_width="120dp"
         android:layout_height="59dp"
         android:layout_marginStart="8dp"
@@ -38,10 +38,10 @@
         android:layout_marginTop="128dp"
         android:text=""
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        app:layout_constraintEnd_toEndOf="@+id/tvw_resultado1"
+        app:layout_constraintEnd_toEndOf="@+id/tvw_resultado_anterior"
         app:layout_constraintHorizontal_bias="0.914"
         app:layout_constraintStart_toEndOf="@+id/divider"
-        app:layout_constraintStart_toStartOf="@+id/tvw_resultado1"
+        app:layout_constraintStart_toStartOf="@+id/tvw_resultado_anterior"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -86,7 +86,7 @@
         android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/edt_peso"
         app:layout_constraintEnd_toEndOf="@+id/edt_peso"
-        app:layout_constraintEnd_toStartOf="@+id/tvw_resultado1"
+        app:layout_constraintEnd_toStartOf="@+id/tvw_resultado_anterior"
         app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
