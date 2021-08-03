@@ -1,0 +1,9 @@
+2
+Linguagem SQL
+
+Introdução a linguagem SQL
+Criando tabelas
+Inserindo dados
+Buscando dados
+Removendo dados
+Linguagem SQL - download dos slides

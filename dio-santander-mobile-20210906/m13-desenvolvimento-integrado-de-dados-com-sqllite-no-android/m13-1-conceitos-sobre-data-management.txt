@@ -1,0 +1,8 @@
+Conceitos sobre Data Management
+
+Introdução e conceitos necessários
+Introdução a RecyclerView
+Introdução a Pattern Singleton
+Resumo do código do App básico - Parte 1
+Resumo do código do App básico - Parte 2
+Conceitos sobre Data Management - download dos slides
