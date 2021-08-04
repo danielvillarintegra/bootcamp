@@ -6,3 +6,4 @@ Requisitos Básicos
 Aulas anteriores
 Dispositivo Android (físico)
 Projeto base disponível no Github
+https://github.com/baiana/DIO-android-aula-6-error-debug/tree/master

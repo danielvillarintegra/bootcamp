@@ -1,4 +1,5 @@
 Introdução ao tema e o que é Modo Desenvolvedor
+- https://github.com/baiana/DIO-android-aula-6-error-debug/tree/master
 
 Configurando o dispositivo para ativar modo desenvolvedor
 - Ativar o modo desenvolvedor num aparelho de celular Android (físico)
@@ -15,4 +16,6 @@ Configurando o dispositivo para ativar modo desenvolvedor
 Ativando limites do layout
 		desenho / mostrar limites de layout
 		forçar dir. layout (RTL)
+
+
 
