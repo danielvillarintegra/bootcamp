@@ -6,9 +6,90 @@ Implementando SQLLite
 - implementando o update no app
 
 Implementando Helper (create) DB
-- criar application em java / com.everis.listadecontatos/application (semelhante a MainActivity ?)
+- criar pasta application e incluir arquivo ContatoApplication.kt (em java / com.everis.listadecontatos/application)
+- ver "PrintScreen" "estrutura-de-projeto-diferente-da-padrão.PNG"
+
+- Em ContatoApplication.kt acrescentar:
+
+	package com.everis.listadecontatos.application /* alterar conforme a configuração pessoal */
+	
+	import android.app.Application
+
+	class ContatoApplication : Application() {
+		override fun onCreate() {
+			super.onCreate()
+		}
+}
+
+- Referenciar "ContatoApplication.kt" no "AndroidManifest.xml" acrescentando:
+ 
+	android:name=".application.ContatoApplication"
+
+- Criar a pasta helpers (dentro de "com.everis.listadecontatos") e, dentro, o arquivo HelperDB.kt
+e acrescentar:
+
+/* tem que herdar a classe SQLiteOpenHelper */
+class HelperDB : SQLiteOpenHelper ( /* clicar com o botão direito para inserir as informações do construtor abaixo"*/
+	context: Context?,
+/*	name: String?,
+	factory: SQLiteDataBase.CursorFactory?,
+	version: Int				*/
+
+) : SQLiteOpenHelper(context, NOME_BANCO, factory: null, VERSAO_ATUAL) {
+
+	companion object {
+		private val NOME_BANCO = "contato.db"
+		private val VERSAO_ATUAL = 1
+}
+
+	val TABLE_NAME = "contato"
+	val COLUMNS_ID = "id"
+	val COLUMNS_NOME = "nome"
+	val COLUMNS_TELEFONE = "telefone"
+		
+	val DROP_TABLE = "DROP TABLE IF EXISTS $TABLE_NAME"
+	val CREATE_TABLE = "CREATE TABLE $TABLE_NAME (" + 
+		"$COLUMNS_ID INTEGER NOT NULL," +
+		"$COLUMNS_NOME TEXT NOT NULL," +
+		"$COLUMNS_TELEFONE TEXT NOT NULL," +
+		"" +
+		"PRIMARY KEY($COLUMNS_ID AUTOINCREMENT)" + 
+		")"
 
 
+	override fun onCreate(db: SQLiteDatabase?) {
+		db?.execSQL(CREATE_TABLE)
+	}
+
+
+
+	/* Atualiza a tabela ao mudar a versão , isto é, qualquer alteração na estrutura da tabela*/
+	override fun onUpgrade(db: SQLiteDatabase?, oldversion: Int, newVersion: Int) {
+		if(oldversion != newVersion) {
+			db?.execSQL(DROP_TABLE)
+		}
+		onCreate(db)
+	}
+
+}
+
+- no arquivo ContatoApplication.kt
+
+	package com.everis.listadecontatos.application /* alterar conforme a configuração pessoal */
+	
+	import android.app.Application
+
+	class ContatoApplication : Application() {
+		
+		var helperDB : HelperDB? = null	
+			private set /* Bloqueia a variável para "set" externo. Só aceitará "get" */
+
+		override fun onCreate() {
+			super.onCreate()
+			helperDB = HelperDB(context: this)
+
+		}
+}
 
 
 Implementando select/busca no app
