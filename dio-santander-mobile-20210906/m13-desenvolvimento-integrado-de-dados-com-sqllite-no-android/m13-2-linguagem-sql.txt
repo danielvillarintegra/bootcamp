@@ -1,9 +1,63 @@
-2
 Linguagem SQL
-
+
 Introdução a linguagem SQL
+- Requisitos básicos
+- 	Conhecimento básico da linguagem SQL
+- 	Conhecimentos basicos em estrutura de um banco de dados
+
+- O que é um banco de dados ?
+- O que é linguagem SQL ?
+- O que é uma Query ?
+
+- Baixar em DB Browser for SQLLite
+- https://sqlitebrowser.org/about/
+
 Criando tabelas
+- Create
+- O que é uma tabela no banco de dados ?
+- campos da tabela: id, placa, modelo, marca, cor
+
+	CREATE TABLE carros (
+		id INTEGER NOT NULL,
+		placa TEXT NOT NULL,
+		modelo TEXT NOT NULL,
+		marca TEXT NOT NULL,
+		cor TEXT NOT NULL,
+
+	 	PRIMARY KEY (id AUTOINCREMENT)
+	);
+
+-
+
 Inserindo dados
+- Insert
+
+	INSERT INTO carros (placa, marca, modelo, cor) VALUES('AAA1234','TOYOTA','ETIOS','AZUL')
+
+outra opção que outros bancos sql aceitam (mas não o SQLLite:
+
+	INSERT INTO carros VALUES('AAA1234','TOYOTA','ETIOS','AZUL')
+
 Buscando dados
+- Select e Where
+
+	SELECT marca, modelo FROM carros 
+	WHERE placa = "ABC1234"
+
+Obs.: WHERE não é obrigatório e serve como filtro
+
+	SELECT * FROM carros 
+	
+	SELECT * FROM carros WHERE placa like "%AA%"
+
+- Outras sintaxes com AND, OR, > , <, = etc Pesquisar
+
 Removendo dados
+- Delete
+
+	DELETE FROM carros WHERE id=5
+
+	DELETE FROM carros WHERE placa like "AAA1234"
+
 Linguagem SQL - download dos slides
+- ok

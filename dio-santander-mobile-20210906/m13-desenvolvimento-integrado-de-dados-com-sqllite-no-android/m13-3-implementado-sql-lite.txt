@@ -1,9 +1,22 @@
-3
 Implementando SQLLite
-
+- implementando o helper (Create) DB no app
+- implementando o select/busca no app
+- implementando o insert no app
+- implementando o delete no app
+- implementando o update no app
+
 Implementando Helper (create) DB
+- criar application em java / com.everis.listadecontatos/application (semelhante a MainActivity ?)
+
+
+
+
 Implementando select/busca no app
+
 Implementando insert no app
+
 Complementos do código
+
 Implementando delete no app
+
 Implementando SQLLite

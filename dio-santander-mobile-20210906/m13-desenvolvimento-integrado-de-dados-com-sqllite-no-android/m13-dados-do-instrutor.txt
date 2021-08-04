@@ -1,6 +1,13 @@
 Nome: Vinicius Fragelli Senff
-Cargo: CES - Center Expert Specialist
-Empresa:
+Cargo: CES - Center Expert Specialist/ Arquiteto de software mobile
+Empresa: Everis / Itaú
+viniciusfragelli@hotmail.com
 
 Requisitos Básicos
+Conhecimentos baásico em Android
+	- ciclo de vida
+	- activity
+	- RecyclerView: vamos dar uma introdução;
 
+Conhecimento de sintaxe Kotlin
+Pattern Singleton

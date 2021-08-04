@@ -1,8 +1,156 @@
 Conceitos sobre Data Management
 
 Introdução e conceitos necessários
+- armazenar e gerenciar do dados do seu usuário, mantendo a persistência
+- SQLLite: usa comando SQL, um banco de dados offline e interno e com performance
+- Fica mais organizado, é mais perfomático ? e simples de usar
+
 Introdução a RecyclerView
+- ListView: lista vertical
+- RecycleView: 
+	- reutiliza os espaços da memória da tela visível durantre uma rolagem de tela; 
+	- tipos de RecyclerView: por grid ou por linha;
+	- Rec
+
+- conceito de item e ViewGroup
+- Componentes de uma RecyclerView:
+RecyclerView{[LayoutManager]} <-> Adapter{[ViewHolder] <-> Activity{Adapter,RecyclerView,LayoutManager, [Data]}
+
+	- RecyclerView[]:
+		LayoutManager: define se será uma lista linear ou grid
+	- Adapter[]: De Para, montagem item a item da lista,  define a localização na tela , 		reciclagem dos itens etc
+		ViewHolder: monta uma view para cada objeto e armazena os dados dos componente(subviews)
+
 Introdução a Pattern Singleton
+- são padrões que facilitam nossa vida
+- objeto estático: ponto do código que todos podem acessar esse objeto
+- "static" na frente do codigo Kotlin 
+- class object
+
 Resumo do código do App básico - Parte 1
+- arquivo MainActivity.kt inserir entre	"class MainActivity : BaseActivity(){ ..." e "override fun onCreate( ...":
+
+	private var adapter:ContatoAdapter? = null
+	
+- private fun geralListaDeContatos() { ... é uma base de dados inicial ("moque"?)
+- arquivo BaseActivity.kt: observar ligação com a MainActivity.kt 
+"class MainActivity : BaseActivity(){ ..."
+- arquivo BaseActivity.kt: open class BaseActivity ...
+	protected fun setupToolBar()
+	override fun onOptionsItemSelected()
+
+- Relação entre ToolBar e o onOptionsItemSeleted()
+
+- arquivo MainActivity.kt: Renomeou setupeListView() para setupRecyclerView()
+
+- arquivo ContatoAdapter.kt:
+	onCreateViewHolder()
+	getItemCount()
+
+	onBindViewHolder(): é chamada toda vez que está "scrolando" (rolando) a tela, faz o De Para
+			comando "with(holder.itemView) { .."
+
+	ContatoViewHolder(): recebe a view e passa para a RecyclerView()
+
 Resumo do código do App básico - Parte 2
+- arquivo item_contato.xml é um linearLayout utilizado na actvity_main.xml
+- arquivo Main]Activity.kt: 
+	override fun onResume() {
+	super.onResume9)
+	adapter?.notifyDataSetChanged()
+}
+
+- Em MainActivity.kt: private fun onClickBuscar() bom exemplo de como fazer uma busca e também um "Toast".
+- private fun setupOnClicks() {
+	fab.setOnclickListener { onClickAdd() } 	/* imagem -> */
+	ivBuscar.setOnClickListener { onClickBuscar() } /* imagem da lupa*/
+}
+
+- Arquivo ContatoSingleton.kt
+package com.everis.listadecontatos.singleton
+
+import com.everis.listadecontatos.feature.listacontatos.model.ContatosVO
+object ContatoSingleton {
+	var lista: MutableList<ContatosVO> = mutableListOf()
+
+ }
+
+Outra forma de fazer e equivalente com o kotlin, mas não para o Java (pois existe diferença entre "object" e "companion object"):
+
+class SingletonExemplo {
+	companion object {
+	var lista: MutableList<ContatosVO> = mutableListOf()
+	}
+}
+
+- Arquivo ContatoActivity.kt (dentro de project, app, java , com.everis.listadecontatos, feature, contato, ContatoActivity.kt)
+
+class ContatoActivity : BaseActivity() {
+
+	private var index: Int = -1
+
+	override fun OnCreate(savedInstanceSate: Bundle?) {
+		super.onCreate(savedInstanceSate)
+		setContentView(R.layout.activity_contato) /* Outro arquivo xml */
+		setupTooBar(toolbar, title: "Contato", navgationBack: true) /* barra de navegação está ativa */
+		setupContato()
+		btnSalvarConato.setupOnClickListener { onClickSalvarContato()} /* Está em lambda */
+}
+
+...
+
+Em ContatoActivity:
+
+private fun setupContato(){
+	index = intent.getIntExtra(name: "index", defaultValue: -1)
+	if (index == -1){ 
+		btnExcluirContato.visibility = View.GONE
+		return
+	}
+	etNome.setText(ContatoSingleton.lista[index].nome)
+	etTelefone.setText(ContatoSingleton.lista[index].telefone)
+}
+
+private fun onClickSalvarContato() {
+	val nome = etNome.text.toString()
+	val telefone = etTelefone.text.toString()
+	val contato = ContatosVO(
+		id: 0,
+		nome,
+		telefone
+	)
+	if (index == -1) {
+		ContatoSingleton.lista.add(contato) /* Novo contato */
+	}else{
+		ContatoSingleton.lista.set(index, contato) /* Edição de um contato */
+	}
+	finish() /* Retorna para a tela que originou essa chamada e atualiza essa tela */
+	
+}
+
+private fun onClickExcluirContato(view: View) {
+	if (index > -1){
+		ContatoSingleton.lista.removeAt(index)
+		finish()
+	}
+}
+	
+DICA: declarar um evento nos arquivos de layout ( activity_main.xml, activity_contato.xml etc)
+o evento que quiser, por exemplo:
+<Button
+	android:id="@+id/btnExcluirContato"
+	android:onClick="onClickExcluirContato"
+	android:text="Excluir contato"
+	android:layout_marginTop="16dp"	
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+/>
+
+NO GIT-HUB: App básico sem implementar o SQLLite está na DATA 16 JAN 2021 "melhorias e termino..."
+
+
 Conceitos sobre Data Management - download dos slides
+
+
+
+
