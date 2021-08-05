@@ -6,7 +6,7 @@ Implementando SQLLite
 - implementando o update no app
 
 Implementando Helper (create) DB
-- criar pasta application e incluir arquivo ContatoApplication.kt (em java / com.everis.listadecontatos/application)
+- criar pasta (package) application e incluir arquivo ContatoApplication.kt (em java / com.everis.listadecontatos/application)
 - ver "PrintScreen" "estrutura-de-projeto-diferente-da-padrão.PNG"
 
 - Em ContatoApplication.kt acrescentar:
@@ -93,6 +93,21 @@ class HelperDB : SQLiteOpenHelper ( /* clicar com o botão direito para inserir 
 
 
 Implementando select/busca no app
+- MainActivity
+- Dois lugares "acessam"a lista de contatos cache (geraListaDeContato()):
+	onClickBuscar() e setpListView()
+- no arquivo MainActivity.kt e no evento onClickBuscar()
+	Remover a logica antiga que buscava os dados 
+
+        if(!busca.isNullOrEmpty()){
+            listaFiltrada = ContatoSingleton.lista.filter { contato ->
+                if (contato.nome.toLowerCase().contains(busca.toLowerCase())){
+                    return@filter true
+                }
+                return@filter false
+            }
+        }
+
 
 Implementando insert no app
 
