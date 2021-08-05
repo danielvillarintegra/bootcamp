@@ -5,9 +5,9 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
 class HelperDB(
-    context: Context?,
+    context: Context?
 
-) : SQLiteOpenHelper(context, name, version, openParams) {
+) : SQLiteOpenHelper(context, NOME_BANCO, null, VERSAO_ATUAL) {
 
     companion object {
         private val NOME_BANCO = "contato.db"
