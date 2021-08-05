@@ -3,6 +3,10 @@ Cargo: CES - Center Expert Specialist/ Arquiteto de software mobile
 Empresa: Everis / Itaú
 viniciusfragelli@hotmail.com
 
+git-hub: https://github.com/viniciusfragelli/listacontatos-bootcamp-kotlin.git
+
+Baixar app da data 16/01/2021 "melhoris e termino do app basico", pois está sem a implementação do SQLite.
+
 Requisitos Básicos
 Conhecimentos baásico em Android
 	- ciclo de vida
