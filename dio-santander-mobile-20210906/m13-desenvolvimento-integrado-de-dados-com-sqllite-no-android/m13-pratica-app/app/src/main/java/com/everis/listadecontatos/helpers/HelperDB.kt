@@ -4,6 +4,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
+// tem que herdar a classe SQLiteOpenHelper
 class HelperDB(
     context: Context?
 
@@ -30,6 +31,7 @@ class HelperDB(
         db?.execSQL(CREATE_TABLE)
     }
 
+// Atualiza a tabela ao mudar a versão , isto é, qualquer alteração na estrutura da tabela
     override fun onUpgrade(db: SQLiteDatabase?,oldVersion: Int, newVersion: Int) {
         if(oldVersion != newVersion){
             db?.execSQL(DROP_TABLE)
