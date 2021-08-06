@@ -25,11 +25,11 @@ Implementando Helper (create) DB
  
 	android:name=".application.ContatoApplication"
 
-- Criar a pasta helpers (dentro de "com.everis.listadecontatos") e, dentro, o arquivo HelperDB.kt
+- Criar a pasta/package helpers (dentro de "com.everis.listadecontatos") e, dentro, o arquivo HelperDB.kt
 e acrescentar:
 
 /* tem que herdar a classe SQLiteOpenHelper */
-class HelperDB : SQLiteOpenHelper ( /* clicar com o botão direito para inserir as informações do construtor abaixo"*/
+class HelperDB : SQLiteOpenHelper ( /* Observar o sugestão do Android Studio (lâmpada vermelha e clicar para inserir as informações do construtor abaixo"*/
 	context: Context?,
 /*	name: String?,
 	factory: SQLiteDataBase.CursorFactory?,
@@ -96,8 +96,9 @@ Implementando select/busca no app
 - MainActivity
 - Dois lugares "acessam"a lista de contatos cache (geraListaDeContato()):
 	onClickBuscar() e setpListView()
-- no arquivo MainActivity.kt e no evento onClickBuscar()
-	Remover a logica antiga que buscava os dados 
+- No arquivo MainActivity.kt e no evento onClickBuscar()
+	
+	Remover a lógica antiga que buscava os dados 
 
         if(!busca.isNullOrEmpty()){
             listaFiltrada = ContatoSingleton.lista.filter { contato ->
@@ -108,6 +109,64 @@ Implementando select/busca no app
             }
         }
 
+- No arquivo HelperDB acrescentar 
+
+fun buscarContatos(busca: String) : List<contatosVO> {
+	val db:SQLiteDatabase! = readableDatabase ?: return mutableListOf() /* Elvis: se o DataBase for nulo retorna um tipo mutableListOf() vazio */
+	
+	var lista:MutableList<ContatosVO> = mutableListOf<ContatosVO>()
+	val sql = "SELECT * FROM $TABLE_NAME"
+
+	var cursor = db.rawQuery(sql, null) ?: return mutableListOf() /* Elvis: se o DataBase for nulo retorna um tipo mutableListOf() vazio */
+
+	while (cursor.moveToNext()) {
+		var contato = ContatosVO(
+			cursor.getInt(cursor.getColumnIndex(COLUMNS_ID)),	/* De Para */
+			cursor.getString(cursor.getColumnIndex(COLUMNS_NOME)),	/* De Para */
+			cursor.getString(cursor.getColumnIndex(COLUMNS_TELEFONE)),	/* De Para */
+		)
+		lista.add(contato)
+	}
+	return lista
+}
+
+- No arquivo MainActivity e em onClickBuscar() alterar:
+	var listaFiltrada: List<ContatosVO> = ContatoSingleton.lista
+para 
+	var listaFiltrada: List<ContatosVO> = mutableListOf()
+
+- No arquivo ContatoApplications.kt acrescentar os códigos abaixo para transformar a class em singletron "na mão".
+	class ContatoApplication : Application(){
+    		var helperDB : HelperDB? = null
+	        	private set //* Bloqueia a variável para "set" externo. Só aceitará "get"
+
+    		companion object {
+        		lateinit var instance: ContatoApplication
+    		}
+
+    		override fun onCreate() {
+        		super.onCreate()
+        		instance = this
+        		helperDB = HelperDB(this)
+    		}
+	}
+
+- Transformar nossa class em singleton, "na mão" é equivalente a 
+		object ContatoApplication : Application(){ /* Do Java ?? */
+ 
+	DICA : O Android só cria a instância quando "passa" pelo "super.onCreate"
+
+- Toda chamada de "?????" deve ocorrer dentro de um "try {}" para evitar travar o app caso ocorra algum erro na consulta SQL. Veja exemplo abaixo:
+
+         try {  
+            listaFiltrada = ContatoApplication.instance.helperDB?.buscarContatos(busca) ?: mutableListOf()
+        }catch (ex: Exception) {
+            ex.printStackTrace()
+        }
+
+- Colocar breakpoint para ver como está funcionando 
+
+- Alterar a versão no HelperDB.kt para poder criar o banco de dados
 
 Implementando insert no app
 
