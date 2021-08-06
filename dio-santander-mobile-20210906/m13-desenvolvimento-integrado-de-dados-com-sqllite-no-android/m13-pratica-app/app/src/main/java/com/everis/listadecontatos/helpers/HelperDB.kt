@@ -43,13 +43,21 @@ class HelperDB(
         onCreate(db)
     }
 
-    fun buscarContatos(busca: String) : List<ContatosVO> {
+    fun buscarContatos(busca: String, isBuscaPorID: Boolean = false) : List<ContatosVO> {
         val db = readableDatabase ?: return mutableListOf() // Elvis: se o DataBase for nulo retorna um tipo mutableListOf() vazio
         var lista = mutableListOf<ContatosVO>()
-//        val sql = "SELECT * FROM $TABLE_NAME WHERE $COLUMNS_NOME LIKE '%$busca%'"
-        val sql = "SELECT * FROM $TABLE_NAME WHERE $COLUMNS_NOME LIKE ?"
-        val buscaComPercentual = "%$busca%"
-        var cursor = db.rawQuery(sql, arrayOf(buscaComPercentual))  // ?: return mutableListOf() se usar Elvis: se o DataBase for nulo não faz nada, mas retorna um tipo mutableListOf() vazio
+        var where : String? = null
+        var args: Array<String> = arrayOf()
+
+        if (isBuscaPorID){
+            where = "$COLUMNS_ID = ?"
+            args = arrayOf("$busca")
+        }else{
+            where = "$COLUMNS_NOME LIKE ?"
+            args = arrayOf("%$busca%")
+        }
+
+        var cursor = db.query(TABLE_NAME,null,where,args,null,null,null)  // ?: return mutableListOf() se usar Elvis: se o DataBase for nulo não faz nada, mas retorna um tipo mutableListOf() vazio
         if (cursor == null){
             db.close()
             return mutableListOf()

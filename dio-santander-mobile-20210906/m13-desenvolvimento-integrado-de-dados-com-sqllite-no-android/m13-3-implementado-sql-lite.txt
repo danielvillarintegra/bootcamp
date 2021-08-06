@@ -198,6 +198,64 @@ Comentar a linha do update
 
 
 Complementos do código
+- No ContatoActivity.kt, setupContato() 
+//ORIGINAL
+    private fun setupContato(){
+        index = intent.getIntExtra("index",-1)
+        if (index == -1){
+            btnExcluirContato.visibility = View.GONE
+            return
+        }
+        etNome.setText(ContatoSingleton.lista[index].nome)
+        etTelefone.setText(ContatoSingleton.lista[index].telefone)
+    }
+
+- No HelpersDB.kt buscarContatos() acrescentar parâmetro :
+	isBuscaPorID: Boolean = false
+Resultando em
+	fun buscarContatos(busca: String, isBuscaPorID: Boolean = false) : List<ContatosVO> {
+
+Acrescentar DE PARA ??? 
+
+
+- No ContatoActivity.kt, setupContato()
+acrescentar: 
+    private fun setupContato(){
+        index = intent.getIntExtra("index",-1)
+        if (index == -1){
+            btnExcluirContato.visibility = View.GONE
+            return
+        }
+ 	//ACRESCENTAR 
+	var lista = ContatoApplication.instance.helperDB?.buscarContatos("$index",true) ?: return
+        var contato = lista.getOrNull(0) ?: return
+
+modificar:
+        etNome.setText(ContatoSingleton.lista[index].nome)
+        etTelefone.setText(ContatoSingleton.lista[index].telefone)
+para
+        etNome.setText(contato.nome)
+        etTelefone.setText(contato.telefone)
+
+- No arquivo ContatoAdapter.kt, onBindViewHolder() 
+substituir (position)
+            llItem.setOnClickListener { onClick(position) }
+            
+por (contato.id)
+	    llItem.setOnClickListener { onClick(contato.id) }
+
+Resultando em	
+    override fun onBindViewHolder(holder: ContatoViewHolder, position: Int) {
+        val contato = lista[position]
+        with(holder.itemView){
+            tvNome.text = contato.nome
+            tvTelefone.text = contato.telefone
+	    llItem.setOnClickListener { onClick(contato.id) }
+        }
+    }
+	
+
+
 
 Implementando delete no app
 
