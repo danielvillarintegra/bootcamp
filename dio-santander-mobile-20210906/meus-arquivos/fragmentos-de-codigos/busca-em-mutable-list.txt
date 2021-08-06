@@ -1,0 +1,28 @@
+Origem do código: m13-desenvolvimento-integrado-de-dados-com-sql-lite-no-android, MainActivity.kt (antes do dia 16/01/2021), onClickBuscar():
+
+    private fun onClickBuscar(){
+        val busca = etBuscar.text.toString()
+        var listaFiltrada: List<ContatosVO> = ContatoSingleton.lista
+
+        if(!busca.isNullOrEmpty()){
+            listaFiltrada = ContatoSingleton.lista.filter { contato ->
+                if (contato.nome.toLowerCase().contains(busca.toLowerCase())){
+                    return@filter true
+                }
+                return@filter false
+            }
+        }
+
+        adapter = ContatoAdapter(this,listaFiltrada) {onClickItemRecyclerView(it)}
+        recyclerView.adapter = adapter
+        Toast.makeText(this,"Buscando por $busca",Toast.LENGTH_SHORT).show()
+    }
+
+ContatoSingleton.kt
+package com.everis.listadecontatos.singleton
+
+import com.everis.listadecontatos.feature.listacontatos.model.ContatosVO
+
+object ContatoSingleton {
+    var lista: MutableList<ContatosVO> = mutableListOf()
+}
