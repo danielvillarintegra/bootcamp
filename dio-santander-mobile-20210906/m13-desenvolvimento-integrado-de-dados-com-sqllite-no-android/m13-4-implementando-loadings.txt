@@ -1,8 +1,132 @@
-4
 Implementando Loadings
-
+
 Conceitos sobre threads e loadings
+- Threads
+- MainThreads ou wideThread: principal e que consome mais processamento, inclusive atualização da tela. Front ground.
+- IMPORTANTE NÃO BLOQUEAR A MainThread
+- IMPORTANTE USAR NOSSAS THREADS EM BACKGROUND
+- Android "mata" app que consome recursos da mainthread por mais de 10s
+- As chamadas SQL podem travar a MainThread, necessário implementar código para evitar isso
+
+- Loadings
+- Teste de travamento com a Thread.sleep(500000)
+
 Implementando threads e loadings
+- No arquivo activity_main.xml acrescentar <FrameLayout e <ProgressBar
+
+- No arquivo MainActivty.kt, onClickBuscar() acrescentar:
+        Thread(Runnable {      
+            
+        }).start()
+Mover o conteudo original desse evento para dentro dessa Thread.
+Resultado: 
+
+	private fun onClickBuscar(){
+        	val busca = etBuscar.text.toString()
+	        Thread(Runnable {
+
+	            var listaFiltrada: List<ContatosVO> = mutableListOf()
+        	    try {
+                	//NOVA LÓGICA PARA ACESSAR OS DADOS DO banco de dados
+
+	                listaFiltrada = ContatoApplication.instance.helperDB?.buscarContatos(busca) ?: mutableListOf()
+        	        // Elvis: se o DataBase for nulo retorna um tipo mutableListOf() vazio
+
+	            }catch (ex: Exception) {
+        	        ex.printStackTrace()
+	            }
+        	    adapter = ContatoAdapter(this,listaFiltrada) {onClickItemRecyclerView(it)}
+	            recyclerView.adapter = adapter
+        	    Toast.makeText(this,"Buscando por $busca",Toast.LENGTH_SHORT).show()
+	        }).start()
+
+- Travou o app, pois havia atualizações em background. Para corrigir isso da forma mais básica acrescentar:
+            runOnUiThread { }
+Resultado
+    		private fun onClickBuscar(){
+	        	val busca = etBuscar.text.toString()
+	        	Thread(Runnable {
+	        	    var listaFiltrada: List<ContatosVO> = mutableListOf()
+		            try {
+                		//NOVA LÓGICA PARA ACESSAR OS DADOS DO banco de dados
+	                	listaFiltrada = ContatoApplication.instance.helperDB?.buscarContatos(busca) ?: mutableListOf()
+	        	        // Elvis: se o DataBase for nulo retorna um tipo mutableListOf() vazio
+		            }catch (ex: Exception) {
+        		        ex.printStackTrace()
+		            }
+        		    runOnUiThread {
+                		adapter = ContatoAdapter(this,listaFiltrada) {onClickItemRecyclerView(it)}
+	                	recyclerView.adapter = adapter
+	        	        Toast.makeText(this,"Buscando por $busca",Toast.LENGTH_SHORT).show()
+		            }
+        		}).start()
+    		}
+- Acrescentar "progress.visibility = View.VISIBLE" e, ap´s aceitar algumas alterações do Android Studio temos o resultado abaixo:
+
+    private fun onClickBuscar(){
+        val busca = etBuscar.text.toString()
+        progress.visibility = View.VISIBLE  // Torna visível a ProgressBar
+        Thread {
+            var listaFiltrada: List<ContatosVO> = mutableListOf()
+            try {
+                //NOVA LÓGICA PARA ACESSAR OS DADOS DO banco de dados
+                listaFiltrada =
+                    ContatoApplication.instance.helperDB?.buscarContatos(busca) ?: mutableListOf()
+                // Elvis: se o DataBase for nulo retorna um tipo mutableListOf() vazio
+            } catch (ex: Exception) {
+                ex.printStackTrace()
+            }
+            runOnUiThread {
+                adapter = ContatoAdapter(this, listaFiltrada) { onClickItemRecyclerView(it) }
+                recyclerView.adapter = adapter
+                progress.visibility = View.GONE // "Esconde" a ProgressBar
+                Toast.makeText(this, "Buscando por $busca", Toast.LENGTH_SHORT).show()
+            }
+        }.start()
+    }
+
+- NÃO DEIXAR ATUALIZAÇÕES VISUAIS EM BACKGROUND
+- É IMPORTANTE ACRESCENTAR as Threads e a ProgressBar nas consultas ao banco de dados etc
+
+- No arquivo activity_contato.xml acrescentar FrameLayout, ProgressBar e CTRL + ALT + L para identar
+ 
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+// LinearLayout .....
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_gravity="center" />
+
+</FrameLayout>
+
+- No arquivo ContatoActivity.kt, basicamente acrescentar o código abaixo e mover as devidas partes:
+
+progress.visibility = View.VISIBLE  // Torna visível a ProgressBar
+
+Thread {
+
+
+            runOnUiThread {
+                progress.visibility = View.GONE // "Esconde" a ProgressBar
+            }
+
+        }.start()
+
+- Localizar os eventos, funções e locais que acessam o banco de dados e incluir a ProgressBar e as Thread e IUTrhead.
+	private fun setupContato(){
+    	private fun onClickSalvarContato() {	
+	fun onClickExcluirContato(view: View) {
+
+
+
 Implementando Loadings - download dos slides
 Implementando Loadings - GitHub do projeto
 
