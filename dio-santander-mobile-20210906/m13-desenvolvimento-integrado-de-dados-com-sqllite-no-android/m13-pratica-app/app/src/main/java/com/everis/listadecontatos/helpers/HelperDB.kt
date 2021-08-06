@@ -42,15 +42,43 @@ class HelperDB(
         }
         onCreate(db)
     }
-
+/* Primeira maneira de fazer
     fun deletarContato(id:Int) {
         val db = writableDatabase ?: return
         val where = "id = ?"
         val arg = arrayOf("$id")
-
         db.delete(TABLE_NAME,where,arg)
         db.close()
     }
+*/
+// Segunda maneira de fazer
+    fun deletarContato(id:Int) {
+        val db = writableDatabase ?: return
+        var sql = "DELETE FROM $TABLE_NAME WHERE $COLUMNS_ID = ?"
+        var arg = arrayOf("$id")
+        db.execSQL(sql,arg)
+        db.close()
+    }
+/* Primeira maneira de fazer update
+    fun updateContato(contato: ContatosVO) {
+            val db = writableDatabase ?: return
+            val content = ContentValues()
+            content.put(COLUMNS_NOME,contato.nome)
+            content.put(COLUMNS_TELEFONE,contato.telefone)
+            val where = "id = ?"
+            var arg = arrayOf("${contato.id}")
+            db.update(TABLE_NAME,content,where,arg)
+            db.close()
+        }
+*/
+// Segunda maneira de fazer update
+    fun updateContato(contato: ContatosVO) {
+            val db = writableDatabase ?: return
+            var sql = "UPDATE $TABLE_NAME SET $COLUMNS_NOME = ?, $COLUMNS_TELEFONE = ? WHERE $COLUMNS_ID = ?"
+            var arg = arrayOf(contato.nome,contato.telefone,contato.id)
+            db.execSQL(sql,arg)
+            db.close()
+        }
 
     fun buscarContatos(busca: String, isBuscaPorID: Boolean = false) : List<ContatosVO> {
         val db = readableDatabase ?: return mutableListOf() // Elvis: se o DataBase for nulo retorna um tipo mutableListOf() vazio

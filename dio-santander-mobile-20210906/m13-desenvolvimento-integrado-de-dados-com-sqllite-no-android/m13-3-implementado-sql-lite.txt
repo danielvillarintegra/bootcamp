@@ -259,12 +259,11 @@ Resultando em
 
 Implementando delete no app
 - Arquivo HelperDB.kt criar a função:
-
+// Primeira maneira de fazer
      fun deletarContato(id:Int) {
         val db = writableDatabase ?: return
         val where = "id = ?"
 	val arg = arrayOf("$id")
-
         db.delete(TABLE_NAME,where,arg)
 	db.close
     }
@@ -291,6 +290,91 @@ resultado
 		        }
 		}
 
+- Arquivo HelperDB.kt, substituir a função deletarContato():
+// Primeira maneira de fazer SQL delete
+     fun deletarContato(id:Int) {
+        val db = writableDatabase ?: return
+        val where = "id = ?"
+	val arg = arrayOf("$id")
+        db.delete(TABLE_NAME,where,arg)
+	db.close
+    }
+
+// Segunda maneira de fazer SQL delete
+    fun deletarContato(id:Int) {
+        val db = writableDatabase ?: return
+        var sql = "DELETE FROM $TABLE_NAME WHERE $COLUMNS_ID = ?"
+        var arg = arrayOf("$id")
+        db.execSQL(sql,arg)
+        db.close()
+    }
+
+- Implementando UPDATE
+- No arquivo HelperDB.kt
+
+// Primeira maneira de fazer
+    fun updateContato(contato: ContatosVO) {
+            val db = writableDatabase ?: return
+            val content = ContentValues()
+            content.put(COLUMNS_NOME,contato.nome)
+            content.put(COLUMNS_TELEFONE,contato.telefone)
+            val where = "id = ?"
+            var arg = arrayOf("${contato.id}")
+            db.update(TABLE_NAME,where,arg)
+            db.close()
+        }
+
+
+- Arquivo ContatoActivity.kt, onClickSalvarContato() :
+substituir comentário ou linha abaixo
+	//           ContatoSingleton.lista.set(index,contato)
+por
+	            ContatoApplication.instance.helperDB?.updateContato(contato) 
+
+substituir "0"
+	        val contato = ContatosVO(
+        	    0,
+	            nome,
+	            telefone
+        	)
+por "idContato"
+	        val contato = ContatosVO(
+        	    idContato,
+	            nome,
+        	    telefone
+        	)
+		
+Resultado
+
+    private fun onClickSalvarContato(){
+        val nome = etNome.text.toString()
+        val telefone = etTelefone.text.toString()
+        val contato = ContatosVO(
+            idContato,
+            nome,
+            telefone
+        )
+        if(idContato == -1) {
+            ContatoApplication.instance.helperDB?.salvarContato(contato)
+        }else{
+            ContatoApplication.instance.helperDB?.updateContato(contato)
+        }
+        finish()
+    }
+
+- No arquivo HelpersDB.kt
+
+// Primeira maneira de fazer update
+    fun updateContato(contato: ContatosVO) {
+            val db = writableDatabase ?: return
+            val content = ContentValues()
+            content.put(COLUMNS_NOME,contato.nome)
+            content.put(COLUMNS_TELEFONE,contato.telefone)
+            val where = "id = ?"
+            var arg = arrayOf("${contato.id}")
+            db.update(TABLE_NAME,content,where,arg)
+            db.close()
+        }
 
 
 
