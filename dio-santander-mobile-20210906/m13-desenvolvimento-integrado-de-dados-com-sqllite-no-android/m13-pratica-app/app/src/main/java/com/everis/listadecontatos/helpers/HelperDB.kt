@@ -14,20 +14,21 @@ class HelperDB(
 
     companion object {
         private val NOME_BANCO = "contato.db"
-        private val VERSAO_ATUAL = 1
+        private val VERSAO_ATUAL = 4
     }
     val TABLE_NAME = "contato"
     val COLUMNS_ID = "id"
     val COLUMNS_NOME = "nome"
     val COLUMNS_TELEFONE = "telefone"
 
-    val DROP_TABLE = "DROP TABLE IF EXISTS $TABLE_NAME"
+    val DROP_TABLE = """DROP TABLE IF EXISTS $TABLE_NAME"""
+
     val CREATE_TABLE = "CREATE TABLE $TABLE_NAME (" +
                             "$COLUMNS_ID INTEGER NOT NULL," +
                             "$COLUMNS_NOME TEXT NOT NULL," +
                             "$COLUMNS_TELEFONE TEXT NOT NULL," +
                         "" +
-                        "PRIMARY KEY($COLUMNS_ID AUTOINCREMENT" +
+                        "PRIMARY KEY($COLUMNS_ID AUTOINCREMENT)" +
                         ")"
 
     override fun onCreate(db: SQLiteDatabase?) {
@@ -47,9 +48,9 @@ class HelperDB(
 
         val db = readableDatabase ?: return mutableListOf() // Elvis: se o DataBase for nulo retorna um tipo mutableListOf() vazio
         var lista = mutableListOf<ContatosVO>()
-        val sql = "SELECT * FROM $TABLE_NAME WHERE $COLUMNS_NOME LIKE '%$busca'%"
+        val sql = "SELECT * FROM $TABLE_NAME"
         val buscaComPercentual = "%$busca%"
-        var cursor = db.rawQuery(sql, arrayOf(buscaComPercentual))  // ?: return mutableListOf() se usar Elvis: se o DataBase for nulo não faz nada, mas retorna um tipo mutableListOf() vazio
+        var cursor = db.rawQuery(sql, arrayOf())  // ?: return mutableListOf() se usar Elvis: se o DataBase for nulo não faz nada, mas retorna um tipo mutableListOf() vazio
         if (cursor == null){
             db.close()
             return mutableListOf()
