@@ -43,6 +43,15 @@ class HelperDB(
         onCreate(db)
     }
 
+    fun deletarContato(id:Int) {
+        val db = writableDatabase ?: return
+        val where = "id = ?"
+        val arg = arrayOf("$id")
+
+        db.delete(TABLE_NAME,where,arg)
+        db.close()
+    }
+
     fun buscarContatos(busca: String, isBuscaPorID: Boolean = false) : List<ContatosVO> {
         val db = readableDatabase ?: return mutableListOf() // Elvis: se o DataBase for nulo retorna um tipo mutableListOf() vazio
         var lista = mutableListOf<ContatosVO>()

@@ -258,5 +258,40 @@ Resultando em
 
 
 Implementando delete no app
+- Arquivo HelperDB.kt criar a função:
+
+     fun deletarContato(id:Int) {
+        val db = writableDatabase ?: return
+        val where = "id = ?"
+	val arg = arrayOf("$id")
+
+        db.delete(TABLE_NAME,where,arg)
+	db.close
+    }
+
+- arquivo ContatoActivity.kt, 
+    
+     fun onClickExcluirContato(view: View) {
+        if(index > -1){
+            ContatoSingleton.lista.removeAt(index)
+            finish()
+        }
+    }
+substituir
+	contatoSingleton.lista.removeAt(index)
+por
+        ContatoApplication.instance.helperDB?.deletarContato(index)
+
+renomear "index" para "idContato" utilizando teclas SHIFT + F6
+resultado 
+   		fun onClickExcluirContato(view: View) {
+        		if(idContato > -1){
+		            ContatoApplication.instance.helperDB?.deletarContato(idContato)
+		            finish()
+		        }
+		}
+
+
+
 
 Implementando SQLLite
