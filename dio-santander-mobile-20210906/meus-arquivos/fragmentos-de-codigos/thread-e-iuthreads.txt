@@ -1,0 +1,11 @@
+
+progress.visibility = View.VISIBLE  // Torna visível a ProgressBar
+
+Thread {
+
+            runOnUiThread {
+                progress.visibility = View.GONE // "Esconde" a ProgressBar
+
+            }
+
+        }.start()
