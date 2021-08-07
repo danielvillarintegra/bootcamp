@@ -1,0 +1,9 @@
+
+CTRL + ALT SHIFT + L	Identar o código no arquivo inteiro xml
+CTRL + ALT + L		Identar o código xml
+CTRL + D		Duplicar a linha
+SHIFT + F6 		Renomear/Refatorar o texto com mesmo nome (por exemplo variáveis)
+
+
+
+ 	
