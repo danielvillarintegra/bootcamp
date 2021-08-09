@@ -1,0 +1,213 @@
+Aplicando TDD e padrões de testes
+
+Como é o TDD circle of lyfe e preparação do código
+
+- Ciclo: Test Fails -> Test Pass -> Refatoring -> Test Fails ...
+
+- Quando um projeto é criado temos três subpastas na pasta java
+	a) para código do nosso programa
+	b) android testes: instrumentados, teste de UI / interface
+	c) testes unitários: métodos de classes, helpers etc (de forma unitária)
+
+- Utlizaremos um projeto de contatos
+
+-No arquivo ExampleUnitTest.kt , dentro da pasta de testes unitários, refatorar o nome da classe:
+De ???
+
+Para class ContactHelpersTest {
+
+Resultado também altera o nome do arquivo para ContactHelpersTest.kt
+
+- No arquivo ContactHelpersTest.kt, 
+refatorar 
+		fun addition_isCorrect()
+para	
+		fun 'Quando chamar o metodo getListContacts() com dois contatos deve retornar uma lista com 2 contatos' () {
+		//Descrever o cenário de teste
+
+- Etapas:
+		a)// Prepara os dados de entrada (MOCKS)
+			TODO("Implementa preparação de mock")
+		b) //Valida o resultado de saida
+			TODO("Valida valores de retorno do método")
+
+- FirstRun Teste : "Bacana !! Já quebrou ... " :) lol kkk
+
+
+Implementando preparação do mock
+- Numa análise do MainActivity.kt observamos que está complicado inserir um mock.
+- Então vamos criar um novo arquivo ContactHelpers.kt (uma nova classe que receberá os parâmentros de dependência sharedPreferences
+
+- No arquivo ContactHelpers.kt, inserir sharedPreferences etc:
+
+	class ContactHelpers(private val sharedPreferences: SharedPreferences) {
+		fun getListContacts(): List<Contact> {
+			return arrayListOf()
+		}
+	
+		fun setListContacts(list: List<Contact>) {
+
+		}
+
+	}
+
+- SharedPreferences depende do contexto na nossa aplicação e frameworks como "roboLetric", portanto é necessário importar no gradle (app/module) em dependencies:
+No arquivo build.gradle(Module...) acrescentar as dependencias abaixo:
+
+	dependencies {
+			...
+			testImplementation 'org.roboletric:4.4'
+			testImplementation 'androidx.test:core:1.3.0'
+
+- No arquivo ContactHelperTest.kt, declarar para usar o robotEletric e acrescentar os códigos:
+	import ...	
+	@RunWith(RoboletricTestrunner::class)
+	class ContactHelpersTest {
+		private val context = ApplicationProvider.getApplicationContext<Context>()
+		private val sharedPreferences = contexto.getSharedPreferences(name: "br.com.bootcampkotlin.PREFERENCES", context.MODE_PRIVATE) // Semelhante ao que está no arquivo MainActivity.kt
+		private val contacHelper = ContacHelper(sharedPreferences)
+
+		@Test
+		//Descrever o cenário de teste
+		fun 'Quando chamar o metodo getListContacts() com dois contatos deve retornar uma lista com 2 contatos' () {
+
+			// Prepara os dados de entrada (MOCKS)
+			//	TODO("Implementa preparação de mock")
+				mockListaDoisContatos()
+
+			//Valida o resultado de saida
+			//	TODO("Valida valores de retorno do método")
+				var list = contactHelper.getListContacts()
+				assertEquals(expected: 2, list.size)
+		}
+
+		private fun mockListaDoisContatos() {
+			contactHelper.setListContacts(
+				arrayListOf(
+					Contact(
+						name:"Igor Ferreira",
+						phone:"(00) 0000-0000",
+						photograph:"img.jpg"
+					),
+					Contact(
+						name:"Jose Alves",
+						phone:"(99) 9999-9999",
+						photograph:"img1.jpg"
+					)						
+				)
+			)
+		}
+	}
+
+- Ao executar o programa há uma parada na TODO( ...) para informar que precisa implementar o código. Comentar os TODO( .. ) antes de executar novamente.
+
+- No arquivo MainActivity.kt já havia uma função implementada chamada de getInstanceSharedPreferences():
+
+	private fun getInstanceSharedPreferences(): SharedPreferences {
+		return getSharedPreferences(name: "br.com.bootcampkotlin.PREFERENCES", context.MODE_PRIVATE)
+	}
+
+- Ao executar o programa ocorre erro pois são esperados dois dados e nenhum é recebido. 
+- É necessãrio implementar o código no arquivo ContactHelper.kt antes de executar novamente.
+- No arquivo ContactHelpers.kt, inserir os códigos:
+
+	package br.com.bootcampkotlin
+
+	import android.content.SharedPreferences: SharedPreferences
+
+	class ContactHelpers(private val sharedPreferences: SharedPreferences) {
+		fun getListContacts(): List<Contact> {
+			val list = sharedPreferences.getString("contacts", "[]") // Ver MainActivity.kt, fun getListContacts()
+			val turnsType = object : TypeToken<List<Contact>>() {}.type
+			return Gson().fromJson(list, turnsType) // Converte para um objeto de classes ???
+		}
+	
+		fun setListContacts(list: List<Contact>) {
+			sharedPreferences.edit().putString("contacts", Gson().toJson(list)).commit()
+			// Precisa implementar as threads para não travar a MainThread com o commit 
+		}
+
+	}
+
+- No arquivo MainActivity.kt já havia uma função implementada chamada getListContacts(), updateList etc
+
+		private fun fetchListContact() {
+			val list = arrayListOf(
+				arrayListOf(
+					Contact(
+						name:"Igor Ferreira",
+						phone:"(00) 0000-0000",
+						photograph:"img.jpg"
+					),
+					Contact(
+						name:"Jose Alves",
+						phone:"(99) 9999-9999",
+						photograph:"img.jpg"
+					)						
+				)
+			getInstanceSharedPreferences().edit {
+				val json = Gson().toJson(list)
+				putString("contacts", json)
+				commit()
+
+			}
+		}
+					
+		private fun getInstanceSharedPreferences(): SharedPreferences {
+			return getSharedPreferences(name: "br.com.bootcampkotlin.PREFERENCES", context.MODE_PRIVATE)
+		}
+		
+		private fun initDrawer(){
+			val drawerLayout = findViewById<View>(R.id.drawerLayout) as DrawerLayout
+
+		....
+		}
+
+
+		private fun bindViews() {
+			rvList.adapter = adapter
+			rvList.layoutManager = LinearLayoutManager(content: this)
+			updateList()
+		}
+
+		private fun getListContacts(): List<Contact> {
+			val list = getInstanceSharedPreferences().getString("contacts", "[]")
+			val turnsType = object : TypeToken<List<Contact>>() {}.type
+			return Gson().fromJson(list, turnsType)
+		}
+
+		private fun updateList() {
+			val list = getListContacts()
+			adapter.updateList(list)
+		}
+
+		private fun showToast(message: String) {
+			Toast.makeText(context: this, message, Toast.LENGTH_SHORT).show()
+
+- No ContactHelperTest.kt imprementar um novo método:
+	@Test
+	fun 'Quando chamar o metodo getListContacts() sem contatos, deve retornar uma lista vazia'() {
+		// Prepara os dados de entrada (MOCKS) com a lista vazia
+			TODO("Implementa preparação de mock")
+		//Valida o resultado de saida
+			TODO("Valida valores de retorno do método")
+	}
+- Ao executar o primeiro teste passa e o segundo não.
+
+- No ContactHelperTest.kt imprementar um novo método:
+	@Test
+	fun 'Quando chamar o metodo getListContacts() sem contatos, deve retornar uma lista vazia'() {
+		// Prepara os dados de entrada (MOCKS) com a lista vazia
+		mockListaContatosVazia()
+		
+		//Valida o resultado de saida
+		// TODO("Valida valores de retorno do método")
+		assertEquals(expected: 0, list.size)
+	}
+
+	private fun mockListaContatosVazia() {
+		contactHelper.setListContacts(arrayListOf())
+
+	}
+Validar os valores de retorno do método
+Certifique seu conhecimento

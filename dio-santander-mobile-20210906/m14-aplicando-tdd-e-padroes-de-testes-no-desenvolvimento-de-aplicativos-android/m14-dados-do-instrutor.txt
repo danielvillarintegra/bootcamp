@@ -1,0 +1,6 @@
+Nome:Igor Ferrani
+Cargo:Lead Android Enginner
+Empresa:Everis
+
+Requisitos Básicos
+
