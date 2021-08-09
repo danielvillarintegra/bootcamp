@@ -1,0 +1,32 @@
+Nome:Igor Rotondo Bagliotti
+Cargo:Software Engineer
+Empresa:Invillia
+https://www.linkedin.com/in/igor-rotondo-bagliotti-b1612b69/
+https://github.com/igorbag
+https://web.digitalinnovation.one/users/igor_bagliotti?tab=achievements
+
+Requisitos Básicos
+DESCRIÇÃO
+Crie uma aplicação para gerar o seu próprio cartão de visitas pessoal, usando padrões de projeto e boas práticas de programação Kotlin. Tecnicamente, você desenvolverá um App Android nativo para a criação e listagem dos cartões, os quais podem ter os seguintes dados: nome, empresa, telefone de contato, email e cor de fundo. Tudo isso utilizando o Room para armazenar os dados localmente. Por fim, você é desafiado a entregar seu próprio projeto, incorporando suas próprias evoluções e melhorias! Está preparado?
+
+Kotlin
+https://developer.android.com/training/data-storage/room
+https://developer.android.com/codelabs/android-room-with-a-view-kotlin#5
+https://medium.com/android-dev-br/utilizando-room-database-no-android-fd76c2e6ccee
+
+Desafio: 
+Aprender sobre o ecosistema Android
+Persistencia local de dados
+Listas de dados
+Recursos de compartilhamento de dados
+
+Aula 1: Preparação do ambiente e criação do nosso app
+Aula 2: Montado layout do projeto
+Aula 3: Configuração local Room Database
+Aula 4: Compartilhamento de cartão de visita
+
+Conceitos de O.O.
+
+
+
+
