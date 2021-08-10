@@ -1,0 +1,63 @@
+Introdução a RecyclerView e CardView
+
+Preparação inicial do código
+- ContactAdapter.kt e da classe contactAdapter: RecyclerView.Adapter
+	class contactAdapter:RecyclerView.Adapter<> { }
+
+- Em seguida da inner class contactAdapterViewHolder(), para depois preencher os dados da contactAdapter<...>: 
+
+		class contactAdapter:RecyclerView.Adapter<> { }
+	
+		    	class contactAdapterViewHolder(): RecyclerView.ViewHolder() {
+
+		    	}
+
+		}
+
+- implement member com clique de 
+
+Resultado
+		class contactAdapter: RecyclerView.Adapter<contactAdapter.contactAdapterViewHolder>() {
+
+		    private val list: MutableList<Contact> = mutableListOf()
+
+		    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): contactAdapterViewHolder {
+		        TODO("Not yet implemented")
+		    }
+
+		    override fun onBindViewHolder(holder: contactAdapterViewHolder, position: Int) {
+		        TODO("Not yet implemented")
+		    }
+
+		    override fun getItemCount(): Int {
+		        TODO("Not yet implemented")
+		    }
+
+		    class contactAdapterViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+
+		    }
+
+		}
+
+
+Criação do arquivo 
+
+Criando a classe-modelo Contact
+- criar o arquivo Contact.kt e inserir os dados da classe modelo.
+
+		package com.example.appcontatos
+
+		data class Contact(
+		    var name: String,
+		    var phone: String,
+		    var photograph: String
+		)
+
+
+Desenvolvendo o método onCreateViewHolder e integrando com um Layout XML File
+- Cria a visualização (view) da tela "inflate" na tela
+- Criar arquivo de layout: clicar com botão direito do mouse em res/layout, New, XML, Layout XML File
+
+	 
+Desenvolvendo a classe ContactAdapter com as informações de cada card
+

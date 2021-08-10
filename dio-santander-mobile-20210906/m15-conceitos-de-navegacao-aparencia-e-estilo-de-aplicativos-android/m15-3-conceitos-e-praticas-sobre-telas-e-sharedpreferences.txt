@@ -1,0 +1,10 @@
+Conceitos e práticas sobre telas e SharedPreferences
+
+Configurando telas - Parte 1
+Configurando telas - Parte 2
+Armazenando e acessando dados com SharedPreferences
+Certifique seu conhecimento
+
+
+
+
