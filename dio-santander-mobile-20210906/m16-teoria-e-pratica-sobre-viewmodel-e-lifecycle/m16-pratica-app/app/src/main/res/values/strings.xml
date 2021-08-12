@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">VModel</string>
+    <string name="txtContador">Contador</string>
+    <string name="etContador">Contador</string>
+    <string name="btnDados">Contador</string>
+    <string name="btnMostrar">Mostrar</string>
+</resources>
