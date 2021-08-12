@@ -1,0 +1,11 @@
+Interagindo com um Content Provider
+
+Criando o CoordinatorLayout
+Complementando o CardView com ConstrainLayout
+Criando a interface NoteClickedListener
+Complementando a MainActivity e criando a classe NotesDetailFragment
+Complementando a classe NotesDetailFragment
+Desenvolvendo activity_main.xml
+Desenvolvendo ClientAdapter.kt e client_item.xml
+Finalizando com o método getContentProvider
+

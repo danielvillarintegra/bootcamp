@@ -1,0 +1,16 @@
+Trabalhando com Notifications
+
+O que é uma notificação e preparação inicial do código
+Finalizando primeiro exemplo de notificação
+Integração com Firebase
+
+
+4
+Trabalhando com APIs
+
+O que é uma API e criação básica das classes Product e ProductApi
+Conhecendo a classe MyRetrofit
+Desenvolvendo a classe ProductAdapter
+Complementando a classe ProductAdapter e Conclusão
+Download de ícones da aula:
+Certifique seu conhecimento
