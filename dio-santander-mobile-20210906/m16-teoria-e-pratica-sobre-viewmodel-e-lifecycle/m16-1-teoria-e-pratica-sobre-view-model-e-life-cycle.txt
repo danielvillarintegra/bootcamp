@@ -1,0 +1,19 @@
+Teoria e prática sobre ViewModel e LifeCycle
+
+Conceitos básicos do padrão de arquitetura
+
+Preparando o projeto e criando o layout
+
+Regras de negócios
+
+Ciclo de vida de uma activity - Teoria
+
+Ciclo de vida de uma activity - Prática
+
+Implementação e Live Data - Teoria
+
+Implementando library e desenvolvendo a classe MainViewModel
+
+Download do slide
+
+Certifique seu conhecimento
