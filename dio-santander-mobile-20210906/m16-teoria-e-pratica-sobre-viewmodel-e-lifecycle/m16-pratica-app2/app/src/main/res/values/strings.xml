@@ -4,5 +4,5 @@
     <string name="etContador">Contador</string>
     <string name="btnDados">Contador</string>
     <string name="btnMostrar">Mostrar</string>
-    <string name="etResultado_hint">Resultado do incremento</string>
+    <string name="txtContador_hint">Resultado do incremento</string>
 </resources>
