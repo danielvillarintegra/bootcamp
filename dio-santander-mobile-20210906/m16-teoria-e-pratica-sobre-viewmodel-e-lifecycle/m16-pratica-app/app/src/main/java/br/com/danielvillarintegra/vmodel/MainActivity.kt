@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     private fun initClick() {
         btnDados.setOnClickListener {
             contador++
-            //validaContador()
+            validaContador()
             initContador()
         }
 
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initDados(){
-        txtContador = findViewById(R.id.txtContador)
+        txtContador = findViewById(R.id.etContador)
         btnDados = findViewById(R.id.btnDados)
         btnMostrar = findViewById(R.id.btnMostrar)
     }
