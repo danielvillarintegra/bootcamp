@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">imc</string>
-    <string name="ptbr_edt_hint_altura">Digite a altura (m)</string>
-    <string name="ptbr_edt_hint_peso">Digite o peso (kg)</string>
-    <string name="ptbr_btn_calcular">Calcular</string>
-    <string name="ptbr_tvw_resultado">IMC</string>
-    <string name="ptbr_tvw_text_resultado">IMC</string>
+    <string name="ptbr_etAltura_hint">Digite a altura (m)</string>
+    <string name="ptbr_etPeso_hint">Digite o peso (kg)</string>
+    <string name="ptbr_btCalcular">Calcular</string>
+    <string name="ptbr_tvResultado">IMC</string>
+    <string name="ptbr_tvResultado_text">IMC</string>
 </resources>
