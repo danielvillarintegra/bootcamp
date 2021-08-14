@@ -30,8 +30,8 @@ class MainActivity : AppCompatActivity() {
         adapter.updateList(
             arrayListOf(
                 Contact(
-                    "Igor Ferrani"
-                    "(00) 0000-0000"
+                    "Igor Ferrani",
+                    "(00) 0000-0000",
                     "img.png"
                 )
             )
