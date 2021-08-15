@@ -14,6 +14,151 @@ Implementação e Live Data - Teoria
 
 Implementando library e desenvolvendo a classe MainViewModel
 
+- Separação da interface , UI etc das regras de negócio
+- No arquivo gradle(module, adicionar a biblioteca lifecycle:
+
+	dependencies {
+
+		implementation 'androidx.lifecycle.extensions:2.2.0'
+
+	} 
+
+- Criar arquivo MainViewModel.kt, importar a classe lifecycle e acrescentar:
+a) acrescentar:
+	class MainViewModel : ViewModel {
+		 var mContador = MutableLiveData<String>().apply { value = contador.toString() }
+    		 private var contador : Int = 0
+	}
+b) Mover a MainActivity.kt/private fun validaContador para MainViewModel.kt e acrescentar os códigos
+
+Resultado:
+		package br.com.danielvillarintegra.vmodel
+
+		import androidx.lifecycle.ViewModel
+		import androidx.lifecycle.MutableLiveData
+
+		class MainViewModel: ViewModel {
+		    var mContador = MutableLiveData<String>().apply { value = contador.toString() }
+		    private var contador : Int = 0
+
+
+		    private fun setmContador() {
+		        mContador.value = contador.toString()
+	    	    }
+
+		
+		    private fun validaContador() {
+		        if (contador > 5) {
+		            contador = 0
+        		}
+			setmContador()
+    		    }
+
+		}
+
+
+
+- No MainActivity.kt 
+a) acrescentar:
+
+			lateinit var mViewModel: MainViewModel
+
+b) em initDados()acrescentar:
+        		mViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+       		        mViewModel.mContador.observe(this, Observer { valor ->	txtContador.setText(valor)})
+
+Resultando em
+
+    private fun initDados() {
+        mViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+
+        txtContador = findViewById(R.id.etContador)
+        btnDados = findViewById(R.id.btnDados)
+        btnMostrar = findViewById(R.id.btnMostrar)
+        mViewModel.mContador.observe(this, Observer { valor ->
+            txtContador.setText(valor)
+        })
+    }
+
+c) Remover 
+    private fun initContador(){
+        txtContador.setText(contador.toString())
+    }
+d) Remover     	var contador : Int = 0
+
+Resultando em:
+
+		package br.com.danielvillarintegra.vmodel
+
+		import androidx.appcompat.app.AppCompatActivity
+		import android.os.Bundle
+		import android.util.Log
+		import android.widget.Button
+		import android.widget.EditText
+		import android.widget.Toast
+		import androidx.lifecycle.Observer
+		import androidx.lifecycle.ViewModel
+		import androidx.lifecycle.ViewModelProvider
+
+		class MainActivity : AppCompatActivity() {
+
+		    lateinit var txtContador: EditText
+		    lateinit var btnDados: Button
+		    lateinit var btnMostrar:Button
+
+		    lateinit var mViewModel: MainViewModel
+
+		    override fun onCreate(savedInstanceState: Bundle?) {
+		        super.onCreate(savedInstanceState)
+		        setContentView(R.layout.activity_main)
+		        initDados()
+		        initClick()
+		    }
+
+		    private fun initDados() {
+		        mViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+
+		        txtContador = findViewById(R.id.etContador)
+		        btnDados = findViewById(R.id.btnDados)
+		        btnMostrar = findViewById(R.id.btnMostrar)
+		        mViewModel.mContador.observe(this, Observer { valor ->
+			        txtContador.setText(valor)
+			        })
+		    }
+
+		    private fun initClick() {
+		        btnDados.setOnClickListener {
+		            contador++
+		        }
+		        btnMostrar.setOnClickListener{
+		            Toast.makeText(this,
+                		"Valor contador: ${contador.toString()}", Toast.LENGTH_SHORT).show()
+        		}
+		    }
+		}
+
+
+- No MainViewModel.kt, 
+a) acrescentar fun Contador():
+
+    //NÃO PODE SER PRIVADO
+    fun Contador() {
+        validaContador()
+    }
+
+b) em validaContador(), incrementar o contador
+	contador++
+			
+Resultando:
+   private fun validaContador() {
+        contador++
+        if (contador > 5) {
+            contador = 0
+        }
+        setmContador()
+    }
+
+
 Download do slide
 
 Certifique seu conhecimento
