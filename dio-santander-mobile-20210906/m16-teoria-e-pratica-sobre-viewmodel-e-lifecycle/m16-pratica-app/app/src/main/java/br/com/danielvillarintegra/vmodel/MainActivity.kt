@@ -2,6 +2,7 @@ package br.com.danielvillarintegra.vmodel
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -20,6 +21,42 @@ class MainActivity : AppCompatActivity() {
         initContador()
         initClick()
         validaContador()
+        logar(valor = "ONCREATE")
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        logar(valor = "ONSTART")
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        logar(valor = "ONRESUME")
+
+    }
+
+    override fun onPause() {
+        super.onPause()
+        logar(valor = "PAUSE")
+
+    }
+
+    override fun onStop() {
+        super.onStop()
+        logar(valor = "ONSTOP")
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        logar(valor = "ONDESTROY")
+
+    }
+
+    private fun logar(tag:String = "Ciclo de vida", valor:String) {
+        Log.d(tag,valor)
     }
 
     private fun validaContador() {
