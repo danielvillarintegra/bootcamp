@@ -158,6 +158,14 @@ Resultando:
         setmContador()
     }
 
+-Na MainActivity, em initClick() e alterar o Toast
+
+       btnMostrar.setOnClickListener{
+            Toast.makeText(applicationContext,
+                "Valor contador: ${mViewModel.mContador.value}", Toast.LENGTH_SHORT).show()
+        }
+
+
 
 Download do slide
 

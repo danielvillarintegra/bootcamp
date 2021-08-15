@@ -40,10 +40,8 @@ class MainActivity : AppCompatActivity() {
             mViewModel.Contador()
         }
         btnMostrar.setOnClickListener{
-/*
-            Toast.makeText(this,
-                "Valor contador: ${contador.toString()}", Toast.LENGTH_SHORT).show()
-*/
+            Toast.makeText(applicationContext,
+                "Valor contador: ${mViewModel.mContador.value}", Toast.LENGTH_SHORT).show()
         }
     }
 }
