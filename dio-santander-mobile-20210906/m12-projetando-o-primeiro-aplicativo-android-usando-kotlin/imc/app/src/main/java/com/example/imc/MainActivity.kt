@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 
@@ -20,8 +21,20 @@ class MainActivity : AppCompatActivity() {
 
         initDados()
         initCalcular()
-
+        initClick()
     }
+    
+    private fun initClick() {
+        btCalcular.setOnClickListener {
+            initCalcular()
+            Toast.makeText(
+                this,
+                "Cálculo IMC: ${tvResultado.text}",
+                Toast.LENGTH_SHORT)
+                .show()
+        }
+    }
+
 
     private fun initDados(){
         etAltura = findViewById(R.id.etAltura)
@@ -30,54 +43,70 @@ class MainActivity : AppCompatActivity() {
         tvResultado = findViewById(R.id.tvResultado)
     }
 
+    private fun Listeners() {
+
+        btCalcular.setOnClickListener() {
+        }
+    }
+
+
     private fun initCalcular() {
-        val altura  = etAltura.text.toString().toFloat()
-        val peso = etPeso.text.toString().toFloat()
+        val altura : Float
+        val peso : Float
+
+        if (!etAltura.text.isNullOrBlank()) altura = etAltura.text.toString().toFloat()
+            else altura = 0.0F
+
+        if (!etPeso.text.isNullOrBlank()) peso = etPeso.text.toString().toFloat()
+            else peso = 1.0F
+
         val calcularIMC = (peso.div(altura.times(altura)))
 
-        /*Incluir arredondamento 1 casa decimal */
-        /* Talvez converter o float para String e depois arredondar ?
+        var resultadoTabela: String
+        tvResultado.text = "$calcularIMC"
 
-         */
-        var resultadoTabela = String.format("%.1f", calcularIMC)
 
-        tvResultado.setText("$calcularIMC").toString()
-
-        when ((resultadoTabela).toDouble()) {
-            in 16.0 .. 16.9  -> {
-                resultadoTabela = "Muito abaixo do peso: $calcularIMC"
+        when (tvResultado.text.toString().toFloat()) {
+            in 16.0F .. 16.9F  -> {
+                resultadoTabela = "Muito abaixo do peso:"
             }
 
-            in 17.0 .. 18.4  -> {
-                resultadoTabela ="Abaixo do peso: $calcularIMC"
+            in 17.0F .. 18.4F  -> {
+                resultadoTabela ="Abaixo do peso:"
             }
 
-            in 18.5 .. 24.9  -> {
-                resultadoTabela = "Normal: $calcularIMC"
+            in 18.5F .. 24.9F  -> {
+                resultadoTabela = "Normal:"
             }
 
-            in 25.0 .. 29.9  -> {
-                resultadoTabela = "Acima do peso: $calcularIMC"
+            in 25.0F .. 29.9F  -> {
+                resultadoTabela = "Acima do peso:"
             }
 
-            in 30.0 .. 34.9  -> {
-                resultadoTabela = "Obesidade grau 1: $calcularIMC"
+            in 30.0F .. 34.9F  -> {
+                resultadoTabela = "Obesidade grau 1:"
             }
 
-            in 35.0 .. 40.0  -> {
-                resultadoTabela = "Obesidade grau 2: $calcularIMC"
+            in 35.0F .. 40.0F  -> {
+                resultadoTabela = "Obesidade grau 2:"
             }
-
             else -> {
-                if (((resultadoTabela).toDouble()) > 40.0) resultadoTabela = "Obesidade grau 3: $calcularIMC"
-                else resultadoTabela = "Fora da tabela: $calcularIMC"
+                if (calcularIMC > 40.0F) resultadoTabela = "Obesidade grau 3:"
+                else resultadoTabela = "Fora da tabela:"
             }
         }
+        resultadoTabela = "$resultadoTabela  "+ String.format("%.1f", calcularIMC)
 
         tvResultado.setText(resultadoTabela).toString()
 
+        Toast.makeText(
+            this,
+            "$resultadoTabela",
+            Toast.LENGTH_LONG)
+            .show()
     }
 
+}
     /*private fun setListeners() {
 
         etAltura.addTextChangedListener(object : TextWatcher {
@@ -198,6 +227,6 @@ class MainActivity : AppCompatActivity() {
         }
 
     }*/
-}
+
 
 
