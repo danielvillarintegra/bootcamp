@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "503550958836",
+    "project_id": "dio-bc-santander-m17-app-notif",
+    "storage_bucket": "dio-bc-santander-m17-app-notif.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:503550958836:android:a1e27ace956f7a7a50d2a1",
+        "android_client_info": {
+          "package_name": "br.com.danielvillarintegra.aplicationnotificationfb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "503550958836-sajdn5qqan0e35fcuh2mk62o8oqjui3e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTlQl7EgZPO3jyuyvvYNZIp3bTcgIf4rE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "503550958836-sajdn5qqan0e35fcuh2mk62o8oqjui3e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:503550958836:android:b0a87406111f604350d2a1",
+        "android_client_info": {
+          "package_name": "br.com.danielvillarintegra.applicationnotification"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "503550958836-sajdn5qqan0e35fcuh2mk62o8oqjui3e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTlQl7EgZPO3jyuyvvYNZIp3bTcgIf4rE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "503550958836-sajdn5qqan0e35fcuh2mk62o8oqjui3e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
