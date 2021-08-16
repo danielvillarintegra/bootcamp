@@ -1,11 +1,83 @@
 Trabalhando com Notifications
 
 O que é uma notificação e preparação inicial do código
+- É uma mensagem que o Android exibe fora do IU do app, para fornecer ao usuário lembretes, comunicados de outras pessoas ou outras informações oportunas do seu app. - Os usuários podem tocar na notificação para abrir seu app ou executar uma ação diretamente da notificação.
+- É possível executar uma activity através de uma notificação;
+- Trabalharemos com dois tipos de notificação: Push notification e Local notification
+
+- Criar um nova EmptyActivity com um button
+- Acrescentar button_send_notification
+
+- Na MainActivity acrescentar
+	a) lateinit var btnSend: Button
+	b) btnSend = findViewById(R.id.button_send_notificatio)
+	c) btnSend.setOnClickListener{ }
+
+- Criar NotificationUtils.kt 
+
+
+- notificationManager é a parte responsável por receber e gerenciar todas as notificações
+
 Finalizando primeiro exemplo de notificação
+- Verificação de build
+
+
 Integração com Firebase
+- Instalar as dependências do Google para com o firebase
+
+- No gradle(project), instala o google Services dentro da nossa aplicação
+      classpath "com.google.gms:google-services:4.3.10"
+
+Resultando em
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:7.0.0"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21"
+        classpath "com.google.gms:google-services:4.3.10"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+- No gradle(module), acrescenta:
+	a)	id 'com.google.gms.google-services'
+	b) 	implementation 'com.google.firebase:firebase-analytics:18.0.1'
+		implementation 'com.google.firebase:firebase-messaging:21.0.1'
+Resultando em:
+		plugins {
+		    id 'com.android.application'
+		    id 'kotlin-android'
+		    id 'com.google.gms.google-services'
+
+		}
+
+E também
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
+    implementation 'com.google.firebase:firebase-analytics:18.0.1'
+    implementation 'com.google.firebase:firebase-messaging:22.0.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
+
+- Sincronizar gradle
+
+- Acessar o console pelo navegador em:
+		console.firebase.google.com/project/notificationapp
 
 
-4
+
 Trabalhando com APIs
 
 O que é uma API e criação básica das classes Product e ProductApi
