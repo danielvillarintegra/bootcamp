@@ -1,8 +1,9 @@
-Nome instrutor Leandro Martin Lima Silva
-Cargo
-Empresa Everis
+Nome instrutor: Leandro Martin Lima Silva
+Cargo: Especialista Programador
+Empresa: Everis
 
-Nome do módulo
+Nome do módulo:
+ViewModel e LifeCycle´para Melhor Experiência em Aplicativos Android
 
 Requisitos Básicos
 
