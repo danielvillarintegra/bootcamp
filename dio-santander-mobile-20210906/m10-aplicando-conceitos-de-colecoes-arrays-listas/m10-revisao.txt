@@ -1,0 +1,35 @@
+//Array 
+fun main() {
+	val values = IntArray(size:5)
+
+	values[0] = 1
+	values[1] = 7
+	values[2] = 6
+	values[3] = 3
+	values[4] = 2
+
+	println(" for in ------------------------")
+	for (valor in values) {
+		println(valor)
+	}
+	println(" forEach e it ------------------------")
+	values.forEach { 
+		println(it)
+	}
+	println(" forEach e valor ------------------------")
+	values.forEach { valor ->
+		println(valor)
+	}
+	println(" index   ------------------------")
+	for (index in values.indices) {
+		println(values[index])
+	}
+
+	println("  sort------------------------")
+	
+	values.sort()
+	for (valor in values) {
+		println(valor)
+	}
+
+}
