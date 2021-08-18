@@ -1,9 +1,51 @@
 Ferramentas da IDE
 
 O que é Debug Build, Breakpoint e Aba Debug
-- 
+- bug verde : 
+- bug verde com seta para cima:
+ADB e ADB Plugin
+Breakpoints;
+Aba debug
+Layout Inspector
+
+- Build como debug ou associar debug a um build existente;
+- Build type deve ser debugável (build.gradle);
+- Ativa o uso de breakpoints;
+	android {
+		buildtypes {
+			customDebugType {
+				debuggable true
+				...
+			}
+		}
+	}
+
+- Breakpoint: 	Pausa a execução em determinado método ou linha de código
+		Tela de configuração de debug;
+		Pausa com condicionais;
+
+- Aba debug:	Inspeção de variáveis;
+		Alteração de valor de variável;
+		Step over., step into, resume;
+		Abre automaticamente quando pausa em um breakpoint;
+
+- Dois tyipos de app: Debug type e Release
+
+
 
 Conteúdo prático - Parte 1
+
 Android Debug Bridge
+- Android debug bridge;
+- Operações que facilitam a manipulação da aplicação no modo debug;
+- Pode ser chamado pelo terminal mas possui plugin com principais funcionalidades (ADB Idea)
+- Instalar Android Studio plugin ADB idea
+- 
+
 Layout Inspector
+- Permite depuração dos elementos do layout que estão sendo exibidos na tela;
+- No Androi Studio e durante a execução do app clicar em Layout Inspector
+
 Proposta de exercício final
+- Criar 3 breakpoints e teste as opções de brekpoints com condicional, step into/over e alteração de valor de variável;
+- Instalar o ADB Plugin
