@@ -1,0 +1,16 @@
+//Double Array Of e operações min, max, average, filter
+fun main() {
+	val salarios = doubleArrayOf(1500.0, 1250.0, 5000.0)
+
+
+	println(" Maior salário: $(salarios.max()} ")
+
+	println(" Menor salário: $(salarios.min()} ")
+
+	println(" Media salários: $(salarios.average()} ")
+
+
+	val salariosMaiorQue2500 = salarios.filter { it > 2500.0 }
+	salariosMaiorQue2500.forEach { println(it) }
+
+}

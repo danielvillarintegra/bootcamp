@@ -1,0 +1,18 @@
+//intArrayOf 
+fun main() {
+	val values = intArrayOf(2, 3, 4, 1, 10, 7)
+
+	println(" forEach e it ------------------------")
+	values.forEach { 
+		println(it)
+	}
+
+	println("  sort------------------------")
+	
+	values.sort()
+	println(" sort ------------------------")
+	values.forEach { 
+		println(it)
+	}
+
+}

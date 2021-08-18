@@ -1,0 +1,18 @@
+//DoubleArray 
+fun main() {
+	val salarios = DoubleArray(size:3)
+
+	salarios[0] = 1000.0
+	salarios[1] = 3000.0
+	salarios[2] = 500.0
+
+	println(" forEach e it ------------------------")
+	salarios.forEach { println(it) }
+
+	println(" forEach e it com aumento 10% no salário------------------------")
+	salarios.forEachIndexed { index,  salarios ->
+		salarios[index] = salarios * 1.1 
+	}
+	salarios.forEach { println(it) }
+
+}

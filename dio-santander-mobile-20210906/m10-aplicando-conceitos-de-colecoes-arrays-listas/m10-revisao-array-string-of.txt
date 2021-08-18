@@ -1,0 +1,22 @@
+//ArrayOf<String> 
+fun main() {
+	val nomes2 = ArrayOf("Maria","João","José")
+
+	println(" for in ------------------------")
+	for (nome in nomes2) {
+		println(nome)
+	}
+
+	println(" forEach e it ------------------------")
+	nomes2.forEach { 
+		println(it)
+	}
+	
+	println("  sort------------------------")
+	
+	nomes2.sort()
+	nomes2.forEach { 
+		println(it)
+	}
+
+}

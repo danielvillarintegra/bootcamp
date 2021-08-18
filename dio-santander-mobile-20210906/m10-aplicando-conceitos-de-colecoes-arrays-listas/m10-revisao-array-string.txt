@@ -1,0 +1,26 @@
+//Array<String> 
+fun main() {
+	val nomes = Array<String>(size:5) ("")
+
+	nomes[0] = "Maria"
+	nomes[1] = "João"
+	nomes[2] = "José"
+
+	println(" for in ------------------------")
+	for (nome in nomes) {
+		println(nome)
+	}
+
+	println(" forEach e it ------------------------")
+	nomes.forEach { 
+		println(it)
+	}
+	
+	println("  sort------------------------")
+	
+	nomes.sort()
+	nomes.forEach { 
+		println(it)
+	}
+
+}

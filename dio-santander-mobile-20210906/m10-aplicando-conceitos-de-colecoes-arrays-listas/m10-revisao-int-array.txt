@@ -1,6 +1,6 @@
-//Array 
+//intArray 
 fun main() {
-	val values = IntArray(size:5)
+	val values = intArray(size:5)
 
 	values[0] = 1
 	values[1] = 7
