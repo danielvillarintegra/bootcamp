@@ -1,8 +1,97 @@
 Lendo e interpretando logs
 
 Conhecendo os tipos de logs
+- Aba Logcat e métodos de Log
+	- Tipos de log das aplicações
+	- criação de tags;
+	- Emissão dinâmica de logs;
+	- Omissão de logs irrelevantes
+	- Contextualização par crashs e exceptions
+- Tipod de Log
+	- DEBUG (Log.d);
+	- ERROR (Log.e);
+	- INFO (Log.i);
+	- VERBOSE (Log.v);
+	- WARNING (Log.w);
+
+- Log.w("W/emptyField","Ocampo de email não foi preenchido")
+	Log.w: São os tipos de log
+	"W/emptyField": Tag que permite agrupar logs do mesmo tipo (filtrar)
+	"Ocampo de email não foi preenchido": Mensagem que descreve o evento do log
+
 Conteúdo prático - Parte 2
+- No Android Studio e Preferences, buscar por logcat
+	e alterar as cores de cada tipo de log para visualizar melhor
+
 Estrutura de um log
+- Acrescentar throw Exceptions()
+
 Sobre Throwable e Exceptions
+- Aplicação não respondendo (ANR "Application Not Responding")
+- Falta de retorno a interação do usuário
+- Bloqueio de UI thread;
+- Dialog que permite forçar o fechamento da aplicação;
+- Throwable
+	- Superclasse de todos o Erros e Exceptions;
+	- Eros - podem ocorrer durante a execução e compilação;
+	- Exception - geralmente quebram (causam crash) na aplicação;
+
+- Throwable(String mensagem) 	-> Error(String mensagem)
+				-> Exceptions(String mensagem)
+
+- throw Exceptions()
+
+- Exceptions:
+	-subclasse Throwable
+	-ActivityNotFoundException;
+	-NullPointerException;
+	-IndexOutOfBoundsExceptions;
+	-ClassCastException;
+	- e muitas outras
+	Ver documentação Exceptions
+
+- Como evitar Exceptions
+	- Mapeamento das exceptions no try/catch;
+	- Prevenir operações indevidas;
+	- Operações durante iteração, casts inválidos, tipos nuláveis sem tratamento e etc)
+	- Teste unitários
+
+- Tratando Exceptions
+	- Null check;
+	- retorno visual do erro;
+	- Criação de um ExceptionHandler;
+
 Conteúdo prático - Parte 3
+	- Exemplo com array com 3 posições e tentamos acessar uma posição fora das três posições -> IndexOutOfBoundsExceptions
+	- usar 
+		Try {
+		} catch { 
+		}
+
+	- Forma de tratar os erros não previstos nos try/catch:
+		val currentThread = Thread.currentThread()
+		currentThread.stUncaughtExceptionHandler {thread, throwable -> 
+		val x = throwable.message
+		val cause = throwable.cause
+		}
+	
+	DICA: implementar uma forma de obter mais informações do usuáro sobre o erro usando os códigos acima; 	
+
+	- Outras opções: 
+- Opção a)	Try {
+		} catch { 
+		} finaly {
+		}
+
+- Opção b)  	Try {
+		} catch (e : IndexOutOfBoundsExceptions) {
+			message = "Entrei no catch certo :)" 
+		} catch (e: NulPointerException) {
+			message = "Entrei no catch errado :(" 
+		} finaly {
+			inputEDT7.setText(message)
+			val L = 35
+		}
+
+	
 Certifique seu conhecimento
