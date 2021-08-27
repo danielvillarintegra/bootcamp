@@ -1,0 +1,12 @@
+Setup webservice, repositório, domain, use case e implementações
+
+Fazendo o setup das consultas ao webservice do projeto
+Criando o repositório e consultando a API - Parte 1
+Criando o repositório e consultando a API - Parte 2
+Criando as camadas de domain e data
+Criando a camada de use case e implementando o datasource
+Github da lista de filmes
+Github do projeto
+Github do projeto
+Github do projeto
+Certifique seu conhecimento

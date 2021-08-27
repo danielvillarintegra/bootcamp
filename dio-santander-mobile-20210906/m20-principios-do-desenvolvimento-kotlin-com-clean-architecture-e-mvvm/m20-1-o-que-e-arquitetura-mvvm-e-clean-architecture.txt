@@ -1,0 +1,9 @@
+O que é arquitetura MVVM e Clean Architecture
+
+Introdução e objetivos do curso
+Conceitos sobre MVVM
+Prática - Lista de dados fake de filmes
+Transferindo a lista fake de filmes para o viewmodel
+Github do projeto
+Github do projeto
+
