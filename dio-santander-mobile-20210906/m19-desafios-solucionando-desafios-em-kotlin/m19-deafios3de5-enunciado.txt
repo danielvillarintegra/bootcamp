@@ -1,0 +1,74 @@
+fun main() {
+    
+    val n = readLine()!!.toInt()
+     //declare suas variaveis auxiliares e continue a solucao
+    var sum : Int = 0
+    var t0 : Int = 0
+    var t1 : Int =1
+    
+    for (i in 1..(n-1)) {
+        print("$t0 ")
+        
+        sum = t0.plus(t1) 
+        t0 = t1
+        t1 = sum
+    }
+    print("$t0")
+    println()
+    
+}
+
+Desafio
+Você deve fazer a leitura de 5 valores inteiros. Em seguida mostre quantos valores informados são pares, quantos valores informados são ímpares, quantos valores informados são positivos e quantos valores informados são negativos.
+
+Entrada
+Você receberá 5 valores inteiros.
+
+Saída
+Exiba a mensagem conforme o exemplo de saída abaixo, sendo uma mensagem por linha e não esquecendo o final de linha após cada uma.
+
+ 
+Exemplo de Entrada	Exemplo de Saída
+-5
+0
+-3
+-4
+12
+
+3 valor(es) par(es)
+2 valor(es) impar(es)
+1 valor(es) positivo(s)
+3 valor(es) negativo(
+
+fun main() {
+
+    val inteiros = mutableListOf<Int>(-5, 0, -3, -4, 12)
+/* continue declarando as variaveis */
+    val pares = mutableListOf<Int>()
+    val impares = mutableListOf<Int>()
+    val positivos = mutableListOf<Int>()
+    val negativos = mutableListOf<Int>()
+
+
+/*    inteiros.forEach {println(it)} */
+
+/* Seleciona os valores positivos e negativos */
+    inteiros.forEach {
+        if ( it > 0 ) {
+            positivos.add(it)
+        } else if ( it < 0 ) {
+            negativos.add(it)
+        }
+    }
+
+    inteiros.forEach {
+        if (it.rem(2) == 0 ) {
+            pares.add(it)
+        } else impares.add(it)
+    }
+
+    println("${pares.size} valor(es) par(es)")
+    println("${impares.size} valor(es) impar(es)")
+    println("${positivos.size} valor(es) positivo(s)")
+    println("${negativos.size} valor(es) negativo(s)")
+}
