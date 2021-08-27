@@ -1,11 +1,50 @@
 Interagindo com um Content Provider
 
 Criando o CoordinatorLayout
+- no gradle, inserir implementar Material Design
+- na activity_main.xml, implementar um coordinatorlayout
+- na MainActivity.kt, instanciar o LoadManage (cursor em segundo plano)
+	a) implementar as buscas ao banco de dados em segundo plano através de:
+ 		onCreateLoader(): Instaciar o que será buscado
+		onLoadFinish(): Pegar os dados recebidos e manipular conforme nossa regra
+		onLoadReset(): Termina a consulta em segundo plano;
+
+
 Complementando o CardView com ConstrainLayout
-Criando a interface NoteClickedListener
+- criar note_item.xml como CardView
+- criar NotesAdapter.kt, implementar:
+	a) RecyclerView.Adapter<>{}, 
+	b) NotesViewHolder()
+	c) inserir cursor etc
+
+SCriando a interface NoteClickedListener
+- Criar uma interface NoteClickListener.kt para instanciar as ações do botão:
+	package com.courses.applicationcontentprovider
+	
+	import android.database.Cursor
+
+	interface NoteClickedListener { 
+		fun noteClickedItem(cursor: Cursor)
+		fun noteRemoveItem(curso: Cursor?)
+	}
+
+- Em NotesAdapter.kt , implementar o listener em 
+	class NotesAdapter(private val listener: NoteClickedListener):RecyclerView.Adapter<NoteVewHolder>(){
+
+- implementar:
+	override fun getItemCount(): Int = if (mCursor != null) mCursor?.count as Int else 0
+
+- implementar: 
+	override fun onBindViewHolder
+	
+
+
 Complementando a MainActivity e criando a classe NotesDetailFragment
 Complementando a classe NotesDetailFragment
 Desenvolvendo activity_main.xml
+- 
+
+
 Desenvolvendo ClientAdapter.kt e client_item.xml
 Finalizando com o método getContentProvider
 

@@ -1,0 +1,103 @@
+Roteiro Firebase Cloud Messaging
+
+No Android Studio e com um projeto aberto clicar no menu Tools / Firebase
+e em Cloud Messaging
+
+1) Connect your app to Firebase
+
+2) Add FCM to your app
+
+NOTE: After adding the SDK, here are some other helpful configurations to consider:
+ 
+Do you want an easier way to manage library versions? You can use the Firebase Android BoM to manage your Firebase library versions and ensure that your app is always using compatible library versions.
+
+https://firebase.google.com/docs/android/learn-more?utm_source=studio#bom 
+
+Veja como usar a BoM do Firebase para Android para declarar dependências no arquivo Gradle do módulo (nível do app) (geralmente app/build.gradle). Ao usar a BoM, não especifique versões de biblioteca individuais nas linhas de dependência.
+
+
+dependencies {
+  // Import the BoM for the Firebase platform
+  implementation platform('com.google.firebase:firebase-bom:28.3.0')
+
+  // Declare the dependencies for the desired Firebase products without specifying versions
+  // For example, declare the dependencies for Firebase Authentication and Cloud Firestore
+  implementation 'com.google.firebase:firebase-auth'
+  implementation 'com.google.firebase:firebase-firestore'
+}
+
+
+3) Access the device registrantion token
+
+On initial startup of your app, the FCM SDK generates a registration token for the client app instance. If you want to target single devices, or create device groups, you'll need to access this token.
+
+You can access the token's value by creating a new class which extends FirebaseInstanceIdService . In that class, call getToken within onTokenRefresh , and log the value as shown:
+
+		override fun onNewToken(token: String) {
+		    Log.d(TAG, "Refreshed token: $token")
+
+		    // If you want to send messages to this application instance or
+		    // manage this apps subscriptions on the server side, send the
+		    // FCM registration token to your app server.
+		    sendRegistrationToServer(token)
+		}
+
+Also add the service to your manifest file:
+
+		<service
+		    android:name=".MyFirebaseInstanceIDService">
+		    <intent-filter>
+		        <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+		    </intent-filter>
+		</service>
+
+The onTokenRefresh callback fires whenever a new token is generated, so calling getToken in its context ensures that you are accessing a current, available registration token. FirebaseInstanceID.getToken() returns null if the token has not yet been generated.
+After you have obtained the token, you can send it to your app server. See the Instance ID API reference for full detail on the API.
+
+
+4) Handle messages
+
+If you wish to do any message handling beyond receiving notifications on apps in the background, create a new Service ( File > New > Service > Service ) that extends FirebaseMessagingService . This service is necessary to receive notifications in foregrounded apps, to receive data payload, to send upstream messages, and so on.
+
+In this service create an onMessageReceived method to handle incoming messages.
+
+override fun onMessageReceived(remoteMessage: RemoteMessage) {
+    // ...
+
+    // TODO(developer): Handle FCM messages here.
+    // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
+    Log.d(TAG, "From: ${remoteMessage.from}")
+
+    // Check if message contains a data payload.
+    if (remoteMessage.data.isNotEmpty()) {
+        Log.d(TAG, "Message data payload: ${remoteMessage.data}")
+
+        if (/* Check if data needs to be processed by long running job */ true) {
+            // For long-running tasks (10 seconds or more) use WorkManager.
+            scheduleJob()
+        } else {
+            // Handle message within 10 seconds
+            handleNow()
+        }
+    }
+
+    // Check if message contains a notification payload.
+    remoteMessage.notification?.let {
+        Log.d(TAG, "Message Notification Body: ${it.body}")
+    }
+
+    // Also if you intend on generating your own notifications as a result of a received FCM
+    // message, here is where that should be initiated. See sendNotification method below.
+}
+
+- Declare the following in your application's manifest:
+
+		<service
+		    android:name=".MyFirebaseMessagingService">
+		    <intent-filter>
+		        <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+		    </intent-filter>
+		</service>
+
+If FCM is critical to the Android application's function, be sure to set android:minSdkVersion="8" or higher in the manifest. This ensures that the Android application cannot be installed in an environment in which it could not run properly.
+

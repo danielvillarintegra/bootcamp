@@ -1,6 +1,98 @@
 Trabalhando com Notifications
 
 O que é uma notificação e preparação inicial do código
+- As APIs são conjuntos de instruções e padrões de programação que server para fornecer dados e informações relevantes de uma determinada aplicação.
+- Normalmente fica em um servidor, ou seja o app faz uma requisição ao servidor, geralmente através de um gson.
+
+- No gradle (module) acrescentar as bibliotecas:
+	implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+	implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+	implementation 'com.github.bumptech.glide:glide:4.7.1'
+	annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1' 
+
+- no activity_main.xml, acrescentar a recyclerView:
+a) 	lateinit var recycleProducts: RecyclerView
+b)	recycleProducts = findViewById(R.id.recyclerProducts)
+
+Resultando 
+	class MainActivity : AppCompatActivity() {
+
+	    lateinit var recycleProducts: RecyclerView
+
+	    override fun onCreate(savedInstanceState: Bundle?) {
+        	super.onCreate(savedInstanceState)
+	        setContentView(R.layout.activity_main)
+
+	        recycleProducts = findViewById(R.id.recyclerProducts)
+
+	    }
+	}
+
+
+- no AndroidManifets.xml, acrescentar permissões para internet e acesso a estados da rede que a internet provem:
+
+	    <uses-permission android:name="android.permission.INTERNET"/>
+	    <uses-permission android:name="androind.permission.ACCES_NETWORK_STATE"/>
+
+Resulttando em
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="br.com.danielvillarintegra.applicationworkapi">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="androind.permission.ACCES_NETWORK_STATE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ApplicationWorkApi">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
+
+- Criar:
+a) um novo package com o nome model e dentro de app/java/br.com.danielvillarintegra.applicationworkapi
+
+b) uma data class Product.kt, dentro do package model
+
+	package br.com.danielvillarintegra.applicationworkapi.model
+
+	data class Product() {
+	
+	}
+- no Products.kt, que será responsável pelo mapeamento dos tipos de dados da API, acrescentar os campos abaixo que resultará em:
+
+package br.com.danielvillarintegra.applicationworkapi.model
+
+	import com.google.gson.annotations.SerializedName
+
+	data class Product(
+	    @SerializedName("id")
+	    val id: String
+	    @SerializedName("prname")
+	    val prName: String
+	    @SerializedName("primage")
+	    val prImage:String
+	    @SerializedName("prprice")
+	    val prPrice:String
+	)
+        
+- Fará o get e o set automaticamente
+
+
 Finalizando primeiro exemplo de notificação
 Integração com Firebase
 
