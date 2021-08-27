@@ -1,0 +1,10 @@
+Recurso de Contatos
+
+Conceitos iniciais e configuração do projeto
+Criação dos layouts
+Desenvolvendo a classe Contact, ContactAdapter
+Implementando a classe ViewHolder
+Desenvolvendo a classe MainActivity
+Desenvolvendo a função setContacts
+Finalizando o código e conclusão da aula
+Download do slide

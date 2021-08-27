@@ -1,0 +1,8 @@
+Como desenvolver uma agenda
+
+Conceitos iniciais e Permissões
+Preparação para inserir evento na agenda
+Desenvolvendo a classe MainActivity
+Conclusão da inserção de eventos na agenda
+Download do slide
+https://web.digitalinnovation.one/course/utilizando-recursos-nativos-do-android/learning/2a71f0ff-a5cd-4f8e-8fb4-e4674933ded3?back=/track/santander-mobile-developer#:~:text=Download%20do%20slide%3A%20https%3A//drive.google.com/file/d/1vFeeoEKuyyPo2hH8_hzqGxFqI87CIVB5/view%3Fusp%3Dsharing

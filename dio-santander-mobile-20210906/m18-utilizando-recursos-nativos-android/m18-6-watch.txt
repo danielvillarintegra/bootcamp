@@ -1,0 +1,34 @@
+Watch
+
+Conceitos iniciais e configuração inicial do projeto
+- setup e coneção entre o celular e o emulador
+- Como enviar mensagens do seu relógio para o seu telefone
+- 
+
+- instalar app no celular para simular um smartWatch
+- Abrir o módulo Wearable baixado através dos slides
+- Teremos dois módulos no Android Studio (serão dois aplicativos um no relógio e um no celular)
+	mobile
+	wear
+ 
+Adaptações ao layout
+- File/New/Module/ Java or Kotlin Library / sharede
+
+- No gradle inserir:
+
+- 
+
+
+Conectando o celular e o wear via Wifi
+- No gradle (mobile)
+
+Configurações finais da conexão
+-  
+- sendLike()
+
+Demonstração do projeto final e conclusão do curso
+- private fun showConfirmationScreen()
+
+
+Download do slide
+Certifique seu conhecimento

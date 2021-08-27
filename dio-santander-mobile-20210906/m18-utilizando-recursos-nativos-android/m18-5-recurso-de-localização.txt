@@ -1,0 +1,59 @@
+Recurso de Localização
+
+Conceitos iniciais e preparação do projeto
+https://developer.android.com/training/location
+- No Android Studio, criar um "Google Maps Activity" com API 26 ?
+- Para usar Google Maps APIs precisa de uma "API Key" e habilitar a chave no "developer console"
+- Precisa ter uma conta no google developer, senão criar uma ("create one").
+
+Google maps API Key e complementando a classe MainActivity
+- Seguir o link da API e cadastrar a chave/Key disponibilizada na conta do Google console no app em desenvolvimento;
+- No Android Studio, Preferences, Editor, Auto import:
+a) Java  Marcar "Optimize imports on the fly (for current project)"
+b) Kotlin, Marcar "Optimize imports on the fly (for current project)"
+
+-No gradle(module) acrescentar:
+implementation 'com.google.android.gms:play-services-location:11.8.0'
+
+- Na MapsActivity.kt, acrescentar:
+	lateinit fusedLocationClient: FusedLocationProviderClient
+
+	overide fun onMarkerClick (p0: Marler? ) = false
+
+Cenários diferentes nas funções onMapReady e setUpMap
+- Alterar as coordenadas
+- Aumentar o zoom
+- Acrescentar as permissões
+- acrescentar private fun setUpMap()
+- lateinit lastLocation: Location
+- inserir novas localizações nos controles extendidos do celular (emulador)
+- 
+Desenvolvendo código de marcador do usuário no mapa
+- private fun placeMarkerOnMap(location: LatLng)
+- baixar os ícones no atalho dos slides e copiar para 
+	src/main/res/ (Replace all)
+- 4 tipos de mapa: MAP_TYPE_HYBRID, MAP_TYPE_NORMAL, NONE, SATELLITE, TERRAIN .
+- private fun getAddress(latlng: LatLng)
+
+Condições avançadas de mapa e conclusão da aula
+- locationcCallBack
+- locationRequest
+- locationUpdateState = false
+- ACCESS_FINE_LOCATION
+- LOCATION_PERMISSION_REQUEST_CODE
+- PRIORITY_HIGH_ACCURACY
+- Evitar consumo de bateria durante onPause, pois GPS consome muita bateria:
+
+	override fun onPause() {
+		super.onPause()
+		fused.LocationClient.removeLocationUpdates(locationCallBack)
+	}
+
+	override fun onResume()
+		super.onResume()
+		if (!locatoinUpdateState) {
+			startLocationUpdates()
+		}
+	}
+
+Download do slide

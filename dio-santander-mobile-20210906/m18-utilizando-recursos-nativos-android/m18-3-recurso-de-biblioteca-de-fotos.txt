@@ -1,0 +1,7 @@
+Recurso de biblioteca de fotos
+
+Conceitos iniciais e preparação do projeto
+Criação do layout
+Desenvolvimento inicial da MainActivity e Permissões
+Função pickImageFromGallery e conclusão da aula
+Download do slide

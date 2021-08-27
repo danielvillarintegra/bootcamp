@@ -1,0 +1,27 @@
+Recurso de Câmera
+
+Conceitos iniciais e preparação do projeto
+- https://developer.android.com/training/camera
+- No app anterior, acrescentar um novo botão 
+- No AndroidManifest.xml, acrscentar as permissões:
+<uses-permission android:name="android.permission.CAMERA"/>
+<uses-permission android:name="android.permission.WHITE_EXTERNAL_STORAGE" tools:ignore="ScopedStorage"/>
+
+- Na MainActivity.kt, alterar:
+ 
+companion object {
+	private val PERMISSION_CODE_IMAGE_PICK = 1000
+	private val IMAGE_PICK_CODE = 1001
+
+Desenvolvimento inicial da MainActivity
+- Na MainActivity.kt, acrescentar:
+ 
+	companion object {
+		private val PERMISSION_CODE_CAMERA_CAPTURE = 2000
+
+
+Função openCamera e conclusão da aula
+- Na MainActivity.kt, criar a função openCamera()
+- Acrescentar o código da permissão OPEN_CAMERA_CODE
+
+Download do slide
