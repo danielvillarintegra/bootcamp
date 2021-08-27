@@ -1,0 +1,4 @@
+
+Data class CheckInRequestBody()
+	val email: String
+ 

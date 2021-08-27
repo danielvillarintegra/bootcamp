@@ -1,0 +1,31 @@
+Bootcamp Inter-Mentoria 19/08/2021
+https://www.youtube.com/watch?v=cu3Wh42n9c0
+
+Júlia Santos
+
+Clean Architecture
+
+Enterprise Busines Rules - Entidades
+1.Encapsulam as regras de negócios mais genéricas
+2.Objeto com seus métodos ou uma tabela de banco de dados
+3.Podem
+4.
+
+Application Business Rules - Use Cases
+1.regra de negócios específicas da aplicação
+2.Encapsula e implementa todos os casos de uso do Sistema
+3.Orquestram o fluxo de dados de e para as entidades e direcionam as entidades a usar regras de negocios em toda a aplicação
+4
+5.
+
+Interfaces adapters
+1. Converte os dados do formato mais conveninete para os useCases / entities para os mais convenientes para algunm agente exeterno
+2.
+3.
+
+Frameworks and drivers (Camada mais externa)
+1.
+2.
+3.
+
+Alta coesão e baixo acoplamento
