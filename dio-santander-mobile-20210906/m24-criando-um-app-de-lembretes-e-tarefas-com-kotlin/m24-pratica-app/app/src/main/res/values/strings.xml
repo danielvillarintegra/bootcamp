@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TO DO</string>
+    <string name="tarefas">Tarefas</string>
+    <string name="hint_titulo">Título</string>
+    <string name="data_hint">Data</string>
+    <string name="hora_hint">Hora</string>
+</resources>
