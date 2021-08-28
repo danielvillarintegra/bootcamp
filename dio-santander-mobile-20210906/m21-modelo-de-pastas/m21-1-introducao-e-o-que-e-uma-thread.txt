@@ -1,0 +1,12 @@
+Introdução e o que é uma thread
+
+Introdução e objetivos do curso
+Conceitos iniciais sobre thread
+Apresentação do exercício final
+Exercício prático sobre os modelos de Threads no android - Parte 1
+Exercício prático sobre os modelos de Threads no android - Parte 2
+Criar classe para representar o resultado da API
+Criar a classe responsável por carregar os dados
+Criar função para exibir os dados carregados
+Desenvolvendo classe para rodar tarefa assíncrona e propriedade para requisição http
+
