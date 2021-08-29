@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import br.com.danielvillarintegra.todolist.databinding.ActivityAddTaskBinding
 import br.com.danielvillarintegra.todolist.extensions.format
+import br.com.danielvillarintegra.todolist.extensions.text
 import com.google.android.material.datepicker.MaterialDatePicker
 import java.util.*
 
@@ -23,10 +24,11 @@ class AddTaskActivity : AppCompatActivity() {
         binding.tilDate.editText?.setOnClickListener {
             val datePicker = MaterialDatePicker.Builder.datePicker().build()
             datePicker.addOnPositiveButtonClickListener {
-                Date(it).format()
+                val timeZone = TimeZone.getDefault()
+                val offset = timeZone.getOffset(Date().time) * -1
+                binding.tilDate.text = Date(it + offset).format()
             }
             datePicker.show(supportFragmentManager, "DATE_PICKER_TAG")
-
         }
 
     }
