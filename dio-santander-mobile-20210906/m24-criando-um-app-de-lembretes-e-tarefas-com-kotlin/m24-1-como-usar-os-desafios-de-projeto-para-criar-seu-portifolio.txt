@@ -19,5 +19,11 @@ ViewBinding e date picker
 
 - Fonte: https://medium.com/androiddevelopers/use-view-binding-to-replace-findviewbyid-c83942471fc	
 
+- Se acrescentamos ".val" a um objeto, o Android Studio já reformata o código instanciando o objeto:
 
+	 ActivityAddTaskBinding.inflate(layoutInflater).val 
+
+-resultando em:
+
+ 	val inflate = ActivityAddTaskBinding.inflate(layoutInflater)
 
