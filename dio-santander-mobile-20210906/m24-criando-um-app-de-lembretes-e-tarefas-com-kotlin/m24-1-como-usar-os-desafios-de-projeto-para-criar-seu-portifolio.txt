@@ -25,5 +25,100 @@ ViewBinding e date picker
 
 -resultando em:
 
- 	val inflate = ActivityAddTaskBinding.inflate(layoutInflater)
+ 	val inflate = ActivityAddTaskBinding.inflate(layoutInflater) 
+
+resultado 
+
+	class AddTaskActivity : AppCompatActivity() {
+    		override fun onCreate(savedInstanceState: Bundle?) {
+		        super.onCreate(savedInstanceState)
+		        val binding = ActivityAddTaskBinding.inflate(layoutInflater)
+		        setContentView(binding.root)
+    		}
+	}
+
+- Adicionar AddTaskActivity no Android Manifest (manualmente ou através da "lâmpada" ao colocar o cursor sobre o nome da class )
+
+- Em AndroidManifes, mover o conteudo da MainActivity para a AddActivity e poder visualizar essa tela durante a execução:
+       <activity
+            android:name=".MainActivity"
+            android:exported="true">
+ 
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity android:name=".ui.AddTaskActivity" >
+
+resultado :            
+
+        </activity>
+
+       <activity
+            android:name=".MainActivity"
+            android:exported="true">
+
+        </activity>
+        <activity android:name=".ui.AddTaskActivity" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+- Em AddTaskActivity, acrescentar insertListeners() após o binding:
+	class AddTaskActivity : AppCompatActivity() {
+	    private lateinit var binding: ActivityAddTasksBinding
+
+	    override fun onCreate(savedInstanceState: Bundle?) {
+        	super.onCreate(savedInstanceState)
+	        binding = ActivityAddTaskBinding.inflate(layoutInflater)
+        	setContentView(binding.root)
+
+	        insertListeners()
+    		}
+
+	    private fun insertListeners() {
+
+
+	    }
+	}
+- inserir um Log.e para saber se o onClickListeners está funcionando:
+
+   private fun insertListeners() {
+        binding.tilDate.editText?.setOnClickListener {
+        	Log.e("TAG", "insertListeners")
+        }
+
+    }
+
+- Remover o Log.e e acrescentar :
+
+   private fun insertListeners() {
+        binding.tilDate.editText?.setOnClickListener {
+            val datePicker = MaterialDatePicker.Builder.datePicker().build()
+            datePicker.show(supportFragmentManager, "DATE_PICKER_TAG")
+        }
+
+    }
+
+- Criar package extensions dentro de java/br.com.danielvillarintegra.todolist
+	java/br.com.danielvillarintegra.todolist.extensions
+
+- Criar AppExtensions.kt dentro de java/br.com.danielvillarintegra.todolist.extensions e inserir:
+
+		package br.com.danielvillarintegra.todolist.extensions
+
+		import java.util.*
+
+		private val locale = Locale("pt", "BR")
+
+		fun Date.format() : String {
+		    return java.text.SimpleDateFormat("dd/MM/yyyy").format(this)
+		}
+
 
