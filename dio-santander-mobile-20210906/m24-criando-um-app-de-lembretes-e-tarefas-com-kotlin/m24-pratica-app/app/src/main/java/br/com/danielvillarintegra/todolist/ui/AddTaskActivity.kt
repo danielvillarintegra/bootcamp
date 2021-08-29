@@ -7,6 +7,6 @@ import br.com.danielvillarintegra.todolist.databinding.ActivityAddTaskBinding
 class AddTaskActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ActivityAddTaskBinding
+        val inflate = ActivityAddTaskBinding.inflate(layoutInflater)
     }
 }
