@@ -1,2 +1,23 @@
-Título do submódulo 1
-Listar os tópicos antes de iniciar o curso
+Como usar os desafios de projeto para criar seu portfolio
+Introdução
+Configurando nosso primeiro projeto
+Um pouco do Android Studio
+Começando a por a mão na massa
+O que são Temas
+Criando a tela de criar tarefas
+
+ViewBinding e date picker
+
+- Acrescentar no gradle (module):
+
+	// Android Studio 4.0 
+	android { 
+    		buildFeatures { 
+        		viewBinding = true 
+    		} 
+	}
+
+- Fonte: https://medium.com/androiddevelopers/use-view-binding-to-replace-findviewbyid-c83942471fc	
+
+
+
