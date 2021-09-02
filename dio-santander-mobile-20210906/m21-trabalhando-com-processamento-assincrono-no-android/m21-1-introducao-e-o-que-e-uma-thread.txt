@@ -1,7 +1,17 @@
 Introdução e o que é uma thread
 
 Introdução e objetivos do curso
+
 Conceitos iniciais sobre thread
+- Definição de thread
+- Visão geral dos processos e threads: O Android vai lançar uma execeção senós tentarmos acessar a rede através da thread principal
+- Multitarefas no Android
+- Modelo de threads no Android
+- Android Thread principal, 60 fps < 17ms -
+- AsyncTask: 	executar a tarefa de rede em um thread secundário
+		fazer alterações na interface de usuário
+
+
 Apresentação do exercício final
 Exercício prático sobre os modelos de Threads no android - Parte 1
 Exercício prático sobre os modelos de Threads no android - Parte 2
