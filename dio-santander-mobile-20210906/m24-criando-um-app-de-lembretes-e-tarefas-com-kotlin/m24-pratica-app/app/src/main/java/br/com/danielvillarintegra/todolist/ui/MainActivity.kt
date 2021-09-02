@@ -22,6 +22,8 @@ class MainActivity : AppCompatActivity() {
         updateList()
 
         insertListeners()
+        //DATA STORE
+        //ROOM
     }
 
     private fun insertListeners() {
@@ -44,19 +46,16 @@ class MainActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == CREATE_NEW_TASK && resultCode == Activity.RESULT_OK) {
-            updateList()
+        if (requestCode == CREATE_NEW_TASK && resultCode == Activity.RESULT_OK) updateList()
 
-        }
     }
 
     private fun updateList() {
         val list = TaskDataSource.getList()
-        if (list.isEmpty()) {
-            binding.includeEmpty.emptyState.visibility = View.VISIBLE
-        } else {
-            binding.includeEmpty.emptyState.visibility = View.GONE
-        }
+        binding.includeEmpty.emptyState.visibility =
+            if (list.isEmpty()) View.VISIBLE
+            else View.GONE
+
         adapter.submitList(list)
     }
 
