@@ -266,4 +266,24 @@ resultado :
         </activity>
         <activity android:name=".ui.AddTaskActivity" />
 
+Mostrando lista de tarefas
+- Em res , new, New Resource Directory
+- Resource type : menu
+
+- E e no res/menu, new, New Resource Directory, menu, com o nome popup_menu.xml e inserir os itens abaixo:
+
+	<?xml version="1.0" encoding="utf-8"?>
+	<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	    <item
+        	android:id="@+id/action_edit"
+	        android:title="@string/label_edit" />
+
+	    <item
+        	android:id="@+id/action_delete"
+	        android:title="@string/label_delete" />
+
+	</menu>
+
+Editando Tarefas
+-
 
