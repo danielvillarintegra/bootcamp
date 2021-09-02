@@ -11,9 +11,23 @@ Conceitos iniciais sobre thread
 - AsyncTask: 	executar a tarefa de rede em um thread secundário
 		fazer alterações na interface de usuário
 
-
 Apresentação do exercício final
+-
+
 Exercício prático sobre os modelos de Threads no android - Parte 1
+- Acessar os site 
+a) api.open-notify.org
+	People in Space Right Now -> http://api.open-notify.org/astros.json
+
+b) https://jsonformatter.curiousconcept.com/
+
+c) https://github.com/brunoluizcs/android-bootcamp-threading/tree/exercise-asynctask-completed
+	tem três branchs:
+		exercise-asynctask-completed
+		exercise-asynctask
+		main
+
+
 Exercício prático sobre os modelos de Threads no android - Parte 2
 Criar classe para representar o resultado da API
 Criar a classe responsável por carregar os dados
