@@ -1,8 +1,23 @@
 Performing background work with services
 
 Introdução ao service
+- um dos 4 componentes primários do AndroiManifest
+- 3 tipos de service:
+	primeiro plano (foreground service): são perceptiveis pelo usuário, android não interrompe.
+	segundo plano	(background service): não são perceptiveis pelo usuário, Android pode interromper para obter mais memória.
+	Serviço vinculado (AIDL - Android Interface Definition Language), interface cliente servidor
+
 Apresentação do exercício final
 Exercício prático com service - Parte 1
+- Intent service, 
+- sharedPreferences
+- Action´s
+- TODO 1 a 4
+
 Exercício prático com service - Parte 2
+- TODO 5 a 7
+
 Exercício prático com service - Parte Final
+- TODO 8 a 10
+
 Certifique seu conhecimento
