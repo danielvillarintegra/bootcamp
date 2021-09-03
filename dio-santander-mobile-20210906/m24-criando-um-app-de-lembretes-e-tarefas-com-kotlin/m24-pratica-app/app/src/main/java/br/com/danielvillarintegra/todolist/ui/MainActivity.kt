@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         updateList()
 
         insertListeners()
+        //ENVIAR EVENTO PARA AGENDA
         //DATA STORE
         //ROOM
     }
