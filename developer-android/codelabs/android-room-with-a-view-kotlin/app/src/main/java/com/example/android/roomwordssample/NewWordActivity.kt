@@ -33,7 +33,13 @@ class NewWordActivity : AppCompatActivity() {
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_word)
+
         val editWordView = findViewById<EditText>(R.id.edit_word)
+        val editIdView = findViewById<EditText>(R.id.edit_id)
+        val editTitleView = findViewById<EditText>(R.id.edit_title)
+        val editHourView = findViewById<EditText>(R.id.edit_hour)
+        val editDateView = findViewById<EditText>(R.id.edit_date)
+        val editDescriptionView = findViewById<EditText>(R.id.edit_description)
 
         val button = findViewById<Button>(R.id.button_save)
         button.setOnClickListener {
@@ -42,7 +48,17 @@ class NewWordActivity : AppCompatActivity() {
                 setResult(Activity.RESULT_CANCELED, replyIntent)
             } else {
                 val word = editWordView.text.toString()
+                val id = editIdView.text.toString()
+                val title = editTitleView.text.toString()
+                val hour = editHourView.text.toString()
+                val date = editDateView.text.toString()
+                val description = editDescriptionView.text.toString()
                 replyIntent.putExtra(EXTRA_REPLY, word)
+                replyIntent.putExtra(EXTRA_REPLY, id)
+                replyIntent.putExtra(EXTRA_REPLY, title)
+                replyIntent.putExtra(EXTRA_REPLY, hour)
+                replyIntent.putExtra(EXTRA_REPLY, date)
+                replyIntent.putExtra(EXTRA_REPLY, description)
                 setResult(Activity.RESULT_OK, replyIntent)
             }
             finish()

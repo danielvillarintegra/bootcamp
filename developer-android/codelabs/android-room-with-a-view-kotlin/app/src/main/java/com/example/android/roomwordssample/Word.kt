@@ -32,4 +32,11 @@ import androidx.room.PrimaryKey
  */
 
 @Entity(tableName = "word_table")
-data class Word(@PrimaryKey @ColumnInfo(name = "word") val word: String)
+data class Word(@PrimaryKey
+                @ColumnInfo(name = "word") val word: String,
+                @ColumnInfo(name = "id") val id: Int,
+                @ColumnInfo(name = "tilte") val title: String,
+                @ColumnInfo(name = "hour") val hour: String,
+                @ColumnInfo(name = "date") val date: String,
+                @ColumnInfo(name = "descritions") val description: String
+                )

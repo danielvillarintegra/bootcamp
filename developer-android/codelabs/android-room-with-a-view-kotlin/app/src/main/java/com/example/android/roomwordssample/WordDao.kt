@@ -40,7 +40,7 @@ interface WordDao {
     fun getAlphabetizedWords(): Flow<List<Word>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(word: Word)
+    suspend fun insert(title: Word)
 
     @Query("DELETE FROM word_table")
     suspend fun deleteAll()

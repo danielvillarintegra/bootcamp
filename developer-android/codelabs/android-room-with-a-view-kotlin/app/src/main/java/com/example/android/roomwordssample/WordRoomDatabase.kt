@@ -88,9 +88,9 @@ abstract class WordRoomDatabase : RoomDatabase() {
             // Not needed if you only populate on creation.
             wordDao.deleteAll()
 
-            var word = Word("Hello")
+            var word = Word("Hello",0,"title","hora","data","Descrição")
             wordDao.insert(word)
-            word = Word("World!")
+            word = Word("World!",0,"title","hora","data","Descrição")
             wordDao.insert(word)
         }
     }
