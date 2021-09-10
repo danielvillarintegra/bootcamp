@@ -5,6 +5,8 @@ https://www.linkedin.com/in/igor-rotondo-bagliotti-b1612b69/
 https://github.com/igorbag
 https://web.digitalinnovation.one/users/igor_bagliotti?tab=achievements
 
+Slides da aula: https://drive.google.com/file/d/1PfB2Tsk04sLxWi3MOMErqzWoqCVBkRs1/view?usp=sharing
+
 Requisitos Básicos
 DESCRIÇÃO
 Crie uma aplicação para gerar o seu próprio cartão de visitas pessoal, usando padrões de projeto e boas práticas de programação Kotlin. Tecnicamente, você desenvolverá um App Android nativo para a criação e listagem dos cartões, os quais podem ter os seguintes dados: nome, empresa, telefone de contato, email e cor de fundo. Tudo isso utilizando o Room para armazenar os dados localmente. Por fim, você é desafiado a entregar seu próprio projeto, incorporando suas próprias evoluções e melhorias! Está preparado?

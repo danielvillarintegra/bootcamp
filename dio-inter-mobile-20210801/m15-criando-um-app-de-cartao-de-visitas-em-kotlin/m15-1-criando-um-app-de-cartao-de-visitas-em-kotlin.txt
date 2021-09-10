@@ -1,2 +1,251 @@
-Título do submódulo 1
-Listar os tópicos antes de iniciar o curso
+Criando um app de Cartão de Visitas em Kotlin
+
+Como usar os desafios de projeto para criar seu portfólio
+
+Apresentação do Curso
+
+Preparação do ambiente e criação do App
+
+- No gradle(module) acrescentar plugin - kapt:
+	plugins {
+	    id 'com.android.application'
+	    id 'kotlin-android'
+	    id 'kotlin-kapt'
+	}
+
+- No gradle(module) acrescentar os parâmetros/dependências:
+
+	dependencies {
+	    def room_version = "2.3.0" 		// Versão do Room
+	    def lifecycle_version = "2.2.0"	// para injetar as dependência do ViewModel
+	    def activity_version = "1.2.3"	// para utilizar o gerenciamento do ViewModel
+
+    //http://developer.android.com/kotlin/ktx
+    implementation "androidx.activity:activity-ktx:$activity_version"
+
+    // Room Database
+    implementation "androidx.room:room-ktx:$room_version"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    //Lifecycle components
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+
+resultando em
+
+	dependencies {
+	    def room_version = "2.3.0"
+	    def lifecycle_version = "2.2.0"
+	    def activity_version = "1.2.3"
+
+	    implementation 'androidx.core:core-ktx:1.6.0'
+	    implementation 'androidx.appcompat:appcompat:1.3.1'
+	    implementation 'com.google.android.material:material:1.4.0'
+	    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
+	    testImplementation 'junit:junit:4.+'
+	    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+	    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+	    //http://developer.android.com/kotlin/ktx
+	    implementation "androidx.activity:activity-ktx:$activity_version"
+
+	    // Room Database
+	    implementation "androidx.room:room-ktx:$room_version"
+	    implementation "androidx.room:room-runtime:$room_version"
+	    kapt "androidx.room:room-compiler:$room_version"
+
+	    //Lifecycle components
+	    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+	    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+	    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+	}
+
+- Em app/java/br.com./danielvillarintegra.businesscard, criar as packages: 
+	data
+	ui
+	util
+
+- Mover com refator, MainActivity para ui
+
+- Em app/java/br.com./danielvillarintegra.businesscard, criar classe App , que será uma classe inicializadora do nosso app, resultando em:
+
+	package br.com.danielvillarintegra.businesscard
+
+	import android.app.Application
+
+	class App : Application() {
+	}
+
+- Em AndroidManifest.xml, acrescentar a classe inicializadora App (android:name=".App"), resultando em:
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="br.com.danielvillarintegra.businesscard">
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.BusinessCard">
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>  
+
+- Google recomenda usar binding. 
+- No gradle(module) acrescentar:
+
+     buildFeatures {
+        viewBinding = true
+    }
+
+
+-resultando em:
+...
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding = true
+    }
+}
+
+dependencies {
+...
+
+- Na MainActivity, acrescentar     
+
+    private val binding by lazy {ActivityMainBinding.inflate(layoutInflater)}
+
+resultando em
+
+class MainActivity : AppCompatActivity() {
+    
+    private val binding by lazy {ActivityMainBinding.inflate(layoutInflater)}
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+    }
+}
+
+
+- Na MainActivity, modificar setContentView para
+        setContentView(binding.root) // basicamente o xml root do app
+     
+
+Montando layout do projeto parte 1
+- Replicando o layout
+
+- Acrescentar o floatingButton, no canto inferior direito, com margem de 16dp
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"
+
+- Google icons: fonts.google.com/icons, baixar o ícone add em branco e adicionar através do new, vector asset.
+
+- No activity_main.xml, acrecentar i ícone add, resultando em:
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompact="@drawable/ic_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp" />
+
+
+- Em gradle(module), modificar o minsdkVersion de 16 para 21
+
+android {
+    compileSdk 30
+
+    defaultConfig {
+        applicationId "br.com.danielvillarintegra.businesscard"
+        minSdk 21
+...
+
+- Em themes.xml substituir .DarkActionBar por .NoActionBar , alterar a cor black por white resultando em:
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.BusinessCard" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+</resources>
+
+- Em themes.xml (nigth) substituir .DarkActionBar por .NoActionBar
+
+Montando layout do projeto parte 2
+- Em layout, adicionar item_business_card.xml
+
+-	android:layout_width="match_parent"
+	android:layoutheight="0dp"
+	android:checkable="true"
+	android:clickable="true"
+	android:focusable="true"
+	android:layout_margin="16dp"
+	app:cardCornerRadius="16dp"	//borda arredondada do cardview
+	app:cardElevation="8dp" 	//Elevação (sombra) do cardview
+
+
+
+Montando layout do projeto parte 3
+
+Configuração do Room Database, parte 1
+- Resumo
+		Adicionar funcionalidade de cadstrar cartão
+		Adicionar funcionalidade de listar cartão
+		Integrar View com persistencia de dados
+		Criar adapter com listagem de cartões
+
+- Criar classe AppDatabase.kt, que vai gerenciar nossas entidades e nosso Room
+- Em App.kt instanciar 
+
+Configuração do Room Database, parte 2
+
+Configuração do Room Database, parte 3
+
+
+Compartilhamento do Cartão de visita
+
+Slides
+
+Entrega do projeto
+
+Resumos e referências:
+https://developer.android.com/kotlin/ktx#kts
+
+O Android KTX é um conjunto de extensões Kotlin que fazem parte do Android Jetpack e de outras bibliotecas do Android. Com as extensões do KTX, o Jetpack, a Plataforma Android e outras APIs podem fazer uso de uma linguagem Kotlin concisa e idiomática. Para isso, essas extensões usam vários recursos do Kotlin, incluindo:
+
+Funções da extensão
+Propriedades de extensão
+Lambdas
+Parâmetros nomeados
+Valores padrão de parâmetro
+Corrotinas
+
