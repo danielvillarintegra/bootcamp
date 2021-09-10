@@ -1,0 +1,9 @@
+09/09/2021 16h - Abstraindo domínios usando Orientação a Objetos com Kotlin - Rafael Leão
+17/09/2021 16h - Tudo que você sempre quis saber sobre desenvolvimento de apps com Kotlin
+23/09/2021 16h
+01/10/2021 16h
+06/10/2021 16h
+20/10/2021 16h
+30/11/2021 15h
+
+
