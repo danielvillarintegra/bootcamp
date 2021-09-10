@@ -2,12 +2,17 @@ package br.com.dio.todolist.ui
 
 import android.app.Activity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import br.com.dio.todolist.R
+import br.com.dio.todolist.TasksApplication
 import br.com.dio.todolist.databinding.ActivityAddTaskBinding
-import br.com.dio.todolist.model.TaskDataSource
-import br.com.dio.todolist.extensions.format
-import br.com.dio.todolist.extensions.text
-import br.com.dio.todolist.model.Task
+import br.com.dio.todolist.util.format
+import br.com.dio.todolist.database.Task
+import br.com.dio.todolist.util.text
+import br.com.dio.todolist.model.TaskViewModel
+import br.com.dio.todolist.model.TaskViewModelFactory
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
@@ -15,26 +20,19 @@ import java.util.*
 
 class AddTaskActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityAddTaskBinding
+    private val binding by lazy { ActivityAddTaskBinding.inflate(layoutInflater) }
+
+    private val taskViewModel: TaskViewModel by viewModels {
+        TaskViewModelFactory((application as TasksApplication).repository)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityAddTaskBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        if (intent.hasExtra(TASK_ID)) {
-            val taskId = intent.getIntExtra(TASK_ID, 0)
-            TaskDataSource.findById(taskId)?.let {
-                binding.tilTitle.text = it.title
-                binding.tilDate.text = it.date
-                binding.tilHour.text = it.hour
-                binding.tilDescription.text = it.description
-            }
-        }
-
         insertListeners()
-    }
+
+      }
 
     private fun insertListeners() {
         binding.tilDate.editText?.setOnClickListener {
@@ -76,7 +74,9 @@ class AddTaskActivity : AppCompatActivity() {
                 id = intent.getIntExtra(TASK_ID, 0)
 
             )
-            TaskDataSource.insertTask(task)
+            taskViewModel.insertTask(task)
+            Toast.makeText(this, R.string.label_show_success,Toast.LENGTH_SHORT).show()
+            // TaskDataSource.insertTask(task)
             setResult(Activity.RESULT_OK)
             finish()
         }

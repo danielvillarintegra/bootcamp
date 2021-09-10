@@ -8,9 +8,10 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import br.com.dio.todolist.R
 import br.com.dio.todolist.databinding.ItemTaskBinding
-import br.com.dio.todolist.model.Task
+import br.com.dio.todolist.database.Task
 
-class TaskListAdapter : ListAdapter<Task, TaskListAdapter.TaskViewHolder>(DiffCallback()) {
+class TaskListAdapter :
+    ListAdapter<Task, TaskListAdapter.TaskViewHolder>(DiffCallback()) {
 
     var listenerEdit : (Task) -> Unit = {}
     var listenerDelete : (Task) -> Unit = { }
