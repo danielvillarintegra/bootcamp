@@ -1,0 +1,37 @@
+https://youtu.be/dQgbec62IMY
+
+Respeitar o contrato
+
+---
+Encapsulamento
+---- 
+enum
+-----
+
+override fun obtemCorpo() : String {
+val corpo = StringBuilder()
+
+ListaDeProdutos.forEach { item ->
+corpo.append("${item.produto.nome}\n")
+corpo.append("${NumberFormat.getCurrencyInstance().format(item.produto.preco)}\n")
+
+---
+
+BigDecimalExtension @
+formataPraReal
+
+----
+Dica Bruno Duarte - Carrefour Brasil
+
+Rafael Leão - Carrefour
+Gustavo Silvestre - Carrefour Brasil
+Kainã - DIO
+
+----
+Classe abstrata para operadora de maquina de cartão de crédito
+
+abstract class Operadora { }
+
+---- Polimorfismo com classe abstrata e 
+
+#BigAprendizado 
