@@ -42,7 +42,12 @@ class WordViewModel(private val repository: WordRepository) : ViewModel() {
     fun insert(word: Word) = viewModelScope.launch {
         repository.insert(word)
     }
+
+    fun deleteWord(word: Word) = viewModelScope.launch {
+        repository.deleteWord(word)
+    }
 }
+
 
 class WordViewModelFactory(private val repository: WordRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

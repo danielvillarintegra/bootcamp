@@ -24,4 +24,5 @@ limitations under the License. -->
     <string name="hint_hour">hora</string>
     <string name="hint_date">data</string>
     <string name="hint_title">título</string>
+    <string name="delete_word">delete</string>
 </resources>

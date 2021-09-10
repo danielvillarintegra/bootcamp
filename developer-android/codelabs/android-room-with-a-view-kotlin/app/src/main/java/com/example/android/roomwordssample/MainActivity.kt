@@ -49,7 +49,16 @@ class MainActivity : AppCompatActivity() {
             startActivityForResult(intent, newWordActivityRequestCode)
         }
 
-        
+        val fab_delete = findViewById<FloatingActionButton>(R.id.fab_delete)
+        fab_delete.setOnClickListener {
+            Toast.makeText(
+                applicationContext,
+                R.string.empty_not_saved,
+                Toast.LENGTH_LONG
+            ).show()
+
+        }
+
         // Add an observer on the LiveData returned by getAlphabetizedWords.
         // The onChanged() method fires when the observed data changes and the activity is
         // in the foreground.
@@ -64,7 +73,7 @@ class MainActivity : AppCompatActivity() {
 
         if (requestCode == newWordActivityRequestCode && resultCode == Activity.RESULT_OK) {
             intentData?.getStringExtra(NewWordActivity.EXTRA_REPLY)?.let { reply ->
-                val word = Word(reply,0,"title","hora","data","Descrição")
+                val word = Word(0,"title","hora","data","Descrição")
                 wordViewModel.insert(word)
             }
         } else {

@@ -34,7 +34,6 @@ class NewWordActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_word)
 
-        val editWordView = findViewById<EditText>(R.id.edit_word)
         val editIdView = findViewById<EditText>(R.id.edit_id)
         val editTitleView = findViewById<EditText>(R.id.edit_title)
         val editHourView = findViewById<EditText>(R.id.edit_hour)
@@ -44,16 +43,14 @@ class NewWordActivity : AppCompatActivity() {
         val button = findViewById<Button>(R.id.button_save)
         button.setOnClickListener {
             val replyIntent = Intent()
-            if (TextUtils.isEmpty(editWordView.text)) {
+            if (TextUtils.isEmpty(editIdView.text)) {
                 setResult(Activity.RESULT_CANCELED, replyIntent)
             } else {
-                val word = editWordView.text.toString()
                 val id = editIdView.text.toString()
                 val title = editTitleView.text.toString()
                 val hour = editHourView.text.toString()
                 val date = editDateView.text.toString()
                 val description = editDescriptionView.text.toString()
-                replyIntent.putExtra(EXTRA_REPLY, word)
                 replyIntent.putExtra(EXTRA_REPLY, id)
                 replyIntent.putExtra(EXTRA_REPLY, title)
                 replyIntent.putExtra(EXTRA_REPLY, hour)
