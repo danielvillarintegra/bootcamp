@@ -3,39 +3,39 @@
     <item
         android:id="@+id/color_red"
         android:title="@string/label_color_red"
-        android:Color="@color/red_500"/>
+        android:textColor="@color/red_500"/>
 
     <item
         android:id="@+id/color_orange"
         android:title="@string/label_color_orange"
-        android:Color="@color/orange_500"/>
+        android:textColor="@color/orange_500"/>
 
     <item
         android:id="@+id/color_yellow"
         android:title="@string/label_color_yellow"
-        android:Color="@color/yellow_500"/>
+        android:textColor="@color/yellow_500"/>
 
     <item
         android:id="@+id/color_green"
         android:title="@string/label_color_green"
-        android:Color="@color/green_500"/>
+        android:textColor="@color/green_500"/>
 
     <item
         android:id="@+id/color_blue"
         android:title="@string/label_color_blue"
-        android:Color="@color/blue_500"/>
+        android:textColor="@color/blue_500"/>
 
     <item
         android:id="@+id/color_purple"
         android:title="@string/label_color_purple"
-        android:Color="@color/purple_500"/>
+        android:textColor="@color/purple_500"/>
 
     <item
         android:id="@+id/color_white"
         android:title="@string/label_color_white"
-        android:Color="@color/white"/>
+        android:textColor="@color/white"/>
     <item
         android:id="@+id/color_black"
         android:title="@string/label_color_black"
-        android:Color="@color/black"/>
+        android:textColor="@color/black"/>
 </menu>
