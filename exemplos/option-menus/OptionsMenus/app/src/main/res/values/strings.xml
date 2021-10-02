@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">OptionsMenus</string>
+    <string name="item_menu_1">Compartilhar</string>
+    <string name="item_menu_2">Editar</string>
+    <string name="item_menu_3">Excluir</string>
+    <string name="item_menu_4">Buscar</string>
+    <string name="item_menu_5">Ligar</string>
+    <string name="item_menu_6">Favoritar</string>
+</resources>
