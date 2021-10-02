@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">NavigationDrawer</string>
+    <string name="item_menu_1">Compartilhar</string>
+    <string name="item_menu_2">Editar</string>
+    <string name="item_menu_3">Excluir</string>
+    <string name="item_menu_4">Buscar</string>
+    <string name="item_menu_5">Ligar</string>
+    <string name="item_menu_6">Favoritar</string>
+
+    <string name="open_drawer">Abrir</string>
+    <string name="close_drawer">Fechar</string>
+</resources>
