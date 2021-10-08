@@ -24,8 +24,6 @@ class BusinessCardRepository(private val dao: BusinessCardDao) {
         }
     }
 
-    fun getOne(businessCard: BusinessCard) = dao.getOne(businessCard.id)
-
     fun getAll() = dao.getAll()
 
 }

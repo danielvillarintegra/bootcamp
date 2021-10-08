@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -45,57 +46,75 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun mockInicial() {
-        val businessCard = BusinessCard(
-            nome = "Daniel",
-            empresa = "D Integra e Resolve",
-            telefone = "11 99",
-            email = "daniel@att.com",
-            fundoPersonalizado = "#FFFFFFFF"
+        var businessCard = BusinessCard(
+            nome = "José Maria João",
+            empresa = "Panificadora da esquina",
+            telefone = "2345-9999",
+            email = "josemariajoao@panific.com.br",
+            fundoPersonalizado = "#FFFFFF90"
         )
         mainViewModel.insert(businessCard)
-        finish()
 
-        val businessCard2 = BusinessCard(
-            nome = "bi",
-            empresa = "Cra",
-            telefone = "55 11 99",
-            email = "bi@fmail.com",
+        businessCard = BusinessCard(
+            nome = "Maria José Antonio",
+            empresa = "Boutique do bairro",
+            telefone = "2345-1285",
+            email = "mariajoseantonio@butiqchic.com",
             fundoPersonalizado = "#FFF00FFF"
         )
-        mainViewModel.insert(businessCard2)
+        mainViewModel.insert(businessCard)
         Log.i("I/Sucesso","MainActivity Inserido mock com sucesso")
-        finish()
     }
 
     private fun insertListeners() {
         binding.tvTitle.setOnClickListener {
-            mockInicial()
+            binding.pbProgressbar.visibility = View.VISIBLE  // Torna visível a ProgressBar
+            Thread {
+
+                try {
+                    mockInicial()
+                } catch (ex: Exception) {
+                    ex.printStackTrace()
+                }
+                runOnUiThread {
+                    binding.pbProgressbar.visibility = View.GONE // "Esconde" a ProgressBar
+                    Toast.makeText(this, "Populando", Toast.LENGTH_SHORT).show()
+                }
+            }.start()
         }
+
         binding.fab.setOnClickListener {
             val intent = Intent(this, AddBusinessCardActivity::class.java)
             startActivity(intent)
             Log.i("I/Sucesso","Click em inserir (popupmenu->MA)")
         }
 
-        adapter.listenerEdit = {
+        adapter.listenerEdit = { businessCard ->
             val intent = Intent(this, AddBusinessCardActivity::class.java)
-            intent.putExtra("index", it.id)
+            intent.putExtra("index", businessCard.id)
             startActivity(intent)
-            Log.i("I/Sucesso","Click em Edit (popupmenu->MA) $it.id")
+            Log.i("I/Sucesso","Click em Edit (popupmenu->MA) $businessCard.id")
         }
 
-        adapter.listenerOne = {
-            Log.i("I/Sucesso","Click em ListenerOne (popupmenu) ${it.nome}")
-        }
-
-        adapter.listenerDelete = {
-            mainViewModel.delete(it)
-            finish()
+        adapter.listenerDelete = { businessCard ->
+            binding.pbProgressbar.visibility = View.VISIBLE  // Torna visível a ProgressBar
+            Thread {
+                try {
+                    mainViewModel.delete(businessCard)
+                } catch (ex: Exception) {
+                    ex.printStackTrace()
+                }
+                runOnUiThread {
+                    binding.pbProgressbar.visibility = View.GONE // "Esconde" a ProgressBar
+                    Toast.makeText(this, "Apagado ${businessCard.nome}",
+                        Toast.LENGTH_SHORT).show()
+                }
+            }.start()
         }
 
         adapter.listenerShare = { card ->
             Image.share(this@MainActivity, card)
-            }
+        }
         getAllBusinessCard()
     }
 
@@ -105,5 +124,4 @@ class MainActivity : AppCompatActivity() {
             adapter.submitList(businessCards)
         })
     }
-
 }

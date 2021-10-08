@@ -13,15 +13,14 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.danielvillarintegra.businesscard.R
 import br.com.danielvillarintegra.businesscard.data.BusinessCard
 import br.com.danielvillarintegra.businesscard.databinding.ItemBusinessCardBinding
+import java.lang.Exception
 
 class BusinessCardAdapter :
     ListAdapter<BusinessCard, BusinessCardAdapter.ViewHolder>(DiffCallback()) {
 
     var listenerEdit: (BusinessCard) -> Unit = {}
     var listenerDelete: (BusinessCard) -> Unit = {}
-    var listenerOne: (BusinessCard) -> Unit = {}
     var listenerShare: (View) -> Unit = {}
-    private var currentBusinessCard: BusinessCard? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -39,18 +38,20 @@ class BusinessCardAdapter :
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(businessCard: BusinessCard) {
-            binding.tvId.text = businessCard.id.toString()
-            binding.tvNome.text = businessCard.nome
-            binding.tvTelefone.text = businessCard.telefone
-            binding.tvEmail.text = businessCard.email
-            binding.tvNomeEmpresa.text = businessCard.empresa
-            binding.cdContent.setCardBackgroundColor(Color.parseColor(businessCard.fundoPersonalizado))
+            try {
+                binding.tvId.text = businessCard.id.toString()
+                binding.tvNome.text = businessCard.nome
+                binding.tvTelefone.text = businessCard.telefone
+                binding.tvEmail.text = businessCard.email
+                binding.tvNomeEmpresa.text = businessCard.empresa
+                binding.cdContent.setCardBackgroundColor(Color.parseColor(businessCard.fundoPersonalizado))
+            } catch (ex: Exception) {
+                ex.printStackTrace()
+                Log.e("E/Erro","erro cor invalida no banco de dados ${businessCard.fundoPersonalizado}. BusinessCardAdapter")
+                binding.cdContent.setCardBackgroundColor(Color.parseColor("#FFFFFF00"))
+            }
 
             binding.ivMore.setOnClickListener {
-                currentBusinessCard?.let {
-                    Log.i("I/Sucesso","Let ${it.id}")
-
-                }
                 showPopup(businessCard)
                 Log.i("I/Sucesso","View ${ it.id}")
             }
@@ -65,8 +66,10 @@ class BusinessCardAdapter :
                 when (it.itemId) {
                     R.id.action_share -> listenerShare(itemView)
                     R.id.action_edit -> listenerEdit(businessCard)
-                    R.id.action_one -> listenerOne(businessCard)
-                    R.id.action_delete -> listenerDelete(businessCard)
+                    R.id.action_delete -> {
+                        listenerDelete(businessCard)
+                        bind(businessCard)
+                    }
                 }
 
                 return@setOnMenuItemClickListener true

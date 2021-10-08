@@ -14,7 +14,8 @@
         android:background="?attr/actionBarItemBackground"
         android:src="@drawable/ic__close"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/label_btn_close" />
 
     <TextView
         android:id="@+id/tv_title"
@@ -110,6 +111,8 @@
         android:layout_margin="16dp"
         android:hint="@string/label_cor"
         android:textAlignment="center"
+        android:clickable="false"
+        android:focusable="false"
         app:layout_constraintBottom_toTopOf="@id/slide_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
