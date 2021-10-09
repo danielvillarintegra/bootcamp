@@ -48,8 +48,7 @@ class AddBusinessCardActivity : AppCompatActivity() {
             Log.i("I/Sucesso","AddBusinessCard - Novo cartão")
         } else {
             binding.pbProgressbar.visibility = View.VISIBLE
-            Thread {
-                try {
+            try {
                     binding.tvTitle.text = getString(R.string.label_description_change_card)
                     binding.tilNome.editText?.setText(nome)
                     binding.tilTelefone.editText?.setText(telefone)
@@ -62,11 +61,7 @@ class AddBusinessCardActivity : AppCompatActivity() {
                     ex.printStackTrace()
                     Log.e("E/Erro","erro ao preencher dados para alterar AddBusinessCard")
                 }
-                runOnUiThread {
-                    binding.pbProgressbar.visibility = View.GONE // "Esconde" a ProgressBar
-                }
-            }.start()
-
+            binding.pbProgressbar.visibility = View.GONE // "Esconde" a ProgressBar
             Log.i("I/Sucesso","AddBusinessCard - Alterar cartão")
         }
     }
