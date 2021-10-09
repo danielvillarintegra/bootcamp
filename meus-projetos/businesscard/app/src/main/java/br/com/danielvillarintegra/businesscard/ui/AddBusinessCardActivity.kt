@@ -35,18 +35,38 @@ class AddBusinessCardActivity : AppCompatActivity() {
 
     private fun setupContato() {
         val idContato : Int = intent.getIntExtra("index", -1)
+        val nome : String = intent.extras?.getString("nome") ?: "digite novamente o nome"
+        val telefone : String = intent.extras?.getString("telefone") ?: "digite novamente o telefone"
+        val email : String = intent.extras?.getString("email") ?: "digite novamente o email"
+        val empresa : String = intent.extras?.getString("empresa") ?: "digite novamente a empresa"
+        val fundoPersonalizado : String = intent.extras?.getString("fundoPesonalizado") ?: "#FFFFFFFF"
+
         Log.i("I/Sucesso idContato = ","$idContato em setupContato()")
         if (idContato == -1) {
             binding.tvTitle.text = getString(R.string.label_description_new_card)
             //binding.layoutAddBusinessCard.setBackgroundColor(Color.parseColor("write"))
             Log.i("I/Sucesso","AddBusinessCard - Novo cartão")
         } else {
+            binding.pbProgressbar.visibility = View.VISIBLE
+            Thread {
+                try {
+                    binding.tvTitle.text = getString(R.string.label_description_change_card)
+                    binding.tilNome.editText?.setText(nome)
+                    binding.tilTelefone.editText?.setText(telefone)
+                    binding.tilEmail.editText?.setText(email)
+                    binding.tilEmpresa.editText?.setText(empresa)
+                    binding.tilCor.editText?.setText(fundoPersonalizado)
+                    //binding.layoutAddBusinessCard.setBackgroundColor(Color.parseColor("blue"))
+                  Log.i("I/Sucesso","dados para alteração preenchidos com sucesso")
+                } catch (ex: Exception) {
+                    ex.printStackTrace()
+                    Log.e("E/Erro","erro ao preencher dados para alterar AddBusinessCard")
+                }
+                runOnUiThread {
+                    binding.pbProgressbar.visibility = View.GONE // "Esconde" a ProgressBar
+                }
+            }.start()
 
-            binding.tvTitle.text = getString(R.string.label_description_change_card)
-            binding.tilNome.editText?.setText("NOME")
-
-
-            //binding.layoutAddBusinessCard.setBackgroundColor(Color.parseColor("blue"))
             Log.i("I/Sucesso","AddBusinessCard - Alterar cartão")
         }
     }

@@ -65,10 +65,13 @@ class BusinessCardAdapter :
             popupMenu.setOnMenuItemClickListener {
                 when (it.itemId) {
                     R.id.action_share -> listenerShare(itemView)
-                    R.id.action_edit -> listenerEdit(businessCard)
+                    R.id.action_edit -> {
+                        listenerEdit(businessCard)
+                        bind(businessCard)
+                    }
                     R.id.action_delete -> {
                         listenerDelete(businessCard)
-                        bind(businessCard)
+                        //bind(businessCard)
                     }
                 }
 

@@ -23,6 +23,13 @@ class BusinessCardRepository(private val dao: BusinessCardDao) {
             dao.delete(businessCard)
         }
     }
+    /*fun buscarContato(id : Int) = runBlocking {
+        launch(Dispatchers.IO) {
+            dao.buscarContato(id)
+        }
+    }
+
+     */
 
     fun getAll() = dao.getAll()
 

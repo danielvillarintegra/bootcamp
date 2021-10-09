@@ -10,7 +10,7 @@ interface BusinessCardDao {
     fun getAll(): LiveData<List<BusinessCard>>
 
     @Query("SELECT * FROM BusinessCard WHERE id=:id")
-    fun getOne(id:Int?): LiveData<BusinessCard>
+    fun buscarContato(id:Int?): LiveData<List<BusinessCard>>
 
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

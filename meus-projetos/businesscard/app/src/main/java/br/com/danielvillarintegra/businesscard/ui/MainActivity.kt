@@ -92,6 +92,11 @@ class MainActivity : AppCompatActivity() {
         adapter.listenerEdit = { businessCard ->
             val intent = Intent(this, AddBusinessCardActivity::class.java)
             intent.putExtra("index", businessCard.id)
+            intent.putExtra("nome", businessCard.nome)
+            intent.putExtra("telefone", businessCard.telefone)
+            intent.putExtra("email", businessCard.email)
+            intent.putExtra("empresa", businessCard.empresa)
+            intent.putExtra("fundoPersonalizado", businessCard.fundoPersonalizado)
             startActivity(intent)
             Log.i("I/Sucesso","Click em Edit (popupmenu->MA) $businessCard.id")
         }
