@@ -1,0 +1,78 @@
+
+- No pacote java/br.com.dio.app.repositories/ui adicionar o kotlin / file/class RepoListAdapter.kt
+
+Em gradle(module)
+
+Acrescentar dependencia que faltava:
+
+//glide
+implementation 'com.github.bumptech.glide:glide:4.12.0'
+
+- Em bind acrescentar o Glide:
+	fun bind(item: Repo) {
+		binding.tvRepoName.text = item.name
+		binding.tvRepoDescription.text = item.description
+		binding.RepoLanguage.text = item.language
+		binding.chipStar.text = item.stargazersCount.ToString()
+
+Acrescentar 
+
+		Glide.with(binding.root.context)
+			.load(item.owner.avatarURL).into(binding.ivOwner)
+
+- Na MainActivity acrescentar a val adapter:
+
+	private val adapter by lazy { RepoListAdapter() }
+
+e no onCreate() ligar o adapter ao recyclerView:
+
+	binding.rvRepos.adapter = adapter
+
+- No AndroidManifest.xml incluir permissão de uso para internet
+
+	<uses-permission android:name="android.permission.INTERNET" />
+
+- Após teste de execução, nos LogCats:
+a) Em java/br.com.dio.app.repositories/data/model/Owner observou que avatarURL (que veio do site .. )precisa equivale a avatar_url solicitado pelo site da API. Solução acrescentar código @SerializedName()
+
+	data class Owner(
+		val login: String,
+		@SerializedName("avatar_url")
+		val avatarURL: String
+	)
+
+b) Em java/br.com.dio.app.repositories/data/model/Repo, também precisa de correção em stargazersCount e htmlURL. Solução acrescentar código @SerializedName()
+
+	data class Repo(
+		@SerializedName("stargazers_count")
+		val stargazersCount: Long,
+
+		@SerializedName("html_url")
+		val htmlURL: String, 	 
+
+- Modificar onQueryTextSubmit(query: String?) removendo do onCreate()				
+
+	override fun onQueryTextSubmit(query: String?): Boolean {
+		query?.let { viewModel.getRepoList(it) }
+		binding.root.hideSoftKeyboard()
+		return true
+	}
+
+- Acrescentar o try - catch no RepoRepositoryImp 
+
+	try {
+		val repoList = service.listRepositories(user)
+		emit(repoList)
+	} catch (ex:HttpException) 
+		throw RemoteException(ex.message ?: "Não foi possível fazer a busca no momento")		
+	}
+}
+
+- Inserir RemoteException em java/br.com.dio.app.repositories/core/Extensions.kt
+	
+- Ao usar createDialog { } usar o show() para mostrar.
+
+	createDialog {
+		setMessage(it.error.message)
+	 }.show()
+	dialog.dismiss()

@@ -1,0 +1,69 @@
+Criando nosso domain
+
+- Ferramenta para converter json, gson etc
+https://app.quicktype.io/
+
+- No pacote java/br.com.dio.app.repositories/data criar package "model" e adicionar o kotlin / data class Repo.kt
+
+Copiar o conteudo json convertido do site app.quicktype.io.
+
+	Data class Repo {
+		val id: Long,
+		val name: String,
+		val owner: Owner,
+		val stargazersCount: Long,
+		val language: String,
+		val htmlURL: String,
+		val description: String
+	}
+
+- No pacote java/br.com.dio.app.repositories/data criar package "model" e adicionar o kotlin / data class Owner.kt
+
+	Data class Owner (
+		val login: String,
+		val avatarURL: String
+	)
+
+- Concluir o import da classe Repo no services.
+
+- No pacote java/br.com.dio.app.repositories/data criar package "repositories" e adicionar o kotlin / interface RepoRepositories.kt
+
+	interface RepoRepositories {
+		suspend fun listRepositories(user: String): List<Repo>
+	}
+
+Observação: suspend chama uma coroutine
+
+- No pacote java/br.com.dio.app.repositories/data/repositories e adicionar o kotlin / classe RepoRepositoryImpl.kt
+
+	class RepoRepositoryImpl {
+
+	}
+
+Observação: Impl = Implementer
+
+Site https://www.edersonmelo.com/tag:mvvm/
+https://www.edersonmelo.com/clean-architecture-com-mvvm-em-aplicações-android
+
+- No pacote java/br.com.dio.app.repositories/domain/.gitkeep 
+apagar .gitkeep .
+
+- No pacote java/br.com.dio.app.repositories/domain/
+ adicionar o kotlin / classe ListUserRepositoriesUseCase.kt
+
+- No pacote java/br.com.dio.app.repositories/domain/ criar um package "di" e adicionar o kotlin / object DomainModule.kt
+
+	object DomainModule {
+
+		fun load() {
+			loadKoinModules()
+		}
+
+		private fun useCaseModule(): Module {
+			return module {
+				fatory { }	
+			}	
+		}
+	}
+
+Observação: aqui usamos um factory ao invés de um single	

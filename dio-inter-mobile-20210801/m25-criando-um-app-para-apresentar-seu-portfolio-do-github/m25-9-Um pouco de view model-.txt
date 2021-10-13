@@ -1,0 +1,46 @@
+
+- No pacote java/br.com.dio.app.repositories/ criar o package presentation e adicionar "MainViewModel.kt"
+
+(Criar o primeiro ViewModel: MainViewModel.kt)
+
+	class MainViewModel(
+		private val listUsersRepositoriesUseCase: ListRepositoriesUseCase)
+ : ViewModel() {
+		fun getRepoList(user: String) {
+			viewModelScope.launch {
+				listUsersRepositoriesUseCase(user)
+					.onStart {
+				
+					}
+					.catch {
+
+					}
+					.collect {
+
+					}
+			}
+
+		}
+
+		sealed class
+
+	}
+
+
+ - criar uma classe selada "sealed class"
+
+- Na MainActivity.kt criar a instância do ViewModel adicionando 
+
+	private val viewModel by viewModel<MainViewModel>() 
+- e no oncreate()
+	viewModel.repos.observe(this) {
+
+}
+
+	
+- 
+- No pacote java/br.com.dio.app.repositories/presentation/ criar um package "di" e adicionar o kotlin / object PresentationModule.kt
+}
+E ao invés de ser um single ou factory será um viewModel { MainViewModel(get(), get()) }
+	
+
