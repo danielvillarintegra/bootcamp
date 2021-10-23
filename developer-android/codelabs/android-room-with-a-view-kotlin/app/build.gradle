@@ -31,9 +31,6 @@ android {
     }
 }
 
-repositories {
-    mavenCentral()
-}
 
 dependencies {
     implementation "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
