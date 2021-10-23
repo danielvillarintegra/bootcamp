@@ -12,8 +12,6 @@ class ReadMeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_read_me)
         val myWebView: WebView = findViewById(R.id.wv_webview)
         val urlReadMe : String = intent.extras?.getString("url") ?: "Não encontrada"
-        //myWebView.loadUrl("https://www.google.com")
-        //myWebView.loadUrl("https://github.com/danielvillarintegra/BusinessCard/blob/main/README.md")
         myWebView.loadUrl(urlReadMe)
         Log.d("D/Sucesso"," ReadMe em $urlReadMe")
     }
