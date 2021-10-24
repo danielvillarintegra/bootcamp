@@ -1,0 +1,31 @@
+m07-Desafio 2 de 3: troca de figurinhas
+ 
+fun main(args: Array<String>) {
+    
+    val lista = mutableListOf<Int>()
+    var n1 : Int
+    var n2 : Int
+    
+    for (i in 1..readLine()!!.toInt()) {
+        val input = readLine()!!.split(" ").map { it.toInt() }
+            n1 = input[0]
+            n2 = input[1]
+
+            lista.add(mdc(n1,n2))
+    }
+    lista.forEach { println(it) }
+}
+
+// máximo divisor comum (chamada recursiva)
+fun mdc(n1: Int, n2: Int): Int {
+    var m : Int = n1
+    var n : Int = n2
+    var aux : Int
+
+    while (n > 0) {
+        aux = n
+        n = m.rem(n)
+        m = aux
+    }
+    return m
+}

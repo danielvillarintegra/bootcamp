@@ -1,0 +1,30 @@
+fun main(args: Array<String>) {
+    //continue a solução
+    fun Float.format(digits: Int) = "%.${digits}f".format(this).replace(',','.')
+    val r = readLine()!!.toFloat()
+    var i = 0F
+    
+    var faixa1 = 0F
+    var faixa2 = 0F
+    var faixa3 = 0F
+
+    if (( r >= 0F )&&( r <= 2000F)) {         //OK
+        i = 0F
+    } else if (( r > 2000F )&&( r <= 3000F)) {  //Pendente
+        faixa1 = r.minus(2000F)
+        i = faixa1.times((0.08F)) + faixa2.times(0.18F) + faixa3.times(0.28F)
+    } else if (( r > 3000F )&&(r <= 4500F)) {   //OK
+        faixa2 = r.minus(3000F)
+        faixa1 = r.minus(2000F).minus(faixa2)
+        i = faixa1.times((0.08F)) + faixa2.times(0.18F) + faixa3.times(0.28F)
+    } else if (r > 4500F ) {                    //OK
+        faixa3 = r.minus(4500F)
+        faixa2 = r.minus(3000F).minus(faixa3)
+        faixa1 = r.minus(2000F).minus(faixa2).minus(faixa3)
+        i = faixa1.times((0.08F)) + faixa2.times(0.18F) + faixa3.times(0.28F)
+    }
+
+    if (i == 0F) println("Isento") else println("R$ ${i.format(2)}")
+    
+    
+}
