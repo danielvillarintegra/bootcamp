@@ -7,17 +7,17 @@ fun main(args: Array<String>) {
     val n3 = entrada.nextFloat()
     val n4 = entrada.nextFloat()
 
-    var media: 
+    var media: Float = ( n1.times(2) + n2.times(3) + n3.times(4) + n4 ).div(96)
     println("Media: ${"%.1f".format(media)}")
 
   // complete o codigo 
-
+	if (media >=7.0)
         else -> {
             println("Aluno em exame.")
             val exame = entrada.nextFloat()
             println("Nota do exame: ${"%.1f".format(exame)}")
             media = (media + exame) / 2
-            if (media >= 5) {
+            if (media >= 5.0) {
                 println("Aluno aprovado.")
             } else {
                 println("Aluno reprovado")
