@@ -1,0 +1,51 @@
+Conversão e caracteres de uma string em caracteres individuais e números.
+
+Fonte: https://stackoverflow.com/questions/439573/how-to-convert-a-single-char-into-an-int
+
+You can utilize the fact that the character encodings for digits are all in order from 48 (for '0') to 57 (for '9'). This holds true for ASCII, UTF-x and practically all other encodings (see comments below for more on this).
+
+Therefore the integer value for any digit is the digit minus '0' (or 48).
+
+char c = '1';
+int i = c - '0'; // i is now equal to 1, not '1'
+is synonymous to
+
+char c = '1';
+int i = c - 48; // i is now equal to 1, not '1'
+However I find the first c - '0' far more readable.
+
+______
+
+fun main() {
+    val resultados = mutableListOf<Int>()
+    var c : Char
+    var j : Int
+
+    for (i in 48..57) {
+        when (i) {
+            in 48..57 -> { println("$i = ${i.toChar()} ${i.toChar().digitToInt()*2} número")
+                c = i.toChar()
+                j = (c - 48).toInt()
+                println("$j")
+            }
+            in 65..90 -> { println("$i = ${i.toChar()} letra maiúscula") }
+            in 97..122 -> { println("$i = ${i.toChar()} letra minúscula") }
+            else -> println("$i = ${i.toChar()}")
+        }
+    }
+}
+
+//
+// Semelhante a digitToInt()
+//
+fun ConvertCharToInt(carac : Char) : Int
+{
+    var j : Int
+    var c : Char
+    if ("$carac" in "0".."9") {
+        c = carac.toChar()
+        j = (c - 48).toInt()
+        }
+    else j = 0
+    return j
+}

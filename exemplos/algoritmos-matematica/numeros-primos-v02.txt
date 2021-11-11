@@ -1,0 +1,29 @@
+fun main() {
+	
+	if (primo(7)) println("Prime")
+    	else println("Not Prime")
+}
+// Mais eficiente e rápido 
+private fun primo(n : Int) : Boolean {
+	var d : Int = 2
+	if (n <= 1) return false
+	while (d*d <= n ) {
+		if (n.mod(d) == 0 ) // d divide n 
+		return false
+        d++
+	}    
+	return true
+}
+
+// Mais menos eficiente  
+private fun primoOriginal(n : Int) : Boolean {
+	var d : Int = 2
+	if (n <= 1) return false
+	while (d <= n ) {
+		if (n.mod(d) == 0 ) // d divide n 
+		return false
+        d++
+	}    
+	return true
+}
+
