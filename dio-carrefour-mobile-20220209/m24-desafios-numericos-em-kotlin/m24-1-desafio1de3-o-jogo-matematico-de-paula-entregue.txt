@@ -1,0 +1,41 @@
+package com.example.desafiocarrefourm24
+
+fun main() {
+    val resultados = mutableListOf<Int>()
+    var N1 : Int
+    var N2 : Int
+    var letra : Int
+
+    val N = readLine()!!.toInt()
+    for (i in 1..N) {
+        var input : String = readLine()!! //.split(" ").map { it.toInt() }
+        var N1 : Int = ConvertCharToInt(input[0]) //.toInt()//digitToInt()
+        var letra : Char = input[1]//toChar() //code
+        var N2 : Int = ConvertCharToInt(input[2]) //.toInt()//digitToInt()
+        if (N1==N2) {
+
+            resultados.add(N1.times(N2))
+            
+        } else if ("$letra" in "A".."Z" ) {   //"A".."Z"
+
+            resultados.add(N2.minus(N1))
+            }
+            else {
+
+              resultados.add(N1.plus(N2))
+            }
+        }
+    resultados.forEach{ println(it) }
+}
+
+fun ConvertCharToInt(carac : Char) : Int
+{
+    var j : Int
+    var c : Char
+    if ("$carac" in "0".."9") {
+        c = carac.toChar()
+        j = (c - 48).toInt()
+        }
+    else j = 0
+    return j
+}
