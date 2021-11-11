@@ -1,0 +1,13 @@
+Como usar os desafios de projeto para criar seu portfolio
+Apresentação
+Projeto Base
+Main Layout
+Concluindo nossa View
+Data Modules
+Trabalhando com UseCases
+ViewModel
+Adequando nossa View
+Lidando com erros
+Configurando no Banco
+History Activity
+Finalizando o histórico
