@@ -1,0 +1,40 @@
+"Utilizado para o cálculo do máximo divisor comum (MDC) entre dois números inteiros, o algoritmo de Euclides é um dos algoritmos mais famosos e antigos da Matemática, sendo um ótimo exemplo para apresentar a recursividade para quem está aprendendo o assunto." 
+    //Algoritmo de Euclides recursivo
+	fun mdcRecursive(a: Int, b: Int): Int {
+	    return if (b == 0) a else mdcRecursive(b, a % b)
+	}
+
+ou
+
+	//Algoritmo de Euclides iterativo
+	fun mdcIterative(a: Int, b: Int): Int {
+	    var a = a
+	    var b = b
+	    while (b != 0) {
+	        val r = a % b // val r = a.div(b)
+	        a = b
+	        b = r
+	    }
+	    return a
+	}
+
+Fonte: https://www.blogcyberini.com/2018/03/algoritmo-de-euclides-implementacoes-e.html
+Em Java: //Código por Henrique Felipe (GitHub: HenriqueIni)
+
+    //Algoritmo de Euclides recursivo
+    public static int mdcRecursive(int a, int b){
+        if(b == 0) return a;
+        return mdcRecursive(b, a % b);
+    }
+
+
+    //Algoritmo de Euclides iterativo
+    public static int mdcIterative(int a, int b){
+        while(b != 0){
+            int r = a % b;
+            a = b;
+            b = r;
+        }
+        return a;
+    }
+
