@@ -1,21 +1,20 @@
-package com.example.desafiocarrefourm24
 
 import java.util.Scanner
 
 fun main() {
     val scan = Scanner(System.`in`)
-    val n: Int
+    val n: Long
     var n1: Int
     var d1: Int
     var n2: Int
     var d2: Int
     var nf = 0
     var df = 0
-    var ns: Int
-    var ds: Int
+    var ns = 0
+    var ds = 0
     var aux0: String
 
-    n = scan.nextInt()
+    n = scan.nextLong()
     for (i in 1..n) {
         n1 = scan.nextInt()
         scan.next() // Lê o caractere. Mas nesse programa não precisamos usar, por isso não foi atribuido uma variável
@@ -45,11 +44,11 @@ fun main() {
             }
         }
 
-       var divisor : Int = 2
-       var divisorGeral : Int = 1
+        var divisor : Int = 2
+        var divisorGeral : Int = 1
         var restoDs : Int
-       var restoNs : Int
-       val listaDivisorComum = mutableListOf<Int>()
+        var restoNs : Int
+
         ds = df
         ns = nf
 
@@ -57,9 +56,9 @@ fun main() {
             ns = ns.times(-1)
         }
 
-        while ((ds > 1) && (ns > 1)) {
-            restoDs = ds.mod(divisor)
-            restoNs = ns.mod(divisor)
+        while (((ds > 1) || (ns > 1))&&(divisor<df)) {
+            restoDs = ds.rem(divisor)
+            restoNs = ns.rem(divisor)
 
             if (restoDs==0) {
                 ds = ds.div(divisor)
@@ -70,46 +69,15 @@ fun main() {
             }
 
             if ((restoDs == 0)&&(restoNs == 0)) {
-                listaDivisorComum.add(divisor)
                 divisorGeral = divisorGeral * divisor
-            } else divisor ++
+
+            } else divisor ++ // implementar divisor = nextPrime
 
         }
-        divisor = 1
-        //listaDivisorComum.forEach{ divisor = divisor *it }
-        //ns = nf.div(divisor)
+
         ns = nf.div(divisorGeral)
-        //ds = df.div(divisor)
         ds = df.div(divisorGeral)
+
         println("$nf/$df = $ns/$ds")
     }
-}
-
-private fun mdc( d1 : Int, d2 : Int) : Int {
-    var a = d1
-    var b = d2
-    var r: Int
-    while (b != 0) {
-        r = a.div(b)
-        a = b
-        b = r
-    }
-    println("$a")
-    return a;
-}
-
-private fun mdcRecursive(a: Int, b: Int): Int {
-    return if (b == 0) a else mdcRecursive(b, a.div(b))
-}
-
-//Algoritmo de Euclides iterativo
-fun mdcIterative(d1: Int, d2: Int): Int {
-    var a = d1
-    var b = d2
-    while (b != 0) {
-        val r = a % b // val r = a.div(b)
-        a = b
-        b = r
-    }
-    return a
 }
