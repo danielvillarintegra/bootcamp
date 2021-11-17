@@ -44,8 +44,8 @@ fun main() {
             }
         }
 
-        var divisor : Int = 3
-        var divisorGeral : Int = 2
+        var divisor : Int = 2
+        var divisorGeral : Int = 1
         var restoDs : Int
         var restoNs : Int
 
@@ -55,10 +55,6 @@ fun main() {
         if (ns<0) {
             ns = ns.times(-1)
         }
-
-        restoDs = ds.rem(divisor)
-        restoNs = ns.rem(divisor)
-//	divisor = 3
 
         while (((ds > 1) || (ns > 1))&&(divisor<df)) {
             restoDs = ds.rem(divisor)
@@ -75,7 +71,10 @@ fun main() {
             if ((restoDs == 0)&&(restoNs == 0)) {
                 divisorGeral = divisorGeral * divisor
 
-            } else divisor ++ // implementar divisor = nextPrime
+            } else {
+                divisor ++
+                divisor = nextPrime(divisor)
+            } // implementar divisor = nextPrime
 
         }
 
@@ -84,4 +83,21 @@ fun main() {
 
         println("$nf/$df = $ns/$ds")
     }
+}
+
+private fun nextPrime(divisor : Int): Int {
+    var n = divisor
+    while (!primo(n)) n++
+    return n
+}
+
+private fun primo(n : Int) : Boolean {
+    var d : Long = (n-1).toLong() // verifica se é primo dentro do range n-1 até n
+    if (n <= 1) return false
+    while (d*d <= n ) {
+        if (n.rem(d) == 0L ) // d divide n
+            return false
+        d++
+    }
+    return true
 }
