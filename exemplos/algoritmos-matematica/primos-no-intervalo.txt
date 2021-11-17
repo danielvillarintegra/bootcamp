@@ -1,0 +1,33 @@
+
+import java.util.Scanner
+
+fun main() {
+    val divisor = 1009 	// Entre com um numero inicial qualquer.
+    // O resultado final será o próximo numero primo após esse número inicial
+    val proximoPrimo = nextPrime(divisor + 1)
+    println("divisor: $divisor - Próximo primo:$proximoPrimo")
+
+    println("${primesInRange(10, 30)}")
+}
+
+private fun nextPrime(divisor : Int): Int {
+    var n = divisor // verifica se é primo dentro de um range
+    while (!primo(n)) n++
+    return n
+}
+
+private fun primo(n : Int) : Boolean {
+    var d : Long = 2
+    if (n <= 1) return false
+    while (d*d <= n ) {
+        if (n.rem(d) == 0L ) // d divide n
+            return false
+        d++
+    }
+    return true
+}
+
+private fun primesInRange(a: Int, b: Int) {
+    for(i in a..b)
+        if (primo(i)) print("$i, ")
+}
