@@ -4,7 +4,7 @@ import java.util.Scanner
 
 fun main() {
     val scan = Scanner(System.`in`)
-    val n: Int
+    val n: Long
     var n1: Int
     var d1: Int
     var n2: Int
@@ -15,7 +15,7 @@ fun main() {
     var ds: Int
     var aux0: String
 
-    n = scan.nextInt()
+    n = scan.nextLong()
     for (i in 1..n) {
         n1 = scan.nextInt()
         scan.next() // Lê o caractere. Mas nesse programa não precisamos usar, por isso não foi atribuido uma variável
@@ -45,21 +45,23 @@ fun main() {
             }
         }
 
-       var divisor : Int = 2
-       var divisorGeral : Int = 1
-        var restoDs : Int
-       var restoNs : Int
-       val listaDivisorComum = mutableListOf<Int>()
         ds = df
         ns = nf
+
+/*
+        var divisor : Int = 2
+        var divisorGeral : Int = 1
+        var restoDs : Int
+        var restoNs : Int
+
 
         if (ns<0) {
             ns = ns.times(-1)
         }
 
-        while ((ds > 1) && (ns > 1)) {
-            restoDs = ds.mod(divisor)
-            restoNs = ns.mod(divisor)
+        while (((ds > 1) || (ns > 1))&&(divisor<df)) {
+            restoDs = ds.rem(divisor)
+            restoNs = ns.rem(divisor)
 
             if (restoDs==0) {
                 ds = ds.div(divisor)
@@ -70,17 +72,25 @@ fun main() {
             }
 
             if ((restoDs == 0)&&(restoNs == 0)) {
-                listaDivisorComum.add(divisor)
                 divisorGeral = divisorGeral * divisor
-            } else divisor ++
+            } else {
+                    //divisor ++
+                    divisor = nextPrime(divisor + 1)
+            }
 
         }
-        divisor = 1
-        //listaDivisorComum.forEach{ divisor = divisor *it }
-        //ns = nf.div(divisor)
+
+        if (df<0) {
+            df = df.times(-1)
+        }
+
+ */
+        val divisorGeral = mdcIterative(df, nf)
+        //val divisorGeral = mdcRecursive(df, nf)
         ns = nf.div(divisorGeral)
-        //ds = df.div(divisor)
         ds = df.div(divisorGeral)
+        // ns = nf.div(mdcIterative(df, nf))
+        // ds = df.div(mdcIterative(df, nf))
         println("$nf/$df = $ns/$ds")
     }
 }
@@ -111,5 +121,25 @@ fun mdcIterative(d1: Int, d2: Int): Int {
         a = b
         b = r
     }
+    if (a<0) {
+        a = a.times(-1)
+    }
     return a
+}
+
+private fun nextPrime(divisor : Int): Int {
+    var n = divisor
+    while (!primo(n)) n++
+    return n
+}
+
+private fun primo(n : Int) : Boolean {
+    var d : Long = 2
+    if (n <= 1) return false
+    while (d*d <= n ) {
+        if (n.rem(d) == 0L ) // d divide n
+            return false
+        d++
+    }
+    return true
 }
